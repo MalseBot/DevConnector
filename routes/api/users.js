@@ -1,18 +1,29 @@
+/** @format */
+
 const express = require('express');
-const { get } = require('mongoose');
+const { check, validationResult } = require('express-validator');
 const router = express.Router();
 
-// @route    GET api/users
-// @desc     Test route
+// @route    post api/users
+// @desc     register route
 // @access   Public
-router.get('/api/users', async (req, res) => {
-    try {
-        const users = await users.find({});
-        res.json(users);
-    }catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-}
-});
+router.post(
+	'/',
+	[
+		check('name', 'name is required').not().isEmpty(),
+		check('email', 'Please enter a valid email').isEmail(),
+		check(
+			'password',
+			'Please enter a strong password with 8+ Characters'
+		).isLength({ min: 8 }),
+	],
+	(req, res) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return res.status(400).json({ errors: errors.array() });
+		}
+		res.send('User registered');
+	}
+);
 
 module.exports = router;
