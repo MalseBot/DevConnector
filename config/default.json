@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://eso20016_db_user:0147852@devconnect.qe1blre.mongodb.net/?retryWrites=true&w=majority&appName=DevConnect"
+    "mongoURI": "mongodb+srv://eso20016_db_user:0147852@devconnect.qe1blre.mongodb.net/?retryWrites=true&w=majority&appName=DevConnect",
+    "jwtSecret":"mysecrettoken"
 }
