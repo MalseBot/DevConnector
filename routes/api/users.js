@@ -6,13 +6,13 @@ const bcrypt = require('bcryptjs');
 const gravatar = require('gravatar');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const router = express.Router();
+const Router = express.Router();
 
 const User = require('../../models/User');
 // @route    post api/users
 // @desc     register route
 // @access   Public
-router.post(
+Router.post(
 	'/',
 	[
 		check('name', 'name is required').not().isEmpty(),
@@ -77,4 +77,4 @@ router.post(
 	}
 );
 
-module.exports = router;
+module.exports = Router;
