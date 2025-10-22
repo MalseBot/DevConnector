@@ -15,12 +15,12 @@ const User = require('../../models/User');
 Router.post(
 	'/',
 	[
-		check('name', 'name is required').not().isEmpty(),
+		check('name', 'name is required').notEmpty(),
 		check('email', 'Please enter a valid email').isEmail(),
 		check(
 			'password',
 			'Please enter a strong password with 8+ Characters'
-		).isLength({ min: 8 }),
+		).isLength({ min: 8 }).notEmpty(),
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
