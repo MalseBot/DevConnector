@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 const Profile = require('../../models/Profile');
 const auth = require('../../middleware/auth');
-const User = require('../../models/User');
 const { check, validationResult } = require('express-validator');
 // @route    GET api/Profile/me
 // @desc     get current users profile
@@ -97,5 +96,39 @@ router.post(
 		}
 	}
 );
+
+// @route    GET api/Profile
+// @desc     Get all profiles
+// @access   Public
+
+router.get('/', async(req,res)=>{
+	try {
+		const profiles =await Profile.find().populate('user',['name','avatar'])
+		res.json(profiles)
+	} catch (error) {
+		console.error(error.message);
+		res.status(500).send('Server Error');
+	}
+})
+
+// @route    GET api/Profile/user/:user_id
+// @desc     Get profile by user ID
+// @access   Public
+
+router.get('/user/:user_id', async(req,res)=>{
+	try {
+		const profile =await Profile.findOne({ user: req.params.user_id }).populate('user',['name','avatar'])
+
+		if(!profile){
+			return res.status(400).json({msg:'Profile not found'})
+		}
+		res.json(profile)
+	} catch (error) {
+		console.error(error.message);
+		if(error.kind == 'ObjectId') return res.status(400).json({msg:'Profile not found'})
+		res.status(500).send('Server Error');
+	}
+})
+
 
 module.exports = router;
