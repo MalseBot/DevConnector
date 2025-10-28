@@ -138,18 +138,55 @@ router.get('/user/:user_id', async (req, res) => {
 // @desc     delete profile and user by token
 // @access   Private
 
-router.delete('/',auth, async (req, res) => {
+router.delete('/', auth, async (req, res) => {
 	try {
 		await Profile.findOneAndDelete({
 			user: req.user.id,
 		});
 		await User.findOneAndDelete({ _id: req.user.id });
 		res.json({ msg: 'User deleted' });
-
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).send('Server Error');
 	}
 });
+
+// @route    PuT api/Profile/experience
+// @desc     add Experience
+// @access   Private
+
+router.put(
+	'/experience',
+	[
+		auth,
+		[
+			check('title', 'Title is required'),
+			check('Comapny', 'Company is required'),
+			check('from', 'The starting date is required'),
+		],
+	],
+	async (req, res) => {
+		const error = validationResult(req);
+		if (!error.isEmpty()) {
+			res.status(400).json({ error: error.array() });
+		}
+
+		const { title, company, description, from, to, current, location } =
+			req.body;
+		const newExp = { title, company, description, from, to, current, location };
+		try {
+			const profile = await Profile.findOne({ user: req.user.id });
+
+			profile.experience.unshift(newExp)
+
+			await profile.save()
+			res.json(profile)
+		} catch (error) {
+			console.log(error.message);
+
+			res.status(500).send('Server Error');
+		}
+	}
+);
 
 module.exports = router;
