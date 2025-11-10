@@ -1,15 +1,531 @@
-@import "tailwindcss";
+/** @format */
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@import 'tailwindcss';
+
+@layer base {
+	:root {
+		--primary-color: #17a2b8;
+		--dark-color: #343a40;
+		--light-color: #f4f4f4;
+		--danger-color: #dc3545;
+		--success-color: #28a745;
+	}
+
+	body {
+		font-family: 'Raleway', sans-serif;
+		line-height: 1.6;
+		background-color: #b46262;
+		color: #333;
+	}
+
+	a {
+		color: var(--primary-color);
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #138496; /* Darker shade for hover */
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	img {
+		width: 100%;
+	}
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+@layer components {
+	/* Container */
+	.container-custom {
+		@apply max-w-[1100px] mx-auto overflow-hidden px-8 mt-24 mb-12;
+	}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+	/* Text Styles */
+	.x-large {
+		@apply text-6xl leading-tight mb-4;
+	}
+
+	.large {
+		@apply text-5xl leading-tight mb-4;
+	}
+
+	.lead {
+		@apply text-xl mb-4;
+	}
+
+	.text-center {
+		@apply text-center;
+	}
+
+	.text-primary {
+		color: var(--primary-color);
+	}
+
+	.text-dark {
+		color: var(--dark-color);
+	}
+
+	/* Buttons */
+	.btn {
+		@apply inline-block bg-gray-200 text-gray-800 px-5 py-2 text-base border-none cursor-pointer mr-2 transition-opacity duration-200 ease-in outline-none;
+	}
+
+	.btn:hover {
+		opacity: 0.8;
+	}
+
+	.btn-primary {
+		@apply bg-cyan-600 text-white;
+	}
+
+	.btn-light {
+		@apply bg-gray-100 text-gray-800;
+	}
+
+	.btn-dark {
+		@apply bg-gray-800 text-white;
+	}
+
+	.btn-danger {
+		@apply bg-red-600 text-white;
+	}
+
+	.btn-success {
+		@apply bg-green-600 text-white;
+	}
+
+	.btn-white {
+		@apply bg-white text-gray-800 border border-gray-300;
+	}
+
+	/* Badges */
+	.badge {
+		@apply text-xs px-1 text-center mx-1 bg-gray-100 text-gray-800;
+	}
+
+	.badge-primary {
+		@apply bg-cyan-600 text-white;
+	}
+
+	.badge-light {
+		@apply bg-gray-100 text-gray-800 border border-gray-300;
+	}
+
+	.badge-dark {
+		@apply bg-gray-800 text-white;
+	}
+
+	.badge-danger {
+		@apply bg-red-600 text-white;
+	}
+
+	.badge-success {
+		@apply bg-green-600 text-white;
+	}
+
+	.badge-white {
+		@apply bg-white text-gray-800 border border-gray-300;
+	}
+
+	/* Alerts */
+	.alert {
+		@apply px-4 py-2 my-4 opacity-90 bg-gray-100 text-gray-800;
+	}
+
+	.alert-primary {
+		@apply bg-cyan-600 text-white;
+	}
+
+	.alert-light {
+		@apply bg-gray-100 text-gray-800;
+	}
+
+	.alert-dark {
+		@apply bg-gray-800 text-white;
+	}
+
+	.alert-danger {
+		@apply bg-red-600 text-white;
+	}
+
+	.alert-success {
+		@apply bg-green-600 text-white;
+	}
+
+	.alert-white {
+		@apply bg-white text-gray-800 border border-gray-300;
+	}
+
+	/* Backgrounds */
+	.bg-primary {
+		@apply bg-cyan-600 text-white;
+	}
+
+	.bg-light {
+		@apply bg-gray-100 text-gray-800 border border-gray-300;
+	}
+
+	.bg-dark {
+		@apply bg-gray-800 text-white;
+	}
+
+	.bg-danger {
+		@apply bg-red-600 text-white;
+	}
+
+	.bg-success {
+		@apply bg-green-600 text-white;
+	}
+
+	.bg-white {
+		@apply bg-white text-gray-800 border border-gray-300;
+	}
+
+	/* Images */
+	.round-img {
+		@apply rounded-full;
+	}
+
+	.line {
+		@apply h-px bg-gray-300 my-6;
+	}
+
+	/* Overlay */
+	.dark-overlay {
+		@apply bg-black/70 absolute top-0 left-0 w-full h-full;
+	}
+
+	/* Forms */
+	.form .form-group {
+		@apply my-5;
+	}
+
+	.form .form-text {
+		@apply block mt-1 text-gray-500;
+	}
+
+	.form input[type='text'],
+	.form input[type='email'],
+	.form input[type='password'],
+	.form input[type='date'],
+	.form select,
+	.form textarea {
+		@apply block w-full px-2 py-1 text-lg border border-gray-300;
+	}
+
+	.form .social-input {
+		@apply flex;
+	}
+
+	.form .social-input i {
+		@apply p-2 w-16;
+	}
+
+	.form .social-input i.fa-twitter {
+		color: #38a1f3;
+	}
+	.form .social-input i.fa-facebook {
+		color: #3b5998;
+	}
+	.form .social-input i.fa-instagram {
+		color: #3f729b;
+	}
+	.form .social-input i.fa-youtube {
+		color: #c4302b;
+	}
+	.form .social-input i.fa-linkedin {
+		color: #0077b5;
+	}
+
+	/* Table */
+	.table th,
+	.table td {
+		@apply px-4 py-4 text-left;
+	}
+
+	.table th {
+		@apply bg-gray-100;
+	}
+
+	/* Navbar */
+	.navbar {
+		@apply flex justify-between items-center py-3 px-8 fixed z-10 w-full top-0 border-b border-cyan-600 opacity-90 bg-gray-800;
+	}
+
+	.navbar ul {
+		@apply flex;
+	}
+
+	.navbar a {
+		@apply text-white px-3 mx-1;
+	}
+
+	.navbar a:hover {
+		color: var(--primary-color);
+	}
+
+	.navbar .welcome span {
+		@apply mr-2;
+	}
+
+	/* Landing Page */
+	.landing {
+		@apply relative bg-cover bg-center bg-no-repeat h-screen;
+		background-image: url('../public/showcase.jpg');
+	}
+
+	.landing-inner {
+		@apply text-white h-full w-4/5 mx-auto flex flex-col items-center justify-center text-center;
+	}
+
+	/* Profiles Page */
+	.profile {
+		@apply grid grid-cols-3 gap-8 items-center p-4 mb-4;
+		grid-template-columns: 2fr 4fr 2fr;
+	}
+
+	/* Profile Page */
+	.profile-grid {
+		@apply grid gap-4;
+		grid-template-areas:
+			'top top'
+			'about about'
+			'exp edu'
+			'github github';
+	}
+
+	.profile-top {
+		grid-area: top;
+		@apply flex flex-col items-center justify-center text-center;
+	}
+
+	.profile-top img {
+		@apply w-64;
+	}
+
+	.profile-top .icons a {
+		@apply text-white mx-2;
+	}
+
+	.profile-top .icons a:hover {
+		color: var(--dark-color);
+	}
+
+	.profile-about {
+		grid-area: about;
+		@apply text-center;
+	}
+
+	.profile-about .skills {
+		@apply flex items-center justify-center text-center;
+	}
+
+	.profile-exp {
+		grid-area: exp;
+	}
+
+	.profile-edu {
+		grid-area: edu;
+	}
+
+	.profile-exp h2,
+	.profile-edu h2 {
+		@apply mb-4;
+	}
+
+	.profile-exp > div,
+	.profile-edu > div {
+		@apply mb-4 pb-4 border-b border-dotted border-gray-300;
+	}
+
+	.profile-exp > div:last-child,
+	.profile-edu > div:last-child {
+		@apply border-none;
+	}
+
+	.profile-exp p,
+	.profile-edu p {
+		@apply my-2;
+	}
+
+	.profile-github {
+		grid-area: github;
+	}
+
+	.profile-github .repo {
+		@apply flex;
+	}
+
+	.profile-github .repo > div:first-child {
+		flex: 7;
+		flex-basis: 70%;
+	}
+
+	.profile-github > div:last-child {
+		flex: 3;
+		flex-basis: 20%;
+	}
+
+	/* Posts Page */
+	.post-form .post-form-header {
+		@apply bg-cyan-600 p-2;
+	}
+
+	.post {
+		@apply grid grid-cols-5 gap-8 items-center;
+	}
+
+	.post > div:first-child {
+		@apply text-center;
+	}
+
+	.post img {
+		@apply w-24;
+	}
+
+	.post .comment-count {
+		@apply bg-gray-100 text-cyan-600 px-1 py-0 rounded text-xs;
+	}
+
+	.post .post-date {
+		@apply text-gray-400 text-xs mb-2;
+	}
+}
+
+@layer utilities {
+	/* Padding Utilities */
+	.p {
+		@apply p-2;
+	}
+	.p-1 {
+		@apply p-4;
+	}
+	.p-2 {
+		@apply p-8;
+	}
+	.p-3 {
+		@apply p-12;
+	}
+	.py {
+		@apply py-2;
+	}
+	.py-1 {
+		@apply py-4;
+	}
+	.py-2 {
+		@apply py-8;
+	}
+	.py-3 {
+		@apply py-12;
+	}
+
+	/* Margin Utilities */
+	.m {
+		@apply m-2;
+	}
+	.m-1 {
+		@apply m-4;
+	}
+	.m-2 {
+		@apply m-8;
+	}
+	.m-3 {
+		@apply m-12;
+	}
+	.my {
+		@apply my-2;
+	}
+	.my-1 {
+		@apply my-4;
+	}
+	.my-2 {
+		@apply my-8;
+	}
+	.my-3 {
+		@apply my-12;
+	}
+}
+
+/* Mobile Styles */
+@media (max-width: 700px) {
+	.container-custom {
+		@apply mt-32;
+	}
+
+	.hide-sm {
+		@apply hidden;
+	}
+
+	/* Text Styles */
+	.x-large {
+		@apply text-5xl;
+	}
+
+	.large {
+		@apply text-4xl;
+	}
+
+	.lead {
+		@apply text-base;
+	}
+
+	/* Navbar */
+	.navbar {
+		@apply block text-center;
+	}
+
+	.navbar ul {
+		@apply text-center justify-center;
+	}
+
+	.navbar h1 {
+		@apply mb-4;
+	}
+
+	.navbar .welcome {
+		@apply hidden;
+	}
+
+	/* Profiles Page */
+	.profile {
+		@apply grid-cols-1 text-center;
+	}
+
+	.profile ul {
+		@apply hidden;
+	}
+
+	/* Profile Page */
+	.profile-top img,
+	.profile img {
+		@apply w-48 mx-auto;
+	}
+
+	.profile-grid {
+		grid-template-areas:
+			'top'
+			'about'
+			'exp'
+			'edu'
+			'github';
+	}
+
+	.profile-about .skills {
+		@apply flex-col;
+	}
+
+	.dash-buttons a {
+		@apply block w-full mb-1;
+	}
+
+	.post {
+		@apply grid-cols-1;
+	}
+
+	.post a,
+	.post button {
+		@apply px-2 py-1;
+	}
 }

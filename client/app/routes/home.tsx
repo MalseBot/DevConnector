@@ -1,13 +1,18 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+/** @format */
 
+import type { Route } from './+types/home';
+import { Fragment } from 'react/jsx-runtime';
 export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
+	return [
+		{ title: 'Dev Connector' },
+		{ name: 'description', content: 'Social Home for Developers' },
+	];
 }
 
-export default function Home() {
-  return <Welcome />;
-}
+const Home = () => (
+	<Fragment>
+		<h1>Hello world</h1>
+	</Fragment>
+);
+
+export default Home;
