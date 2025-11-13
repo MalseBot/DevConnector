@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///D:/WORK/Projects/DevConnector/client/app/page.tsx"],"sourcesContent":["\nexport default function Home() {\n  return (\n\t\t<section className='landing'>\n\t\t\t<div className='dark-overlay'>\n\t\t\t\t<div className='landing-inner'>\n\t\t\t\t\t<h1 className='x-large'>Developer Connector</h1>\n\t\t\t\t\t<p className='lead'>\n\t\t\t\t\t\tCreate a developer profile/portfolio, share posts and get help from\n\t\t\t\t\t\tother developers\n\t\t\t\t\t</p>\n\t\t\t\t\t<div className='buttons'>\n\t\t\t\t\t\t<a\n\t\t\t\t\t\t\thref='register.html'\n\t\t\t\t\t\t\tclassName='btn btn-primary'>\n\t\t\t\t\t\t\tSign Up\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<a\n\t\t\t\t\t\t\thref='login.html'\n\t\t\t\t\t\t\tclassName='btn btn-light'>\n\t\t\t\t\t\t\tLogin\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</section>\n\t);\n}\n"],"names":[],"mappings":";;;;;;AACe,SAAS;IACtB,qBACA,wPAAC;QAAQ,WAAU;kBAClB,cAAA,wPAAC;YAAI,WAAU;sBACd,cAAA,wPAAC;gBAAI,WAAU;;kCACd,wPAAC;wBAAG,WAAU;kCAAU;;;;;;kCACxB,wPAAC;wBAAE,WAAU;kCAAO;;;;;;kCAIpB,wPAAC;wBAAI,WAAU;;0CACd,wPAAC;gCACA,MAAK;gCACL,WAAU;0CAAkB;;;;;;0CAG7B,wPAAC;gCACA,MAAK;gCACL,WAAU;0CAAgB;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAQjC"}}]
+}
