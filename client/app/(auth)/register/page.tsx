@@ -3,7 +3,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
-
+import api from '../../../utils/api'
 export default function Register() {
 	const [formData, setFormData] = useState({
 		name: '',
@@ -14,24 +14,24 @@ export default function Register() {
 
 	const { name, email, password, password2 } = formData;
 
-  interface ChangeEvent {
-    target: {
-      name: string;
-      value: string;
-    };
-  }
+	interface ChangeEvent {
+		target: {
+			name: string;
+			value: string;
+		};
+	}
 
-  const changeHandler = (e: ChangeEvent): void =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+	const changeHandler = (e: ChangeEvent): void =>
+		setFormData({ ...formData, [e.target.name]: e.target.value });
 
-	const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if(password !== password2){
-      return console.log('password does not match')
-    }else{
-      console.log(formData)
-    }
-  };
+	const submitHandler =async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		if (password !== password2) {
+			return console.log('password does not match');
+		} else {
+			console.log("Success")
+		}
+	};
 	return (
 		<section className='container'>
 			<h1 className='large text-primary'>Sign Up</h1>
@@ -88,8 +88,9 @@ export default function Register() {
 				</div>
 				<button
 					type='submit'
-					className='btn btn-primary'
-				>Submit</button>
+					className='btn btn-primary'>
+					Submit
+				</button>
 			</form>
 			<p className='my-1'>
 				Already have an account? <Link href='login'>Sign In</Link>

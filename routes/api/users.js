@@ -20,7 +20,7 @@ Router.post(
 		check(
 			'password',
 			'Please enter a strong password with 8+ Characters'
-		).isLength({ min: 8 }).notEmpty(),
+		).isLength({ min: 6 }).notEmpty(),
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
