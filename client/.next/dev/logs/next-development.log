@@ -1,49 +1,27 @@
-[00:00:01.268] Server  LOG      ✓ Ready in 868ms
-[00:00:11.462] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:02.127] Server  LOG      ✓ Ready in 1465ms
+[00:00:20.998] Server  ERROR   Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.
+[00:00:21.689] Browser ERROR   Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.
+[00:00:21.690] Browser ERROR   Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.
+[00:00:51.245] Browser ERROR   ./client/app/layout.tsx:33:12
+Parsing ecmascript source code failed
+  31 | 			<body
+  32 | 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+> 33 |           {?}
+     |            ^
+  34 | 				<StoreProvider>
+  35 | 					<Navbar />
+  36 | 					{children}
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+Expected '</', got '?'
+[00:00:53.253] Browser ERROR   ./client/app/layout.tsx:38:5
+Parsing ecmascript source code failed
+  36 | 					{children}
+  37 | 				</StoreProvider>
+> 38 | 			</body>
+     | 			 ^^^^^^
+  39 | 		</html>
+  40 | 	);
+  41 | }
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/register" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/client/ap...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en">
-                          <body
-                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
--                           data-new-gr-c-s-check-loaded="14.1127.0"
--                           data-gr-ext-installed=""
-                          >
-                  ...
-
-[00:00:40.103] Browser LOG     {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkxNjk2NmRlMWMwMjcwYWJhM2YwMmNiIn0sImlhdCI6MTc2MzA4Nzk4MSwiZXhwIjoxNzYzNDQ3OTgxfQ.6i38xhG9VDj_-tHwnQsQ1gpsUoIsI11pVFkPT_PSGDg"}
-[00:01:09.679] Browser LOG     {"errors":[{"msg":"User already exists"}]}
-[00:07:57.423] Server  LOG      ✓ Compiled in 53ms
-[00:08:10.791] Server  LOG      ✓ Compiled in 36ms
-[00:08:39.941] Server  LOG      ✓ Compiled in 47ms
-[00:08:41.642] Server  LOG      ✓ Compiled in 20ms
-[00:08:44.036] Server  LOG      ✓ Compiled in 21ms
-[00:11:42.735] Browser LOG     Success
-[00:12:09.042] Server  LOG      ✓ Compiled in 44ms
-[00:12:12.117] Server  LOG      ✓ Compiled in 18ms
-[00:12:18.166] Server  LOG      ✓ Compiled in 41ms
+Unterminated regexp literal
+[00:01:00.395] Server  LOG      ✓ Compiled in 23ms
