@@ -1,27 +1,240 @@
-[00:00:02.127] Server  LOG      ✓ Ready in 1465ms
-[00:00:20.998] Server  ERROR   Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.
-[00:00:21.689] Browser ERROR   Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.
-[00:00:21.690] Browser ERROR   Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers.
-[00:00:51.245] Browser ERROR   ./client/app/layout.tsx:33:12
-Parsing ecmascript source code failed
-  31 | 			<body
-  32 | 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-> 33 |           {?}
-     |            ^
-  34 | 				<StoreProvider>
-  35 | 					<Navbar />
-  36 | 					{children}
+[00:00:01.555] Server  LOG      ✓ Ready in 1082ms
+[00:00:47.984] Server  ERROR    ⨯ ./client/app/Providers.tsx:3:1
+Module not found: Can't resolve './components/AlertContainer'
+  1 | "use client"
+  2 | import { Provider } from "react-redux"
+> 3 | import Alert from "./components/AlertContainer"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { store } from "./store/store"
+  5 |
+  6 | export function Providers({children}: {children: React.ReactNode}){
 
-Expected '</', got '?'
-[00:00:53.253] Browser ERROR   ./client/app/layout.tsx:38:5
-Parsing ecmascript source code failed
-  36 | 					{children}
-  37 | 				</StoreProvider>
-> 38 | 			</body>
-     | 			 ^^^^^^
-  39 | 		</html>
-  40 | 	);
-  41 | }
 
-Unterminated regexp literal
-[00:01:00.395] Server  LOG      ✓ Compiled in 23ms
+
+Import trace:
+  Server Component:
+    ./client/app/Providers.tsx
+    ./client/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:49.475] Browser ERROR   uncaughtError: Error: ./client/app/Providers.tsx:3:1
+Module not found: Can't resolve './components/AlertContainer'
+  1 | "use client"
+  2 | import { Provider } from "react-redux"
+> 3 | import Alert from "./components/AlertContainer"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { store } from "./store/store"
+  5 |
+  6 | export function Providers({children}: {children: React.ReactNode}){
+
+
+
+Import trace:
+  Server Component:
+    ./client/app/Providers.tsx
+    ./client/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:49.743] Browser ERROR   ./client/app/Providers.tsx:3:1
+Module not found: Can't resolve './components/AlertContainer'
+  1 | "use client"
+  2 | import { Provider } from "react-redux"
+> 3 | import Alert from "./components/AlertContainer"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { store } from "./store/store"
+  5 |
+  6 | export function Providers({children}: {children: React.ReactNode}){
+
+Import trace:
+  Server Component:
+    ./client/app/Providers.tsx
+    ./client/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:50.054] Browser ERROR   ./client/app/Providers.tsx:3:1
+Module not found: Can't resolve './components/AlertContainer'
+  1 | "use client"
+  2 | import { Provider } from "react-redux"
+> 3 | import Alert from "./components/AlertContainer"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | import { store } from "./store/store"
+  5 |
+  6 | export function Providers({children}: {children: React.ReactNode}){
+
+Import trace:
+  Server Component:
+    ./client/app/Providers.tsx
+    ./client/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:18.075] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__0ee4a57c._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:01:18.077] Server  ERROR    ⨯ ReferenceError: Alert is not defined
+[00:01:18.560] Browser ERROR   uncaughtError: ReferenceError: Alert is not defined
+[00:01:25.580] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:01:25.609] Server  LOG      ✓ Compiled in 38ms
+[00:01:49.861] Browser ERROR   ./client/app/page.tsx:13:6
+Parsing ecmascript source code failed
+  11 | 					</p>
+  12 | 					<A
+> 13 | 					<div className='buttons'>
+     | 					^
+  14 | 						<a
+  15 | 							href='register.html'
+  16 | 							className='btn btn-primary'>
+
+Expression expected
+[00:01:51.611] Browser ERROR   ./client/app/page.tsx:13:6
+Parsing ecmascript source code failed
+  11 | 					</p>
+  12 | 					<Alert
+> 13 | 					<div className='buttons'>
+     | 					^
+  14 | 						<a
+  15 | 							href='register.html'
+  16 | 							className='btn btn-primary'>
+
+Expression expected
+[00:01:55.261] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.262] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.263] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.264] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.265] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.266] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.267] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.267] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.268] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.269] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:01:55.407] Browser ERROR   ./client/app/page.tsx:1:1
+Module not found: Can't resolve './components/alertTest'
+> 1 | import AlertTest from "./components/alertTest"
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export default function Home() {
+  4 |   return (
+
+https://nextjs.org/docs/messages/module-not-found
+[00:02:08.257] Server  LOG      ✓ Compiled in 66ms

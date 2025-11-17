@@ -5,29 +5,53 @@ const mod = __turbopack_context__.x("next/dist/compiled/next-server/app-page-tur
 
 module.exports = mod;
 }),
+"[project]/client/app/store/slices/alertSlice.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+/** @format */ __turbopack_context__.s([
+    "addAlert",
+    ()=>addAlert,
+    "default",
+    ()=>__TURBOPACK__default__export__,
+    "removeAlert",
+    ()=>removeAlert
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/client/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs [app-ssr] (ecmascript) <locals>");
+;
+const initialState = {
+    alerts: []
+};
+const alertSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({
+    name: 'alert',
+    initialState,
+    reducers: {
+        addAlert: (state, action)=>{
+            state.alerts.push(action.payload);
+        },
+        removeAlert: (state, action)=>{
+            state.alerts = state.alerts.filter((alert)=>alert.id !== action.payload);
+        }
+    }
+});
+const { addAlert, removeAlert } = alertSlice.actions;
+const __TURBOPACK__default__export__ = alertSlice.reducer;
+}),
 "[project]/client/app/store/store.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 /** @format */ __turbopack_context__.s([
-    "makeStore",
-    ()=>makeStore
+    "store",
+    ()=>store
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/client/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs [app-ssr] (ecmascript) <locals>");
-(()=>{
-    const e = new Error("Cannot find module '../slices/alertSlice'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/slices/alertSlice.ts [app-ssr] (ecmascript)");
 ;
 ;
-const makeStore = ()=>{
-    //
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["configureStore"])({
-        reducer: {
-            alert: alertReducer
-        }
-    });
-};
+const store = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["configureStore"])({
+    reducer: {
+        alert: __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]
+    }
+});
 }),
 "[project]/client/app/store/StoreProvider.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -59,4 +83,4 @@ function StoreProvider({ children }) {
 }),
 ];
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__17c4cf81._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__e82844d7._.js.map
