@@ -37,11 +37,8 @@ export const registerUser = createAsyncThunk(
 		try {
 			const response = await api.post('/users', userData);
 			return response.data;
-		} catch (error) {
-			if (error instanceof Error) {
-				return rejectWithValue(error.message || 'Registration failed');
-			}
-			return rejectWithValue('Registration failed');
+		} catch (error:any) {
+			return rejectWithValue(error.response?.data.errors?.[0].msg);
 		}
 	}
 );
@@ -73,17 +70,24 @@ export const registerSlice = createSlice({
 			// Fulfilled state
 			.addCase(registerUser.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.user = {
-					id: action.payload.user?.id || '',
-					name: action.payload.user?.name || '',
-					email: action.payload.user?.email || '',
-					token: action.payload.token,
-				};
 				state.success = true;
 				state.error = null;
+				const token = action.payload.token;
+				if (token) {
+					const decodedToken = JSON.parse(atob(token.split('.')[1]));
+
+					const userId = decodedToken.user.id;
+
+					state.user = {
+						id: userId,
+						name: action.meta.arg.name,
+						email: action.meta.arg.email,
+						token: token,
+					};
+				}
 				// Save token and user data to localStorage
 				if (typeof window !== 'undefined') {
-					localStorage.setItem('token', action.payload.token);
+					localStorage.setItem('token', token);
 					localStorage.setItem('user', JSON.stringify(state.user));
 				}
 			})
@@ -92,6 +96,7 @@ export const registerSlice = createSlice({
 				state.isLoading = false;
 				state.error = action.payload as string;
 				state.success = false;
+				state.user = null;
 			});
 	},
 });

@@ -92,6 +92,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ne
 ;
 ;
 const Navbar = ()=>{
+    const { isAuthenticated, user } = useAuth() // Placeholder for auth state
+    ;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
         className: "navbar bg-dark",
         children: [
@@ -106,7 +108,7 @@ const Navbar = ()=>{
                             alt: "Logo"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                            lineNumber: 11,
+                            lineNumber: 12,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0)),
                         ' ',
@@ -114,12 +116,12 @@ const Navbar = ()=>{
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                    lineNumber: 10,
+                    lineNumber: 11,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                lineNumber: 9,
+                lineNumber: 10,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -130,12 +132,12 @@ const Navbar = ()=>{
                             children: "Developers"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                            lineNumber: 21,
+                            lineNumber: 22,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                        lineNumber: 20,
+                        lineNumber: 21,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -144,12 +146,12 @@ const Navbar = ()=>{
                             children: "Register"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                            lineNumber: 24,
+                            lineNumber: 25,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                        lineNumber: 23,
+                        lineNumber: 24,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -158,24 +160,24 @@ const Navbar = ()=>{
                             children: "Login"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                            lineNumber: 27,
+                            lineNumber: 28,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                        lineNumber: 26,
+                        lineNumber: 27,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                lineNumber: 19,
+                lineNumber: 20,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-        lineNumber: 8,
+        lineNumber: 9,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 };

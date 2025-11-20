@@ -37,11 +37,9 @@ export const loginUser = createAsyncThunk(
 			const response = await api.post('/auth', credentials);
 			// Assuming the API returns { token, user: { id, name, email } }
 			return response.data;
-		} catch (error) {
-			if (error instanceof Error) {
-				return rejectWithValue(error.message || 'Login failed');
-			}
-			return rejectWithValue('Login failed');
+		} catch (error : any) {
+			
+				return rejectWithValue(error.response.data.errors?.[0].msg || 'Login failed');
 		}
 	}
 );
@@ -85,17 +83,23 @@ export const loginSlice = createSlice({
 			// Fulfilled state
 			.addCase(loginUser.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.user = {
-					id: action.payload.user?.id || '',
-					name: action.payload.user?.name || '',
-					email: action.payload.user?.email || '',
-					token: action.payload.token,
-				};
 				state.isAuthenticated = true;
 				state.error = null;
+				const token = action.payload.token;
+				if(token){
+					const decodedToken = JSON.parse(atob(token.split('.')[1]));
+					const userId = decodedToken.user.id;
+
+					state.user = {
+						id: userId,
+						name: action.payload.user?.name || '',
+						email: action.payload.user?.email || '',
+						token: token,
+					};
+				}
 				// Save token and user data to localStorage
 				if (typeof window !== 'undefined') {
-					localStorage.setItem('token', action.payload.token || 'no token');
+					localStorage.setItem('token', token || 'no token');
 					localStorage.setItem('user', JSON.stringify(state.user));
 				}
 			})

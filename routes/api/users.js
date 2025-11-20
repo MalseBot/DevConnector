@@ -17,10 +17,9 @@ Router.post(
 	[
 		check('name', 'name is required').notEmpty(),
 		check('email', 'Please enter a valid email').isEmail(),
-		check(
-			'password',
-			'Please enter a strong password with 8+ Characters'
-		).isLength({ min: 6 }).notEmpty(),
+		check('password', 'Please enter a strong password with 8+ Characters')
+			.isLength({ min: 6 })
+			.notEmpty(),
 	],
 	async (req, res) => {
 		const errors = validationResult(req);
@@ -55,7 +54,7 @@ Router.post(
 
 			const payload = {
 				user: { id: user.id },
-			}
+			};
 
 			jwt.sign(
 				payload,
@@ -63,10 +62,18 @@ Router.post(
 				{ expiresIn: 360000 },
 				(err, token) => {
 					if (err) throw err;
-					res.json({ token });
+					res.json({
+						token,
+						user: {
+							id: user.id,
+							name: user.name,
+							email: user.email,
+							avatar: user.avatar,
+						},
+					});
 				}
 			);
-			
+
 			await user.save();
 			res.send('User registered');
 		} catch (error) {

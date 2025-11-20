@@ -170,10 +170,7 @@ const loginUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$
         // Assuming the API returns { token, user: { id, name, email } }
         return response.data;
     } catch (error) {
-        if (error instanceof Error) {
-            return rejectWithValue(error.message || 'Login failed');
-        }
-        return rejectWithValue('Login failed');
+        return rejectWithValue(error.response.data.errors?.[0].msg || 'Login failed');
     }
 });
 const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({
@@ -209,14 +206,19 @@ const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f
         })// Fulfilled state
         .addCase(loginUser.fulfilled, (state, action)=>{
             state.isLoading = false;
-            state.user = {
-                id: action.payload.user?.id || '',
-                name: action.payload.user?.name || '',
-                email: action.payload.user?.email || '',
-                token: action.payload.token
-            };
             state.isAuthenticated = true;
             state.error = null;
+            const token = action.payload.token;
+            if (token) {
+                const decodedToken = JSON.parse(atob(token.split('.')[1]));
+                const userId = decodedToken.user.id;
+                state.user = {
+                    id: userId,
+                    name: action.payload.user?.name || '',
+                    email: action.payload.user?.email || '',
+                    token: token
+                };
+            }
             // Save token and user data to localStorage
             if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
             ;
@@ -262,10 +264,7 @@ const registerUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].post('/users', userData);
         return response.data;
     } catch (error) {
-        if (error instanceof Error) {
-            return rejectWithValue(error.message || 'Registration failed');
-        }
-        return rejectWithValue('Registration failed');
+        return rejectWithValue(error.response?.data.errors?.[0].msg);
     }
 });
 const registerSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({
@@ -292,14 +291,19 @@ const registerSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client
         })// Fulfilled state
         .addCase(registerUser.fulfilled, (state, action)=>{
             state.isLoading = false;
-            state.user = {
-                id: action.payload.user?.id || '',
-                name: action.payload.user?.name || '',
-                email: action.payload.user?.email || '',
-                token: action.payload.token
-            };
             state.success = true;
             state.error = null;
+            const token = action.payload.token;
+            if (token) {
+                const decodedToken = JSON.parse(atob(token.split('.')[1]));
+                const userId = decodedToken.user.id;
+                state.user = {
+                    id: userId,
+                    name: action.meta.arg.name,
+                    email: action.meta.arg.email,
+                    token: token
+                };
+            }
             // Save token and user data to localStorage
             if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
             ;
@@ -308,6 +312,7 @@ const registerSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client
             state.isLoading = false;
             state.error = action.payload;
             state.success = false;
+            state.user = null;
         });
     }
 });
@@ -473,14 +478,12 @@ const useAuth = ()=>{
             }));
             return result;
         } catch (error) {
-            const errorMsg = error;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
-                message: errorMsg,
+                message: error || 'Registration failed',
                 duration: 5000
             }));
-            throw error;
         }
     };
     const handleLogin = async (credentials)=>{
@@ -501,7 +504,6 @@ const useAuth = ()=>{
                 message: errorMsg,
                 duration: 5000
             }));
-            throw error;
         }
     };
     const handleLogout = ()=>{

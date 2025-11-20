@@ -2,14 +2,12 @@
 
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '@/app/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 export default function Register() {
-	const { register, registerLoading, 
-		 } = useAuth();
-			const router = useRouter();
-		
+	const router = useRouter();
+	const { register, registerLoading, isAuthenticated } = useAuth();
 
 	const [formData, setFormData] = useState({
 		name: '',
@@ -40,11 +38,13 @@ export default function Register() {
 				email: formData.email,
 				password: formData.password,
 			});
-
-			router.push('/login');
-			// Navigate to login
 		}
 	};
+	useEffect(() => {
+			if (isAuthenticated) {
+				router.push('/');
+			}
+		}, [isAuthenticated, router]);
 	return (
 		<section className='container'>
 			<h1 className='large text-primary'>Sign Up</h1>

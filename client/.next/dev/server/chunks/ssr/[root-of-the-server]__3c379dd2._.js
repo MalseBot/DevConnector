@@ -260,12 +260,10 @@ const initialState = {
 const registerUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('register/registerUser', async (userData, { rejectWithValue })=>{
     try {
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].post('/users', userData);
+        console.log(response.data);
         return response.data;
     } catch (error) {
-        if (error instanceof Error) {
-            return rejectWithValue(error.message || 'Registration failed');
-        }
-        return rejectWithValue('Registration failed');
+        return rejectWithValue(error.response?.data.errors?.[0].msg);
     }
 });
 const registerSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({
@@ -292,14 +290,19 @@ const registerSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client
         })// Fulfilled state
         .addCase(registerUser.fulfilled, (state, action)=>{
             state.isLoading = false;
-            state.user = {
-                id: action.payload.user?.id || '',
-                name: action.payload.user?.name || '',
-                email: action.payload.user?.email || '',
-                token: action.payload.token
-            };
             state.success = true;
             state.error = null;
+            const token = action.payload.token;
+            if (token) {
+                const decodedToken = JSON.parse(atob(token.split('.')[1]));
+                const userId = decodedToken.user.id;
+                state.user = {
+                    id: userId,
+                    name: action.meta.arg.name,
+                    email: action.meta.arg.email,
+                    token: token
+                };
+            }
             // Save token and user data to localStorage
             if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
             ;
@@ -308,6 +311,7 @@ const registerSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client
             state.isLoading = false;
             state.error = action.payload;
             state.success = false;
+            state.user = null;
         });
     }
 });
@@ -445,7 +449,7 @@ const __TURBOPACK__default__export__ = Alert;
 "[project]/client/app/Providers.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-__turbopack_context__.s([
+/** @format */ __turbopack_context__.s([
     "Providers",
     ()=>Providers
 ]);
@@ -453,7 +457,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ne
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$react$2d$redux$2f$dist$2f$react$2d$redux$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/react-redux/dist/react-redux.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$store$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/store.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/components/Alert.tsx [app-ssr] (ecmascript)");
-"use client";
+'use client';
 ;
 ;
 ;
@@ -464,15 +468,15 @@ function Providers({ children }) {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$components$2f$Alert$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/client/app/Providers.tsx",
-                lineNumber: 9,
-                columnNumber: 13
+                lineNumber: 13,
+                columnNumber: 4
             }, this),
             children
         ]
     }, void 0, true, {
         fileName: "[project]/client/app/Providers.tsx",
-        lineNumber: 8,
-        columnNumber: 9
+        lineNumber: 11,
+        columnNumber: 3
     }, this);
 }
 }),

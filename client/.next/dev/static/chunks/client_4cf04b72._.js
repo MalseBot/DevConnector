@@ -36,14 +36,12 @@ const useAuth = ()=>{
             }));
             return result;
         } catch (error) {
-            const errorMsg = error;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
-                message: errorMsg,
+                message: error || 'Registration failed',
                 duration: 5000
             }));
-            throw error;
         }
     };
     const handleLogin = async (credentials)=>{
@@ -127,7 +125,8 @@ var _s = __turbopack_context__.k.signature();
 ;
 function Register() {
     _s();
-    const { register, registerLoading, registerError } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
+    const { register, registerLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         name: '',
         email: '',
@@ -144,17 +143,16 @@ function Register() {
         if (password !== password2) {
             return console.log('password does not match');
         } else {
-            try {
-                await register({
-                    name: formData.name,
-                    email: formData.email,
-                    password: formData.password
-                });
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["redirect"])('/login', __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RedirectType"].replace);
-            // Navigate to login
-            } catch (err) {
-                console.error(err);
+            const res = await register({
+                name: formData.name,
+                email: formData.email,
+                password: formData.password
+            });
+            if (res) {
+                router.push('/login');
             }
+            ;
+        // Navigate to login
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -165,7 +163,7 @@ function Register() {
                 children: "Sign Up"
             }, void 0, false, {
                 fileName: "[project]/client/app/(auth)/register/page.tsx",
-                lineNumber: 51,
+                lineNumber: 50,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -175,14 +173,14 @@ function Register() {
                         className: "fas fa-user"
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/register/page.tsx",
-                        lineNumber: 53,
+                        lineNumber: 52,
                         columnNumber: 5
                     }, this),
                     " Create Your Account"
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(auth)/register/page.tsx",
-                lineNumber: 52,
+                lineNumber: 51,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -200,12 +198,12 @@ function Register() {
                             required: true
                         }, void 0, false, {
                             fileName: "[project]/client/app/(auth)/register/page.tsx",
-                            lineNumber: 59,
+                            lineNumber: 58,
                             columnNumber: 6
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/register/page.tsx",
-                        lineNumber: 58,
+                        lineNumber: 57,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -220,7 +218,7 @@ function Register() {
                                 required: true
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(auth)/register/page.tsx",
-                                lineNumber: 69,
+                                lineNumber: 68,
                                 columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -228,13 +226,13 @@ function Register() {
                                 children: "This site uses Gravatar so if you want a profile image, use a Gravatar email"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(auth)/register/page.tsx",
-                                lineNumber: 77,
+                                lineNumber: 76,
                                 columnNumber: 6
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(auth)/register/page.tsx",
-                        lineNumber: 68,
+                        lineNumber: 67,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -249,12 +247,12 @@ function Register() {
                             required: true
                         }, void 0, false, {
                             fileName: "[project]/client/app/(auth)/register/page.tsx",
-                            lineNumber: 83,
+                            lineNumber: 82,
                             columnNumber: 6
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/register/page.tsx",
-                        lineNumber: 82,
+                        lineNumber: 81,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -268,12 +266,12 @@ function Register() {
                             onChange: (e)=>changeHandler(e)
                         }, void 0, false, {
                             fileName: "[project]/client/app/(auth)/register/page.tsx",
-                            lineNumber: 94,
+                            lineNumber: 93,
                             columnNumber: 6
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/register/page.tsx",
-                        lineNumber: 93,
+                        lineNumber: 92,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -281,13 +279,13 @@ function Register() {
                         children: registerLoading ? 'Registering...' : 'Register'
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/register/page.tsx",
-                        lineNumber: 103,
+                        lineNumber: 102,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(auth)/register/page.tsx",
-                lineNumber: 55,
+                lineNumber: 54,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -299,25 +297,26 @@ function Register() {
                         children: "Sign In"
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/register/page.tsx",
-                        lineNumber: 108,
+                        lineNumber: 107,
                         columnNumber: 30
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(auth)/register/page.tsx",
-                lineNumber: 107,
+                lineNumber: 106,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/client/app/(auth)/register/page.tsx",
-        lineNumber: 50,
+        lineNumber: 49,
         columnNumber: 3
     }, this);
 }
-_s(Register, "NKMzkiQPAizeerEa47IvFkprIdo=", false, function() {
+_s(Register, "nLR7Q+4PIhbLJBtkl1AhW5CkyjE=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]
+        __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
 });
 _c = Register;

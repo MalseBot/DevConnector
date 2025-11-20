@@ -36,14 +36,12 @@ const useAuth = ()=>{
             }));
             return result;
         } catch (error) {
-            const errorMsg = error;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
-                message: errorMsg,
+                message: error || 'Registration failed',
                 duration: 5000
             }));
-            throw error;
         }
     };
     const handleLogin = async (credentials)=>{
@@ -127,11 +125,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 function Login() {
     _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         email: '',
         password: ''
     });
-    const { login, user, isAuthenticated, loginLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
+    const { login, isAuthenticated, loginLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
     const { email, password } = formData;
     const changeHandler = (e)=>setFormData({
             ...formData,
@@ -143,9 +142,18 @@ function Login() {
             email: formData.email,
             password: formData.password
         });
-        // Navigate to login
-        (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["redirect"])('/', __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RedirectType"].replace);
     };
+    // Redirect after successful login
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "Login.useEffect": ()=>{
+            if (isAuthenticated) {
+                router.push('/');
+            }
+        }
+    }["Login.useEffect"], [
+        isAuthenticated,
+        router
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "container",
         children: [
@@ -154,7 +162,7 @@ function Login() {
                 children: "Sign In"
             }, void 0, false, {
                 fileName: "[project]/client/app/(auth)/login/page.tsx",
-                lineNumber: 42,
+                lineNumber: 47,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -164,14 +172,14 @@ function Login() {
                         className: "fas fa-user"
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/login/page.tsx",
-                        lineNumber: 44,
+                        lineNumber: 49,
                         columnNumber: 5
                     }, this),
                     " Log into Account"
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(auth)/login/page.tsx",
-                lineNumber: 43,
+                lineNumber: 48,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -189,12 +197,12 @@ function Login() {
                             required: true
                         }, void 0, false, {
                             fileName: "[project]/client/app/(auth)/login/page.tsx",
-                            lineNumber: 50,
+                            lineNumber: 55,
                             columnNumber: 6
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/login/page.tsx",
-                        lineNumber: 49,
+                        lineNumber: 54,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -209,12 +217,12 @@ function Login() {
                             required: true
                         }, void 0, false, {
                             fileName: "[project]/client/app/(auth)/login/page.tsx",
-                            lineNumber: 60,
+                            lineNumber: 65,
                             columnNumber: 6
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/login/page.tsx",
-                        lineNumber: 59,
+                        lineNumber: 64,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -222,13 +230,13 @@ function Login() {
                         children: loginLoading ? 'Logging in...' : 'Log in'
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/login/page.tsx",
-                        lineNumber: 70,
+                        lineNumber: 75,
                         columnNumber: 5
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(auth)/login/page.tsx",
-                lineNumber: 46,
+                lineNumber: 51,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -242,24 +250,25 @@ function Login() {
                         children: "Sign up"
                     }, void 0, false, {
                         fileName: "[project]/client/app/(auth)/login/page.tsx",
-                        lineNumber: 75,
+                        lineNumber: 80,
                         columnNumber: 32
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(auth)/login/page.tsx",
-                lineNumber: 74,
+                lineNumber: 79,
                 columnNumber: 4
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/client/app/(auth)/login/page.tsx",
-        lineNumber: 41,
+        lineNumber: 46,
         columnNumber: 3
     }, this);
 }
-_s(Login, "417L8nZMBsVCSo6CfJzOjrTIUqo=", false, function() {
+_s(Login, "lkX4HC7KL6Rtlb0ZACjrle+woNU=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]
     ];
 });

@@ -41,16 +41,15 @@ export const useAuth = () => {
 			);
 			return result;
 		} catch (error) {
-			const errorMsg = error as string;
 			dispatch(
 				addAlert({
 					id: `${Date.now()}`,
 					type: 'error',
-					message: errorMsg,
+					message: error as string || 'Registration failed',
 					duration: 5000,
 				})
 			);
-			throw error;
+
 		}
 	};
 
@@ -76,7 +75,6 @@ export const useAuth = () => {
 					duration: 5000,
 				})
 			);
-			throw error;
 		}
 	};
 
