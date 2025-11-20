@@ -1,13 +1,12 @@
 import { useEffect } from "react"
-import { useAppDisbatch, useAppSelector } from "../store/hooks"
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { removeAlert } from "../store/slices/alertSlice"
-import { isNull } from "util"
 
 
 
 
 const Alert = ()=>{
-    const dispatch = useAppDisbatch()
+    const dispatch = useAppDispatch();
     const alerts = useAppSelector((state)=>state.alert.alerts)
 
     useEffect(()=>{

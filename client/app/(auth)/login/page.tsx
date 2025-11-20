@@ -2,14 +2,19 @@
 
 'use client';
 import Link from 'next/link';
-import React, { useState } from 'react';
-export default function Register() {
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '@/app/hooks/useAuth';
+import { useRouter } from 'next/navigation';
+
+export default function Login() {
+	const router = useRouter();
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
 	});
+	const { login, isAuthenticated, loginLoading } = useAuth();
 
-	const {  email, password } = formData;
+	const { email, password } = formData;
 
 	interface ChangeEvent {
 		target: {
@@ -24,8 +29,19 @@ export default function Register() {
 	const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-			console.log('Success');
+		await login({
+			email: formData.email,
+			password: formData.password,
+		});
 	};
+
+	// Redirect after successful login
+	useEffect(() => {
+		if (isAuthenticated) {
+			router.push('/');
+		}
+	}, [isAuthenticated, router]);
+
 	return (
 		<section className='container'>
 			<h1 className='large text-primary'>Sign In</h1>
@@ -35,7 +51,6 @@ export default function Register() {
 			<form
 				className='form'
 				onSubmit={submitHandler}>
-				
 				<div className='form-group'>
 					<input
 						type='email'
@@ -57,14 +72,12 @@ export default function Register() {
 						required
 					/>
 				</div>
-				<button
-					type='submit'
-					className='btn btn-primary'>
-					Submit
+				<button disabled={loginLoading}>
+					{loginLoading ? 'Logging in...' : 'Log in'}
 				</button>
 			</form>
 			<p className='my-1'>
-				Don{"'"}t have an account? <Link href='Register'>Sign up</Link>
+				Don{"'"}t have an account? <Link href='register'>Sign up</Link>
 			</p>
 		</section>
 	);

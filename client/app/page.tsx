@@ -1,4 +1,3 @@
-import AlertTest from "./components/AlertTest"
 
 export default function Home() {
   return (
@@ -10,7 +9,6 @@ export default function Home() {
 						Create a developer profile/portfolio, share posts and get help from
 						other developers
 					</p>
-					<AlertTest/>
 					<div className='buttons'>
 						<a
 							href='register.html'

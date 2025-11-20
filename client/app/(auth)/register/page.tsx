@@ -3,8 +3,14 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import api from '../../../utils/api'
+import { useAuth } from '@/app/hooks/useAuth';
+import { useRouter } from 'next/navigation';
 export default function Register() {
+	const { register, registerLoading, 
+		 } = useAuth();
+			const router = useRouter();
+		
+
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -24,12 +30,19 @@ export default function Register() {
 	const changeHandler = (e: ChangeEvent): void =>
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 
-	const submitHandler =async (e: React.FormEvent<HTMLFormElement>) => {
+	const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (password !== password2) {
 			return console.log('password does not match');
 		} else {
-			console.log("Success")
+			await register({
+				name: formData.name,
+				email: formData.email,
+				password: formData.password,
+			});
+
+			router.push('/login');
+			// Navigate to login
 		}
 	};
 	return (
@@ -86,10 +99,8 @@ export default function Register() {
 						onChange={(e) => changeHandler(e)}
 					/>
 				</div>
-				<button
-					type='submit'
-					className='btn btn-primary'>
-					Submit
+				<button disabled={registerLoading}>
+					{registerLoading ? 'Registering...' : 'Register'}
 				</button>
 			</form>
 			<p className='my-1'>

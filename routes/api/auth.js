@@ -64,7 +64,7 @@ Router.post(
                 { expiresIn: 360000 },
                 (err, token) => {
                     if (err) throw err;
-                    res.json(`User logged in token is ${ token}`);
+                    res.json(token);
                 }
             );
         } catch (error) {

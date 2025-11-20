@@ -1,240 +1,265 @@
-[00:00:01.555] Server  LOG      ✓ Ready in 1082ms
-[00:00:47.984] Server  ERROR    ⨯ ./client/app/Providers.tsx:3:1
-Module not found: Can't resolve './components/AlertContainer'
-  1 | "use client"
-  2 | import { Provider } from "react-redux"
-> 3 | import Alert from "./components/AlertContainer"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { store } from "./store/store"
-  5 |
-  6 | export function Providers({children}: {children: React.ReactNode}){
+[00:00:02.132] Server  LOG      ✓ Ready in 1552ms
+[00:00:06.806] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-Import trace:
-  Server Component:
-    ./client/app/Providers.tsx
-    ./client/app/layout.tsx
+%s%s https://react.dev/link/hydration-mismatch 
 
-https://nextjs.org/docs/messages/module-not-found
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/register" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
 
+[00:00:32.071] Browser ERROR   Request failed with status code 404
+[00:01:04.435] Server  LOG        Reload env: .env.local
+[00:01:04.629] Server  LOG      ✓ Compiled in 70ms
+[00:10:02.091] Server  LOG      ✓ Compiled in 47ms
+[00:10:03.467] Server  LOG      ✓ Compiled in 44ms
+[00:10:05.189] Server  LOG      ✓ Compiled in 27ms
+[00:10:12.312] Server  LOG      ✓ Compiled in 51ms
+[00:10:20.618] Server  LOG      ✓ Compiled in 29ms
+[00:10:25.195] Server  LOG      ✓ Compiled in 20ms
+[00:12:08.377] Browser ERROR   unhandledRejection: "Request failed with status code 400"
+[00:13:07.318] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./client/app/(auth)/login/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:13:07.345] Server  LOG      ✓ Compiled in 53ms
+[00:13:09.596] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-[00:00:49.475] Browser ERROR   uncaughtError: Error: ./client/app/Providers.tsx:3:1
-Module not found: Can't resolve './components/AlertContainer'
-  1 | "use client"
-  2 | import { Provider } from "react-redux"
-> 3 | import Alert from "./components/AlertContainer"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { store } from "./store/store"
-  5 |
-  6 | export function Providers({children}: {children: React.ReactNode}){
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
+%s%s https://react.dev/link/hydration-mismatch 
 
-Import trace:
-  Server Component:
-    ./client/app/Providers.tsx
-    ./client/app/layout.tsx
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
 
-https://nextjs.org/docs/messages/module-not-found
+[00:16:19.266] Server  LOG      ✓ Compiled in 58ms
+[00:16:26.466] Server  LOG      ✓ Compiled in 29ms
+[00:16:42.743] Server  LOG      ✓ Compiled in 26ms
+[00:16:49.828] Server  LOG      ✓ Compiled in 55ms
+[00:16:55.905] Server  LOG      ✓ Compiled in 56ms
+[00:24:49.385] Server  LOG      ✓ Compiled in 65ms
+[00:25:02.918] Server  LOG      ✓ Compiled in 157ms
+[00:26:12.327] Server  LOG      ✓ Compiled in 59ms
+[00:26:19.392] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
-[00:00:49.743] Browser ERROR   ./client/app/Providers.tsx:3:1
-Module not found: Can't resolve './components/AlertContainer'
-  1 | "use client"
-  2 | import { Provider } from "react-redux"
-> 3 | import Alert from "./components/AlertContainer"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { store } from "./store/store"
-  5 |
-  6 | export function Providers({children}: {children: React.ReactNode}){
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-Import trace:
-  Server Component:
-    ./client/app/Providers.tsx
-    ./client/app/layout.tsx
+%s%s https://react.dev/link/hydration-mismatch 
 
-https://nextjs.org/docs/messages/module-not-found
-[00:00:50.054] Browser ERROR   ./client/app/Providers.tsx:3:1
-Module not found: Can't resolve './components/AlertContainer'
-  1 | "use client"
-  2 | import { Provider } from "react-redux"
-> 3 | import Alert from "./components/AlertContainer"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  4 | import { store } from "./store/store"
-  5 |
-  6 | export function Providers({children}: {children: React.ReactNode}){
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login.html" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
 
-Import trace:
-  Server Component:
-    ./client/app/Providers.tsx
-    ./client/app/layout.tsx
-
-https://nextjs.org/docs/messages/module-not-found
-[00:01:18.075] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__0ee4a57c._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:01:18.077] Server  ERROR    ⨯ ReferenceError: Alert is not defined
-[00:01:18.560] Browser ERROR   uncaughtError: ReferenceError: Alert is not defined
-[00:01:25.580] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:01:25.609] Server  LOG      ✓ Compiled in 38ms
-[00:01:49.861] Browser ERROR   ./client/app/page.tsx:13:6
+[00:26:23.338] Browser ERROR   Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+[00:26:23.338] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:27:44.877] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:28:09.459] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:28:25.627] Server  LOG      ✓ Compiled in 29ms
+[00:28:36.947] Server  LOG      ✓ Compiled in 48ms
+[00:29:13.541] Server  LOG      ✓ Compiled in 50ms
+[00:29:15.600] Server  LOG      ✓ Compiled in 29ms
+[00:29:37.530] Server  LOG      ✓ Compiled in 52ms
+[00:29:38.596] Browser ERROR   ./client/app/(auth)/register/page.tsx:110:2
 Parsing ecmascript source code failed
-  11 | 					</p>
-  12 | 					<A
-> 13 | 					<div className='buttons'>
-     | 					^
-  14 | 						<a
-  15 | 							href='register.html'
-  16 | 							className='btn btn-primary'>
+  108 | 		</section>
+  109 | 	);
+> 110 | }
+      |  ^
+  111 |
+
+Expected '}', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(auth)/register/page.tsx [Client Component Browser]
+    ./client/app/(auth)/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(auth)/register/page.tsx [Client Component SSR]
+    ./client/app/(auth)/register/page.tsx [Server Component]
+[00:29:38.596] Browser ERROR   ./client/app/(auth)/register/page.tsx:46:2
+Parsing ecmascript source code failed
+  44 | 			
+  45 | 		}
+> 46 | 	};
+     | 	^
+  47 | 	return (
+  48 | 		<section className='container'>
+  49 | 			<h1 className='large text-primary'>Sign Up</h1>
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(auth)/register/page.tsx [Client Component Browser]
+    ./client/app/(auth)/register/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(auth)/register/page.tsx [Client Component SSR]
+    ./client/app/(auth)/register/page.tsx [Server Component]
+[00:29:38.613] Server  LOG      ✓ Compiled in 29ms
+[00:29:42.304] Server  LOG      ✓ Compiled in 25ms
+[00:31:42.815] Server  LOG      ✓ Compiled in 66ms
+[00:31:43.596] Browser ERROR   ./client/app/store/slices/loginSlice.ts:98:60
+Parsing ecmascript source code failed
+   96 | 				// Save token and user data to localStorage
+   97 | 				if (typeof window !== 'undefined') {
+>  98 | 					localStorage.setItem('token', action.payload.token || );
+      | 					                                                      ^
+   99 | 					localStorage.setItem('user', JSON.stringify(state.user));
+  100 | 				}
+  101 | 			})
 
 Expression expected
-[00:01:51.611] Browser ERROR   ./client/app/page.tsx:13:6
+
+Import traces:
+  Client Component Browser:
+    ./client/app/store/slices/loginSlice.ts [Client Component Browser]
+    ./client/app/store/store.ts [Client Component Browser]
+    ./client/app/Providers.tsx [Client Component Browser]
+    ./client/app/Providers.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/store/slices/loginSlice.ts [Client Component SSR]
+    ./client/app/store/store.ts [Client Component SSR]
+    ./client/app/Providers.tsx [Client Component SSR]
+    ./client/app/Providers.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+[00:31:49.363] Server  LOG      ✓ Compiled in 52ms
+[00:31:53.471] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:32:07.584] Browser ERROR   ./client/app/(auth)/login/page.tsx:38:1
 Parsing ecmascript source code failed
-  11 | 					</p>
-  12 | 					<Alert
-> 13 | 					<div className='buttons'>
-     | 					^
-  14 | 						<a
-  15 | 							href='register.html'
-  16 | 							className='btn btn-primary'>
+  36 |       });
+  37 |       // Navigate to login
+> 38 | ?	};
+     | ^
+  39 | 	return (
+  40 | 		<section className='container'>
+  41 | 			<h1 className='large text-primary'>Sign In</h1>
 
 Expression expected
-[00:01:55.261] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
 
+Import traces:
+  Client Component Browser:
+    ./client/app/(auth)/login/page.tsx [Client Component Browser]
+    ./client/app/(auth)/login/page.tsx [Server Component]
 
+  Client Component SSR:
+    ./client/app/(auth)/login/page.tsx [Client Component SSR]
+    ./client/app/(auth)/login/page.tsx [Server Component]
+[00:32:07.791] Server  LOG      ✓ Compiled in 22ms
+[00:32:14.874] Browser ERROR   Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+[00:32:14.874] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:32:19.013] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:32:19.937] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:32:51.768] Browser ERROR   Failed to parse user data from localStorage: {}
+[00:33:55.875] Browser ERROR   unhandledRejection: "Request failed with status code 400"
+[00:35:27.402] Server  LOG      ✓ Compiled in 39ms
+[00:35:40.487] Server  LOG      ✓ Compiled in 48ms
+[00:35:54.021] Server  LOG      ✓ Compiled in 24ms
+[00:36:19.583] Browser ERROR   ./client/app/(auth)/register/page.tsx:10:10
+Parsing ecmascript source code failed
+   8 | export default function Register() {
+   9 | 	const { register, registerLoading, 
+> 10 | 			const router = useRouter();
+     | 			      ^^^^^^
+  11 | 		registerError } = useAuth();
+  12 |
+  13 | 	const [formData, setFormData] = useState({
 
-https://nextjs.org/docs/messages/module-not-found
+Expected ',', got 'router'
 
+Import traces:
+  Client Component Browser:
+    ./client/app/(auth)/register/page.tsx [Client Component Browser]
+    ./client/app/(auth)/register/page.tsx [Server Component]
 
-[00:01:55.262] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.263] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.264] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.265] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.266] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.267] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.267] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.268] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.269] Server  ERROR    ⨯ ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:01:55.407] Browser ERROR   ./client/app/page.tsx:1:1
-Module not found: Can't resolve './components/alertTest'
-> 1 | import AlertTest from "./components/alertTest"
-    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  2 |
-  3 | export default function Home() {
-  4 |   return (
-
-https://nextjs.org/docs/messages/module-not-found
-[00:02:08.257] Server  LOG      ✓ Compiled in 66ms
+  Client Component SSR:
+    ./client/app/(auth)/register/page.tsx [Client Component SSR]
+    ./client/app/(auth)/register/page.tsx [Server Component]
+[00:36:19.599] Server  LOG      ✓ Compiled in 31ms
+[00:37:58.969] Browser ERROR   Failed to parse user data from localStorage: {}
