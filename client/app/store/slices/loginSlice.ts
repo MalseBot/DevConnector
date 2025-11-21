@@ -53,8 +53,10 @@ export const loginSlice = createSlice({
 			state.user = null;
 			state.isAuthenticated = false;
 			state.error = null;
+			
 			// Clear token and user data from localStorage
 			if (typeof window !== 'undefined') {
+				console.log(window);
 				localStorage.removeItem('token');
 				localStorage.removeItem('user');
 			}
@@ -66,10 +68,10 @@ export const loginSlice = createSlice({
 		},
 
 		// Load user from token (on app init)
-		loadUserFromToken: (state, action: { payload: AuthUser | null }) => {
+		loadUserFromToken: (state, action:{payload:AuthUser}) => {
 			if (action.payload) {
 				state.user = action.payload;
-				state.isAuthenticated = true;
+				state.isAuthenticated = true;				
 			}
 		},
 	},
@@ -85,6 +87,8 @@ export const loginSlice = createSlice({
 				state.isLoading = false;
 				state.isAuthenticated = true;
 				state.error = null;
+				console.log(action);
+				
 				const token = action.payload.token;
 				if(token){
 					const decodedToken = JSON.parse(atob(token.split('.')[1]));
@@ -92,8 +96,8 @@ export const loginSlice = createSlice({
 
 					state.user = {
 						id: userId,
-						name: action.payload.user?.name || '',
-						email: action.payload.user?.email || '',
+						name: action.payload.user.name,
+						email: action.payload.user.email,
 						token: token,
 					};
 				}

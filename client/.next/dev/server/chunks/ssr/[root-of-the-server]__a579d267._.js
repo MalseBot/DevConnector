@@ -206,8 +206,8 @@ const registerSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client
                 const userId = decodedToken.user.id;
                 state.user = {
                     id: userId,
-                    name: action.meta.arg.name,
-                    email: action.meta.arg.email,
+                    name: action.payload.user.name,
+                    email: action.payload.user.email,
                     token: token
                 };
             }
@@ -297,14 +297,15 @@ const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f
             state.isLoading = false;
             state.isAuthenticated = true;
             state.error = null;
+            console.log(action);
             const token = action.payload.token;
             if (token) {
                 const decodedToken = JSON.parse(atob(token.split('.')[1]));
                 const userId = decodedToken.user.id;
                 state.user = {
                     id: userId,
-                    name: action.payload.user?.name || '',
-                    email: action.payload.user?.email || '',
+                    name: action.payload.user.name,
+                    email: action.payload.user.email,
                     token: token
                 };
             }
@@ -365,7 +366,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$ho
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$registerSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/slices/registerSlice.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/slices/loginSlice.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/slices/alertSlice.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 'use client';
+;
 ;
 ;
 ;
@@ -396,6 +399,7 @@ const useAuth = ()=>{
     const handleLogin = async (credentials)=>{
         try {
             const result = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loginUser"])(credentials)).unwrap();
+            console.log(result);
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'success',
@@ -438,7 +442,9 @@ const useAuth = ()=>{
         isAuthenticated: loginState.isAuthenticated,
         logout: handleLogout,
         clearLoginError: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clearError"])()),
-        loadUserFromToken: (user)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loadUserFromToken"])(user))
+        loadUserFromToken: (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((user)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loadUserFromToken"])(user)), [
+            dispatch
+        ])
     };
 };
 }),
@@ -454,7 +460,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ne
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$public$2f$icon$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$client$2f$public$2f$icon$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/client/public/icon.png.mjs { IMAGE => "[project]/client/public/icon.png (static in ecmascript, tag client)" } [app-ssr] (structured image object with data url, ecmascript)');
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/hooks/useAuth.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/slices/loginSlice.ts [app-ssr] (ecmascript)");
 'use client';
+;
 ;
 ;
 ;
@@ -477,7 +485,7 @@ const Navbar = ()=>{
                             alt: "Logo"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                            lineNumber: 14,
+                            lineNumber: 15,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0)),
                         ' ',
@@ -485,12 +493,12 @@ const Navbar = ()=>{
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                    lineNumber: 13,
+                    lineNumber: 14,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                lineNumber: 12,
+                lineNumber: 13,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -501,15 +509,39 @@ const Navbar = ()=>{
                             children: "Developers"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                            lineNumber: 24,
+                            lineNumber: 25,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                        lineNumber: 23,
+                        lineNumber: 24,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
-                    isAuthenticated ? '' : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                    isAuthenticated ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                children: user?.name
+                            }, void 0, false, {
+                                fileName: "[project]/client/app/components/layouts/Navbar.tsx",
+                                lineNumber: 29,
+                                columnNumber: 6
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["logout"])(),
+                                    children: "Log out"
+                                }, void 0, false, {
+                                    fileName: "[project]/client/app/components/layouts/Navbar.tsx",
+                                    lineNumber: 30,
+                                    columnNumber: 10
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/client/app/components/layouts/Navbar.tsx",
+                                lineNumber: 30,
+                                columnNumber: 6
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -517,12 +549,12 @@ const Navbar = ()=>{
                                     children: "Register"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 35,
                                     columnNumber: 8
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                lineNumber: 30,
+                                lineNumber: 34,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -531,12 +563,12 @@ const Navbar = ()=>{
                                     children: "Login"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                    lineNumber: 34,
+                                    lineNumber: 38,
                                     columnNumber: 8
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                lineNumber: 33,
+                                lineNumber: 37,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
@@ -544,13 +576,13 @@ const Navbar = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-        lineNumber: 11,
+        lineNumber: 12,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -685,17 +717,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$us
 function AuthInitializer() {
     const { loadUserFromToken } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        // Only run on client side
-        if ("TURBOPACK compile-time truthy", 1) return;
-        //TURBOPACK unreachable
+        // On app init, check if token exists in localStorage
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
         ;
-        const token = undefined;
-        const userJson = undefined;
     }, [
         loadUserFromToken
     ]);
-    // This component doesn't render anything
-    return null;
+    return null; // This component doesn't render anything
 }
 }),
 "[project]/client/app/Providers.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {

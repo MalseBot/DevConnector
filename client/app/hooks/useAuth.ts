@@ -16,6 +16,7 @@ import {
 import { addAlert } from '@/app/store/slices/alertSlice';
 import type { RegisterUser } from '@/app/store/slices/registerSlice';
 import type { LoginCredentials } from '@/app/store/slices/loginSlice';
+import { useCallback } from 'react';
 
 /**
  * Custom hook for authentication
@@ -56,6 +57,8 @@ export const useAuth = () => {
 	const handleLogin = async (credentials: LoginCredentials) => {
 		try {
 			const result = await dispatch(loginUser(credentials)).unwrap();
+			console.log(result);
+			
 			dispatch(
 				addAlert({
 					id: `${Date.now()}`,
@@ -107,6 +110,6 @@ export const useAuth = () => {
 		isAuthenticated: loginState.isAuthenticated,
 		logout: handleLogout,
 		clearLoginError: () => dispatch(clearLoginError()),
-		loadUserFromToken: (user: unknown) => dispatch(loadUserFromToken(user)),
+		loadUserFromToken:useCallback( (user) => dispatch(loadUserFromToken(user)), [dispatch]),
 	};
 };

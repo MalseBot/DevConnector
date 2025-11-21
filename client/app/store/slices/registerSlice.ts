@@ -80,8 +80,8 @@ export const registerSlice = createSlice({
 
 					state.user = {
 						id: userId,
-						name: action.meta.arg.name,
-						email: action.meta.arg.email,
+						name: action.payload.user.name,
+						email: action.payload.user.email,
 						token: token,
 					};
 				}

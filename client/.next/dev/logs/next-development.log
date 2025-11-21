@@ -1,19 +1,451 @@
-[00:00:02.161] Server  LOG      ✓ Ready in 1459ms
-[00:00:37.021] Server  LOG      ✓ Compiled in 51ms
-[00:00:37.845] Browser ERROR   ./client/app/components/layouts/Navbar.tsx:26:27
+[00:00:01.543] Server  LOG      ✓ Ready in 1058ms
+[00:00:11.887] Browser ERROR   Failed to load user from token: {}
+[00:01:29.943] Server  LOG      ✓ Compiled in 76ms
+[00:01:30.892] Browser ERROR   uncaughtError: ReferenceError: user is not defined
+[00:01:55.558] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:01:55.813] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:01:55.815] Server  ERROR    ⨯ ReferenceError: par is not defined
+[00:01:55.850] Server  LOG      ✓ Compiled in 60ms
+[00:01:56.883] Browser ERROR   uncaughtError: ReferenceError: par is not defined
+[00:01:57.634] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:01:57.822] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:01:57.823] Server  ERROR    ⨯ ReferenceError: parsed is not defined
+[00:01:57.846] Server  LOG      ✓ Compiled in 35ms
+[00:01:58.893] Browser ERROR   uncaughtError: ReferenceError: parsed is not defined
+[00:02:01.230] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:01.438] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:02:01.439] Server  ERROR    ⨯ ReferenceError: parsedUser is not defined
+[00:02:01.455] Server  LOG      ✓ Compiled in 28ms
+[00:02:02.890] Browser ERROR   uncaughtError: ReferenceError: parsedUser is not defined
+[00:02:05.865] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:05.879] Server  LOG      ✓ Compiled in 30ms
+[00:02:09.279] Server  LOG      ✓ Compiled in 64ms
+[00:02:09.884] Browser ERROR   The final argument passed to %s changed size between renders. The order and size of this array must remain constant.
+
+Previous: %s
+Incoming: %s useEffect [(user)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["loadUserFromToken"])(user))] [, (user)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["loadUserFromToken"])(user))]
+[00:02:13.312] Server  LOG      ✓ Compiled in 42ms
+[00:02:13.886] Browser ERROR   uncaughtError: ReferenceError: parsed is not defined
+[00:02:16.832] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:17.051] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:02:17.051] Server  ERROR    ⨯ ReferenceError: parsedU is not defined
+[00:02:17.080] Server  LOG      ✓ Compiled in 27ms
+[00:02:17.897] Browser ERROR   uncaughtError: ReferenceError: parsedU is not defined
+[00:02:20.524] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:20.724] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:02:20.725] Server  ERROR    ⨯ ReferenceError: user is not defined
+[00:02:20.751] Server  LOG      ✓ Compiled in 27ms
+[00:02:21.887] Browser ERROR   uncaughtError: ReferenceError: user is not defined
+[00:02:22.852] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:22.866] Server  LOG      ✓ Compiled in 29ms
+[00:02:23.037] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:02:23.038] Server  ERROR    ⨯ ReferenceError: use is not defined
+[00:02:23.897] Browser ERROR   uncaughtError: ReferenceError: use is not defined
+[00:02:24.666] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:24.844] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:02:24.844] Server  ERROR    ⨯ ReferenceError: user is not defined
+[00:02:24.860] Server  LOG      ✓ Compiled in 26ms
+[00:02:25.885] Browser ERROR   uncaughtError: ReferenceError: user is not defined
+[00:03:31.378] Server  LOG      ✓ Compiled in 78ms
+[00:03:31.893] Browser ERROR   ./client/app/hooks/useAuth.ts:112:32
 Parsing ecmascript source code failed
-  24 | 					<Link href='/profiles'>Developers</Link>
-  25 | 				</li>
-> 26 | 				{isAuthenticated ?"" <><li>
-     | 				                      ^
-  27 | 					<Link href='/register'>Register</Link>
-  28 | 				</li>
-  29 | 				<li>
+  110 | 		logout: handleLogout,
+  111 | 		clearLoginError: () => dispatch(clearLoginError()),
+> 112 | 		loadUserFromToken:use (user) => dispatch(loadUserFromToken(user)),
+      | 		                             ^^
+  113 | 	};
+  114 | };
+  115 |
+
+Expected ',', got '=>'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useAuth.ts [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useAuth.ts [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+[00:03:32.891] Browser ERROR   ./client/app/hooks/useAuth.ts:112:33
+Parsing ecmascript source code failed
+  110 | 		logout: handleLogout,
+  111 | 		clearLoginError: () => dispatch(clearLoginError()),
+> 112 | 		loadUserFromToken:useC (user) => dispatch(loadUserFromToken(user)),
+      | 		                              ^^
+  113 | 	};
+  114 | };
+  115 |
+
+Expected ',', got '=>'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useAuth.ts [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useAuth.ts [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+[00:03:34.894] Browser ERROR   ./client/app/hooks/useAuth.ts:113:40
+Parsing ecmascript source code failed
+  111 | 		logout: handleLogout,
+  112 | 		clearLoginError: () => dispatch(clearLoginError()),
+> 113 | 		loadUserFromToken:useCallback (user) => dispatch(loadUserFromToken(user)),
+      | 		                                     ^^
+  114 | 	};
+  115 | };
+  116 |
+
+Expected ',', got '=>'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useAuth.ts [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useAuth.ts [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+[00:03:38.332] Browser ERROR   ./client/app/hooks/useAuth.ts:113:40
+Parsing ecmascript source code failed
+  111 | 		logout: handleLogout,
+  112 | 		clearLoginError: () => dispatch(clearLoginError()),
+> 113 | 		loadUserFromToken:useCallback (user) => dispatch(loadUserFromToken(user)),
+      | 		                                     ^^
+  114 | 	};
+  115 | };
+  116 |
+
+Expected ',', got '=>'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useAuth.ts [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useAuth.ts [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+[00:03:51.682] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:03:51.921] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:03:51.921] Server  ERROR    ⨯ ReferenceError: user is not defined
+[00:03:52.899] Browser ERROR   uncaughtError: ReferenceError: user is not defined
+[00:04:05.069] Server  LOG      ✓ Compiled in 53ms
+[00:04:05.893] Browser ERROR   ./client/app/hooks/useAuth.ts:113:79
+Parsing ecmascript source code failed
+  111 | 		logout: handleLogout,
+  112 | 		clearLoginError: () => dispatch(clearLoginError()),
+> 113 | 		loadUserFromToken:useCallback( (user) => dispatch(loadUserFromToken(user))),,
+      | 		                                                                            ^
+  114 | 	};
+  115 | };
+  116 |
+
+Unexpected token `,`. Expected identifier, string literal, numeric literal or [ for the computed key
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useAuth.ts [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Client Component Browser]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useAuth.ts [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Client Component SSR]
+    ./client/app/components/layouts/Navbar.tsx [Server Component]
+    ./client/app/layout.tsx [Server Component]
+[00:04:06.101] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:04:06.181] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:04:06.182] Server  ERROR    ⨯ ReferenceError: user is not defined
+[00:04:06.885] Browser ERROR   uncaughtError: ReferenceError: user is not defined
+[00:04:09.299] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:04:09.519] Server  ERROR   D:\WORK\Projects\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__a579d267._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:04:09.519] Server  ERROR    ⨯ ReferenceError: user is not defined
+[00:04:09.544] Server  LOG      ✓ Compiled in 26ms
+[00:04:10.890] Browser ERROR   uncaughtError: ReferenceError: user is not defined
+[00:04:23.583] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:04:23.596] Server  LOG      ✓ Compiled in 45ms
+[00:05:04.058] Browser LOG     {"meta":{"arg":{"email":"hassanin24@gmail.com","password":"0147852"},"requestId":"bc0wIY_M58onxvLBHKz6t","requestStatus":"fulfilled"},"payload":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkyMDA0OTMyNjJhODZiMGFmNmNjNTkzIn0sImlhdCI6MTc2MzcxMTM4MSwiZXhwIjoxNzY0MDcxMzgxfQ.3fjzun4tzL-PAjdhBclP5k3EglRwR6rVu2VH5omch7Y","user":{"email":"hassanin24@gmail.com","id":"69200493262a86b0af6cc593","name":"Hassanin"}},"type":"login/loginUser/fulfilled"}
+[00:05:04.058] Browser LOG     {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkyMDA0OTMyNjJhODZiMGFmNmNjNTkzIn0sImlhdCI6MTc2MzcxMTM4MSwiZXhwIjoxNzY0MDcxMzgxfQ.3fjzun4tzL-PAjdhBclP5k3EglRwR6rVu2VH5omch7Y","user":{"email":"hassanin24@gmail.com","id":"69200493262a86b0af6cc593","name":"Hassanin"}}
+[00:05:19.171] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:08:29.494] Server  LOG      ✓ Compiled in 55ms
+[00:08:33.373] Server  LOG      ✓ Compiled in 58ms
+[00:10:28.263] Server  LOG      ✓ Compiled in 31ms
+[00:10:34.685] Server  LOG      ✓ Compiled in 179ms
+[00:10:36.893] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/profiles" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:10:44.280] Server  LOG      ✓ Compiled in 29ms
+[00:11:03.885] Browser ERROR   ./client/app/(dashboard)/layout.tsx:8:11
+Parsing ecmascript source code failed
+   6 | 	children: React.ReactNode;
+   7 | }>) {
+>  8 | 	return <P<section className='container-custom'>{children}</section>;
+     | 	         ^
+   9 | }
+  10 |
 
 Expression expected
+[00:11:05.884] Browser ERROR   ./client/app/(dashboard)/layout.tsx:8:13
+Parsing ecmascript source code failed
+   6 | 	children: React.ReactNode;
+   7 | }>) {
+>  8 | 	return <Pro<section className='container-custom'>{children}</section>;
+     | 	           ^
+   9 | }
+  10 |
 
-Import trace:
-  Server Component:
-    ./client/app/components/layouts/Navbar.tsx
-    ./client/app/layout.tsx
-[00:00:40.904] Server  LOG      ✓ Compiled in 34ms
+Expression expected
+[00:11:06.885] Browser ERROR   ./client/app/(dashboard)/layout.tsx:8:15
+Parsing ecmascript source code failed
+   6 | 	children: React.ReactNode;
+   7 | }>) {
+>  8 | 	return <Prote<section className='container-custom'>{children}</section>;
+     | 	             ^
+   9 | }
+  10 |
+
+Expression expected
+[00:11:08.889] Browser ERROR   ./client/app/(dashboard)/layout.tsx:10:24
+Parsing ecmascript source code failed
+   8 | 	children: React.ReactNode;
+   9 | }>) {
+> 10 | 	return <ProtectedRoute<section className='container-custom'>{children}</section>;
+     | 	                      ^
+  11 | }
+  12 |
+
+Expression expected
+[00:11:10.893] Browser ERROR   ./client/app/(dashboard)/layout.tsx:10:51
+Parsing ecmascript source code failed
+   8 | 	children: React.ReactNode;
+   9 | }>) {
+> 10 | 	return <ProtectedRoute></ProtectedRoute><section className='container-custom'>{children}</section>;
+     | 	                                                 ^^^^^^^^^
+  11 | }
+  12 |
+
+Expected ';', got 'className'
+[00:11:19.100] Server  LOG      ✓ Compiled in 70ms
+[00:11:19.538] Server  LOG      ✓ Compiled in 31ms
+[00:11:25.645] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:11:35.229] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:11:57.886] Browser ERROR   ./client/app/(dashboard)/layout.tsx:13:4
+Parsing ecmascript source code failed
+  11 | 		// <ProtectedRoute>
+  12 | 			<section className='container-custom'>{children}</section>
+> 13 | 		</ProtectedRoute>
+     | 		 ^^^^^^^^^^^^^^^^
+  14 | 	);
+  15 | }
+  16 |
+
+Unterminated regexp literal
+[00:11:58.575] Server  LOG      ✓ Compiled in 41ms
+[00:12:09.948] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           data-new-gr-c-s-check-loaded="14.1128.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:13:12.321] Server  LOG      ✓ Compiled in 47ms
+[00:13:13.815] Server  LOG      ✓ Compiled in 22ms
+[00:13:16.353] Server  LOG      ✓ Compiled in 26ms
+[00:13:17.618] Server  LOG      ✓ Compiled in 29ms
+[00:13:22.465] Server  LOG      ✓ Compiled in 56ms

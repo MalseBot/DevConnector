@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/WORK/Projects/DevConnector/client/app/%28dashboard%29/layout.tsx"],"sourcesContent":["/** @format */\r\n\r\nimport { ProtectedRoute } from '../components/ProtectedRoute';\r\n\r\nexport default function RootLayout({\r\n\tchildren,\r\n}: Readonly<{\r\n\tchildren: React.ReactNode;\r\n}>) {\r\n\treturn (\r\n\t\t// <ProtectedRoute>\r\n\t\t\t<section className='container-custom'>{children}</section>\r\n\t\t// </ProtectedRoute>\r\n\t);\r\n}\r\n"],"names":[],"mappings":"AAAA,YAAY;;;;;;AAIG,SAAS,WAAW,EAClC,QAAQ,EAGP;IACD,OACC,mBAAmB;kBAClB,wPAAC;QAAQ,WAAU;kBAAoB;;;;;;AAG1C"}}]
+}

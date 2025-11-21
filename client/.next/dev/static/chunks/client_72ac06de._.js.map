@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/WORK/Projects/DevConnector/client/app/%28dashboard%29/dashboard/page.tsx"],"sourcesContent":["\"use client\";\r\n\r\nimport { useAuth } from \"@/app/hooks/useAuth\";\r\nimport { useRouter } from \"next/navigation\";\r\nimport { useEffect } from \"react\";\r\n\r\nconst Dashboard = () => {\r\n  const {isAuthenticated} = useAuth();\r\n  const router = useRouter();\r\n  useEffect(()=>{\r\n    if(isAuthenticated === false){\r\n      router.push('/login');\r\n  }},[isAuthenticated, router]);\r\n  return (\r\n    <div>Dashboard</div>\r\n  )\r\n}\r\n\r\nexport default Dashboard"],"names":[],"mappings":";;;;;AAEA;AACA;AACA;;;AAJA;;;;AAMA,MAAM,YAAY;;IAChB,MAAM,EAAC,eAAe,EAAC,GAAG,IAAA,+IAAO;IACjC,MAAM,SAAS,IAAA,4JAAS;IACxB,IAAA,oLAAS;+BAAC;YACR,IAAG,oBAAoB,OAAM;gBAC3B,OAAO,IAAI,CAAC;YAChB;QAAC;8BAAE;QAAC;QAAiB;KAAO;IAC5B,qBACE,uMAAC;kBAAI;;;;;;AAET;GAVM;;QACsB,+IAAO;QAClB,4JAAS;;;KAFpB;uCAYS"}},
+    {"offset": {"line": 56, "column": 0}, "map": {"version":3,"sources":["file:///D:/WORK/Projects/DevConnector/client/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0]}}]
+}

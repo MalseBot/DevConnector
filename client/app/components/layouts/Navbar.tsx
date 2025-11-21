@@ -4,6 +4,7 @@ import Image from 'next/image';
 import logo from '../../../public/icon.png';
 import Link from 'next/link';
 import { useAuth } from '@/app/hooks/useAuth';
+import { logout } from '@/app/store/slices/loginSlice';
 const Navbar = () => {
 	const { isAuthenticated, user } = useAuth();
 	// Placeholder for auth state
@@ -24,7 +25,10 @@ const Navbar = () => {
 					<Link href='/profiles'>Developers</Link>
 				</li>
 				{isAuthenticated ? (
-					''
+					<>
+					<li>{user?.name}</li>
+					<li><button onClick={()=>logout()}>Log out</button></li>
+					</>
 				) : (
 					<>
 						<li>
