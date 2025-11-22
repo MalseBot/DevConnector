@@ -1,4 +1,4 @@
-
+"use client";
 export default function Home() {
   return (
 		<section className='landing'>
@@ -15,6 +15,7 @@ export default function Home() {
 							className='btn btn-primary'>
 							Sign Up
 						</a>
+						
 						<a
 							href='login.html'
 							className='btn btn-light'>

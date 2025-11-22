@@ -1,7 +1,16 @@
 /** @format */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Alert, AlertState } from '../types/alert';
+interface Alert {
+	id: string;
+	type: 'success' | 'error' | 'warning' | 'info';
+	message: string;
+	duration?: number; // in milliseconds
+}
+
+interface AlertState {
+	alerts: Alert[];
+}
 
 const initialState: AlertState = {
 	alerts: [],

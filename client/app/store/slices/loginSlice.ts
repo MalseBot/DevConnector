@@ -24,7 +24,7 @@ export interface LoginState {
 
 const initialState: LoginState = {
 	user: null,
-	isLoading: false,
+	isLoading: true,
 	error: null,
 	isAuthenticated: false,
 };
@@ -52,26 +52,29 @@ export const loginSlice = createSlice({
 		logout: (state) => {
 			state.user = null;
 			state.isAuthenticated = false;
+			state.isLoading = false;
 			state.error = null;
 			
 			// Clear token and user data from localStorage
-			if (typeof window !== 'undefined') {
 				console.log(window);
 				localStorage.removeItem('token');
 				localStorage.removeItem('user');
-			}
+			
 		},
 
 		// Clear error
 		clearError: (state) => {
 			state.error = null;
+			state.isLoading = false;
 		},
 
 		// Load user from token (on app init)
 		loadUserFromToken: (state, action:{payload:AuthUser}) => {
 			if (action.payload) {
 				state.user = action.payload;
-				state.isAuthenticated = true;				
+				state.isLoading = false;
+				state.isAuthenticated = true;
+
 			}
 		},
 	},

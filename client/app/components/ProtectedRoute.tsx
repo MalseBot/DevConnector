@@ -12,7 +12,7 @@ interface ProtectedRouteProps {
 
 export function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
 	const { isAuthenticated, loginLoading } = useAuth();
-
+	
 	// Show loading state while checking auth
 	if (loginLoading) {
 		return fallback || <div>Loading...</div>;
@@ -20,8 +20,7 @@ export function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
 
 	// Redirect to login if not authenticated
 	if (!isAuthenticated) {
-		redirect('/login');
-	}
+		redirect('/login');}
 
 	return <>{children}</>;
 }

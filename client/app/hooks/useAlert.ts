@@ -4,7 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { useAppDispatch } from '../store/hooks';
 import { useCallback } from 'react';
 import { addAlert, removeAlert } from '../store/slices/alertSlice';
-import { Alert } from '../store/types/alert';
+
+interface Alert {
+	id: string;
+	type: 'success' | 'error' | 'warning' | 'info';
+	message: string;
+	duration?: number; // in milliseconds
+}
 
 export const useAlert = () => {
 	const dispatch = useAppDispatch();

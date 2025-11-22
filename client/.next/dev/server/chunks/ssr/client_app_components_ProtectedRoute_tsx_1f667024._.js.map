@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/WORK/Projects/DevConnector/client/app/components/ProtectedRoute.tsx"],"sourcesContent":["/** @format */\r\n\r\n'use client';\r\nimport { ReactNode } from 'react';\r\nimport { useAuth } from '@/app/hooks/useAuth';\r\nimport { redirect } from 'next/navigation';\r\n\r\ninterface ProtectedRouteProps {\r\n\tchildren: ReactNode;\r\n\tfallback?: ReactNode;\r\n}\r\n\r\nexport function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {\r\n\tconst { isAuthenticated, loginLoading } = useAuth();\r\n\t\r\n\t// Show loading state while checking auth\r\n\tif (loginLoading) {\r\n\t\treturn fallback || <div>Loading...</div>;\r\n\t}\r\n\r\n\t// Redirect to login if not authenticated\r\n\tif (!isAuthenticated) {\r\n\t\tredirect('/login');}\r\n\r\n\treturn <>{children}</>;\r\n}\r\n"],"names":[],"mappings":"AAAA,YAAY;;;;;AAIZ;AACA;AAHA;;;;AAUO,SAAS,eAAe,EAAE,QAAQ,EAAE,QAAQ,EAAuB;IACzE,MAAM,EAAE,eAAe,EAAE,YAAY,EAAE,GAAG,IAAA,4IAAO;IAEjD,yCAAyC;IACzC,IAAI,cAAc;QACjB,OAAO,0BAAY,wPAAC;sBAAI;;;;;;IACzB;IAEA,yCAAyC;IACzC,IAAI,CAAC,iBAAiB;QACrB,IAAA,wJAAQ,EAAC;IAAU;IAEpB,qBAAO;kBAAG;;AACX"}}]
+}

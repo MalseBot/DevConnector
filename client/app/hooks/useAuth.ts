@@ -24,6 +24,12 @@ import { useCallback } from 'react';
  * Usage:
  * const { register, login, logout, user, isAuthenticated } = useAuth();
  */
+export interface AuthUser {
+	id: string;
+	name: string;
+	email: string;
+	token: string;
+}
 export const useAuth = () => {
 	const dispatch = useAppDispatch();
 	const registerState = useAppSelector((state) => state.register);
@@ -82,7 +88,21 @@ export const useAuth = () => {
 	};
 
 	const handleLogout = () => {
+		// console.log('Logout button clicked'); // Debug log
+		// console.log('Before logout - user:', user); // Debug log
+		// console.log('Before logout - isAuthenticated:', isAuthenticated); // Debug log
+
 		dispatch(logout());
+
+		// Clear localStorage
+		if (typeof window !== 'undefined') {
+			localStorage.removeItem('token');
+			localStorage.removeItem('user');
+			localStorage.removeItem('profile');
+		}
+
+		console.log('After logout - localStorage cleared'); // Debug log
+
 		dispatch(
 			addAlert({
 				id: `${Date.now()}`,
@@ -110,6 +130,6 @@ export const useAuth = () => {
 		isAuthenticated: loginState.isAuthenticated,
 		logout: handleLogout,
 		clearLoginError: () => dispatch(clearLoginError()),
-		loadUserFromToken:useCallback( (user) => dispatch(loadUserFromToken(user)), [dispatch]),
+		loadUserFromToken:useCallback( (user: AuthUser) => dispatch(loadUserFromToken(user)), [dispatch]),
 	};
 };

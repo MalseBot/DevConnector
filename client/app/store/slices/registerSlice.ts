@@ -25,7 +25,7 @@ export interface RegisterState {
 
 const initialState: RegisterState = {
 	user: null,
-	isLoading: false,
+	isLoading: true,
 	error: null,
 	success: false,
 };
