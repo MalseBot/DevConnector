@@ -95,11 +95,13 @@ export const createUpdateProfile = createAsyncThunk(
 	'profile/createUpdateProfile',
 	async (profileData: Partial<Profile>, { rejectWithValue }) => {
 		try {
+			console.log(profileData);
+			
 			const response = await api.post('/profiles', profileData);
 			return response.data;
 		} catch (error: any) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Failed to create/update profile'
+				error.response.data.errors?.[0].msg
 			);
 		}
 	}

@@ -1,6 +1,21 @@
-"use client";
+/** @format */
+
+'use client';
+
+import { useEffect } from 'react';
+import { useAuth } from './hooks/useAuth';
+import { useRouter } from 'next/navigation';
+
 export default function Home() {
-  return (
+	const router = useRouter();
+	const { isAuthenticated } = useAuth();
+	useEffect(() => {
+		if (isAuthenticated) {
+			router.push('/dashboard');
+		}
+	});
+
+	return (
 		<section className='landing'>
 			<div className='dark-overlay'>
 				<div className='landing-inner'>
@@ -15,7 +30,7 @@ export default function Home() {
 							className='btn btn-primary'>
 							Sign Up
 						</a>
-						
+
 						<a
 							href='login.html'
 							className='btn btn-light'>

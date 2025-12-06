@@ -3,14 +3,12 @@
 'use client';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import Alert from './components/Alert';
 import { AuthInitializer } from './components/AuthInitializer';
 
 export function Providers({ children }: { children: React.ReactNode }) {
 	return (
 		<Provider store={store}>
 			<AuthInitializer />
-			<Alert />
 			{children}
 		</Provider>
 	);

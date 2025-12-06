@@ -20,7 +20,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 const useProfile = ()=>{
     _s();
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppDispatch"])();
     const profileState = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"])({
         "useProfile.useAppSelector[profileState]": (state)=>state.profile
@@ -31,18 +30,11 @@ const useProfile = ()=>{
             try {
                 const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCurrentProfile"])()).unwrap();
                 if (!response) {
-                    console.log(response);
-                    router.push('/profile-form');
-                    dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
-                        id: `${Date.now()}`,
-                        type: 'warning',
-                        message: 'Please create your profile',
-                        duration: 5000
-                    }));
+                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["redirect"])('/profile-form');
                 }
                 return response;
-            } catch (error) {
-                const errorMsg = error;
+            } catch (error1) {
+                const errorMsg = error1;
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
@@ -52,23 +44,22 @@ const useProfile = ()=>{
             }
         }
     }["useProfile.useCallback[fetchCurrentProfile]"], [
-        dispatch,
-        router
+        dispatch
     ]);
     const fetchProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "useProfile.useCallback[fetchProfileById]": async (userId)=>{
             try {
                 const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getProfileById"])(userId)).unwrap();
                 return response;
-            } catch (error) {
-                const errorMsg = error;
+            } catch (error1) {
+                const errorMsg = error1;
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
                     message: errorMsg,
                     duration: 5000
                 }));
-                throw error;
+                throw error1;
             }
         }
     }["useProfile.useCallback[fetchProfileById]"], [
@@ -78,17 +69,23 @@ const useProfile = ()=>{
         "useProfile.useCallback[saveProfile]": async (profileData)=>{
             try {
                 const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createUpdateProfile"])(profileData)).unwrap();
+                dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
+                    id: `${Date.now()}`,
+                    type: 'success',
+                    message: 'Profile saved successfully',
+                    duration: 5000
+                }));
                 return response;
-            } catch (error) {
-                const errorMsg = error;
+            } catch (error1) {
+                const errorMsg = error1;
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
-                    message: errorMsg,
+                    message: errorMsg || 'Failed to save profile',
                     duration: 5000
                 }));
-                throw error;
             }
+            throw error;
         }
     }["useProfile.useCallback[saveProfile]"], [
         dispatch
@@ -105,9 +102,8 @@ const useProfile = ()=>{
         clearProfileError: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearError"])())
     };
 };
-_s(useProfile, "jXAhnyy83htUfUY2LMkDHmNf5Ck=", false, function() {
+_s(useProfile, "UG4oLePFoNCDV4YE2s06YAlGeEU=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppDispatch"],
         __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"]
     ];
@@ -154,7 +150,7 @@ const Dashboard = ()=>{
                     children: "Dashboard"
                 }, void 0, false, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 19,
+                    lineNumber: 17,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -162,7 +158,7 @@ const Dashboard = ()=>{
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$react$2d$icons$2f$cg$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CgProfile"], {}, void 0, false, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 21,
+                            lineNumber: 19,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0)),
                         " ",
@@ -173,13 +169,13 @@ const Dashboard = ()=>{
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 21,
+                            lineNumber: 19,
                             columnNumber: 20
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 20,
+                    lineNumber: 18,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -193,14 +189,14 @@ const Dashboard = ()=>{
                                     className: "fas fa-user-circle text-primary"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                    lineNumber: 27,
+                                    lineNumber: 25,
                                     columnNumber: 7
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 " Edit Profile"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 24,
+                            lineNumber: 22,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -211,14 +207,14 @@ const Dashboard = ()=>{
                                     className: "fab fa-black-tie text-primary"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                    lineNumber: 32,
+                                    lineNumber: 30,
                                     columnNumber: 7
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 " Add Experience"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 29,
+                            lineNumber: 27,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -229,20 +225,20 @@ const Dashboard = ()=>{
                                     className: "fas fa-graduation-cap text-primary"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                    lineNumber: 37,
+                                    lineNumber: 35,
                                     columnNumber: 7
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 " Add Education"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 34,
+                            lineNumber: 32,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 23,
+                    lineNumber: 21,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -250,7 +246,7 @@ const Dashboard = ()=>{
                     children: "Experience Credentials"
                 }, void 0, false, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 41,
+                    lineNumber: 39,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
@@ -263,7 +259,7 @@ const Dashboard = ()=>{
                                         children: "Company"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 45,
+                                        lineNumber: 43,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -271,7 +267,7 @@ const Dashboard = ()=>{
                                         children: "Title"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 46,
+                                        lineNumber: 44,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -279,23 +275,23 @@ const Dashboard = ()=>{
                                         children: "Years"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 47,
+                                        lineNumber: 45,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {}, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 48,
+                                        lineNumber: 46,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                lineNumber: 44,
+                                lineNumber: 42,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 43,
+                            lineNumber: 41,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -306,7 +302,7 @@ const Dashboard = ()=>{
                                             children: "Tech Guy Web Solutions"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 53,
+                                            lineNumber: 51,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -314,7 +310,7 @@ const Dashboard = ()=>{
                                             children: "Senior Developer"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 54,
+                                            lineNumber: 52,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -322,7 +318,7 @@ const Dashboard = ()=>{
                                             children: "02-03-2009 - 01-02-2014"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 55,
+                                            lineNumber: 53,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -331,18 +327,18 @@ const Dashboard = ()=>{
                                                 children: "Delete"
                                             }, void 0, false, {
                                                 fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                                lineNumber: 57,
+                                                lineNumber: 55,
                                                 columnNumber: 9
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 56,
+                                            lineNumber: 54,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                    lineNumber: 52,
+                                    lineNumber: 50,
                                     columnNumber: 7
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
@@ -351,7 +347,7 @@ const Dashboard = ()=>{
                                             children: "Traversy Media"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 61,
+                                            lineNumber: 59,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -359,7 +355,7 @@ const Dashboard = ()=>{
                                             children: "Instructor & Developer"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 62,
+                                            lineNumber: 60,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -367,7 +363,7 @@ const Dashboard = ()=>{
                                             children: "02-03-2015 - Now"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 63,
+                                            lineNumber: 61,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -376,30 +372,30 @@ const Dashboard = ()=>{
                                                 children: "Delete"
                                             }, void 0, false, {
                                                 fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                                lineNumber: 65,
+                                                lineNumber: 63,
                                                 columnNumber: 9
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 64,
+                                            lineNumber: 62,
                                             columnNumber: 8
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 58,
                                     columnNumber: 7
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 51,
+                            lineNumber: 49,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 42,
+                    lineNumber: 40,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -407,7 +403,7 @@ const Dashboard = ()=>{
                     children: "Education Credentials"
                 }, void 0, false, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 71,
+                    lineNumber: 69,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
@@ -420,7 +416,7 @@ const Dashboard = ()=>{
                                         children: "School"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 75,
+                                        lineNumber: 73,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -428,7 +424,7 @@ const Dashboard = ()=>{
                                         children: "Degree"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 76,
+                                        lineNumber: 74,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -436,23 +432,23 @@ const Dashboard = ()=>{
                                         children: "Years"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 75,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {}, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 78,
+                                        lineNumber: 76,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                lineNumber: 74,
+                                lineNumber: 72,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 73,
+                            lineNumber: 71,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -462,7 +458,7 @@ const Dashboard = ()=>{
                                         children: "Northern Essex"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 81,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -470,7 +466,7 @@ const Dashboard = ()=>{
                                         children: "Associates"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 84,
+                                        lineNumber: 82,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -478,7 +474,7 @@ const Dashboard = ()=>{
                                         children: "02-03-2007 - 01-02-2009"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 85,
+                                        lineNumber: 83,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -487,29 +483,29 @@ const Dashboard = ()=>{
                                             children: "Delete"
                                         }, void 0, false, {
                                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                            lineNumber: 87,
+                                            lineNumber: 85,
                                             columnNumber: 9
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 84,
                                         columnNumber: 8
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                lineNumber: 82,
+                                lineNumber: 80,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                            lineNumber: 81,
+                            lineNumber: 79,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 72,
+                    lineNumber: 70,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -521,25 +517,25 @@ const Dashboard = ()=>{
                                 className: "fas fa-user-minus"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                                lineNumber: 95,
+                                lineNumber: 93,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0)),
                             "Delete My Account"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                        lineNumber: 94,
+                        lineNumber: 92,
                         columnNumber: 6
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-                    lineNumber: 93,
+                    lineNumber: 91,
                     columnNumber: 5
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/client/app/(dashboard)/dashboard/page.tsx",
-            lineNumber: 18,
+            lineNumber: 16,
             columnNumber: 4
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false);

@@ -1,132 +1,5 @@
-[00:00:01.255] Server  LOG      ✓ Ready in 838ms
-[00:00:09.552] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/client/ap...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html
-                          lang="en"
--                         suppresshydrationwarning="true"
--                         data-lt-installed="true"
-                        >
-                  ...
-
-[00:00:49.003] Server  LOG      ✓ Compiled in 67ms
-[00:00:52.781] Server  LOG      ✓ Compiled in 27ms
-[00:00:55.387] Server  LOG      ✓ Compiled in 32ms
-[00:00:59.864] Server  LOG      ✓ Compiled in 27ms
-[00:01:02.639] Server  LOG      ✓ Compiled in 37ms
-[00:01:06.374] Server  LOG      ✓ Compiled in 35ms
-[00:01:21.196] Server  LOG      ✓ Compiled in 62ms
-[00:01:24.626] Server  LOG      ✓ Compiled in 36ms
-[00:01:26.660] Server  LOG      ✓ Compiled in 31ms
-[00:01:28.536] Server  LOG      ✓ Compiled in 30ms
-[00:01:40.466] Server  LOG      ✓ Compiled in 23ms
-[00:01:44.263] Server  LOG      ✓ Compiled in 42ms
-[00:01:50.793] Server  LOG      ✓ Compiled in 43ms
-[00:01:53.343] Server  LOG      ✓ Compiled in 21ms
-[00:01:56.924] Server  LOG      ✓ Compiled in 34ms
-[00:02:13.140] Server  LOG      ✓ Compiled in 26ms
-[00:02:15.038] Server  LOG      ✓ Compiled in 28ms
-[00:02:25.961] Server  LOG      ✓ Compiled in 47ms
-[00:02:28.023] Server  LOG      ✓ Compiled in 21ms
-[00:02:35.864] Server  LOG      ✓ Compiled in 58ms
-[00:02:38.733] Server  LOG      ✓ Compiled in 33ms
-[00:02:43.808] Server  LOG      ✓ Compiled in 25ms
-[00:02:44.915] Server  LOG      ✓ Compiled in 22ms
-[00:02:46.427] Server  LOG      ✓ Compiled in 30ms
-[00:02:50.985] Server  LOG      ✓ Compiled in 45ms
-[00:02:54.205] Server  LOG      ✓ Compiled in 42ms
-[00:03:19.489] Server  LOG      ✓ Compiled in 50ms
-[00:03:22.348] Server  LOG      ✓ Compiled in 54ms
-[00:03:24.095] Server  LOG      ✓ Compiled in 21ms
-[00:03:30.627] Server  LOG      ✓ Compiled in 69ms
-[00:03:35.444] Server  LOG      ✓ Compiled in 42ms
-[00:03:43.859] Server  LOG      ✓ Compiled in 27ms
-[00:03:46.289] Server  LOG      ✓ Compiled in 35ms
-[00:03:49.341] Server  LOG      ✓ Compiled in 32ms
-[00:03:52.424] Server  LOG      ✓ Compiled in 23ms
-[00:03:54.800] Server  LOG      ✓ Compiled in 22ms
-[00:04:02.391] Server  LOG      ✓ Compiled in 62ms
-[00:04:07.634] Server  LOG      ✓ Compiled in 41ms
-[00:04:21.515] Server  LOG      ✓ Compiled in 42ms
-[00:04:23.964] Server  LOG      ✓ Compiled in 24ms
-[00:04:26.180] Server  LOG      ✓ Compiled in 22ms
-[00:04:27.833] Server  LOG      ✓ Compiled in 37ms
-[00:04:34.006] Server  LOG      ✓ Compiled in 32ms
-[00:04:35.786] Server  LOG      ✓ Compiled in 26ms
-[00:04:38.802] Server  LOG      ✓ Compiled in 41ms
-[00:04:40.314] Server  LOG      ✓ Compiled in 23ms
-[00:04:48.713] Server  LOG      ✓ Compiled in 52ms
-[00:04:52.899] Server  LOG      ✓ Compiled in 45ms
-[00:04:55.236] Server  LOG      ✓ Compiled in 28ms
-[00:04:57.219] Server  LOG      ✓ Compiled in 36ms
-[00:05:01.074] Server  LOG      ✓ Compiled in 24ms
-[00:05:10.459] Server  LOG      ✓ Compiled in 33ms
-[00:05:13.396] Server  LOG      ✓ Compiled in 21ms
-[00:05:20.390] Server  LOG      ✓ Compiled in 25ms
-[00:05:23.407] Server  LOG      ✓ Compiled in 56ms
-[00:05:31.663] Server  LOG      ✓ Compiled in 23ms
-[00:05:33.840] Server  LOG      ✓ Compiled in 31ms
-[00:05:38.026] Server  LOG      ✓ Compiled in 43ms
-[00:05:39.205] Server  LOG      ✓ Compiled in 26ms
-[00:05:40.736] Server  LOG      ✓ Compiled in 30ms
-[00:05:43.403] Server  LOG      ✓ Compiled in 21ms
-[00:05:46.590] Server  LOG      ✓ Compiled in 22ms
-[00:05:48.703] Server  LOG      ✓ Compiled in 27ms
-[00:05:50.507] Server  LOG      ✓ Compiled in 24ms
-[00:05:55.781] Server  LOG      ✓ Compiled in 22ms
-[00:05:58.019] Server  LOG      ✓ Compiled in 21ms
-[00:06:00.022] Server  LOG      ✓ Compiled in 25ms
-[00:06:02.216] Server  LOG      ✓ Compiled in 32ms
-[00:06:05.455] Server  LOG      ✓ Compiled in 21ms
-[00:06:13.403] Server  LOG      ✓ Compiled in 54ms
-[00:06:14.916] Server  LOG      ✓ Compiled in 23ms
-[00:06:17.134] Server  LOG      ✓ Compiled in 21ms
-[00:06:24.285] Server  LOG      ✓ Compiled in 58ms
-[00:06:25.865] Server  LOG      ✓ Compiled in 23ms
-[00:06:40.792] Server  LOG      ✓ Compiled in 23ms
-[00:06:47.329] Server  LOG      ✓ Compiled in 23ms
-[00:07:17.700] Server  LOG      ✓ Compiled in 49ms
-[00:07:25.014] Server  LOG      ✓ Compiled in 56ms
-[00:07:26.588] Server  LOG      ✓ Compiled in 37ms
-[00:07:30.540] Server  LOG      ✓ Compiled in 41ms
-[00:07:37.249] Server  LOG      ✓ Compiled in 29ms
-[00:07:40.604] Server  LOG      ✓ Compiled in 50ms
-[00:07:46.343] Server  LOG      ✓ Compiled in 50ms
-[00:07:47.650] Server  LOG      ✓ Compiled in 41ms
-[00:08:07.904] Server  LOG      ✓ Compiled in 41ms
-[00:08:10.948] Server  LOG      ✓ Compiled in 24ms
-[00:08:17.627] Server  LOG      ✓ Compiled in 23ms
-[00:08:24.148] Server  LOG      ✓ Compiled in 28ms
-[00:10:14.682] Server  LOG      ✓ Compiled in 24ms
-[00:10:15.948] Server  LOG      ✓ Compiled in 40ms
-[00:10:18.930] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:01.237] Server  LOG      ✓ Ready in 842ms
+[00:00:05.501] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -163,51 +36,1955 @@ It can also happen if the client has a browser extension installed which messes 
                         >
                   ...
 
-[00:12:36.243] Server  LOG      ✓ Compiled in 100ms
-[00:12:36.351] Browser ERROR   ./client/app/globals.css
-Error evaluating Node.js code
-CssSyntaxError: D:\WORK\Projects\DevConnector\client\app\globals.css:254:126: Unknown word ~
-    [at Input.error (turbopack:///[project]/client/node_modules/postcss/lib/input.js:135:16)]
-    [at Parser.unknownWord (turbopack:///[project]/client/node_modules/postcss/lib/parser.js:595:22)]
-    [at Parser.other (turbopack:///[project]/client/node_modules/postcss/lib/parser.js:437:12)]
-    [at Parser.parse (turbopack:///[project]/client/node_modules/postcss/lib/parser.js:472:16)]
-    [at parse (turbopack:///[project]/client/node_modules/postcss/lib/parse.js:11:12)]
-    [at new LazyResult (turbopack:///[project]/client/node_modules/postcss/lib/lazy-result.js:165:16)]
-    [at Processor.process (turbopack:///[project]/client/node_modules/postcss/lib/processor.js:53:14)]
-    [at transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:51)]
-    [at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:29)]
-    [at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:115:11)]
+[00:00:15.041] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Developer","website":"malsebot.netlify.app"}
+[00:00:15.041] Browser LOG     {"message":"Rejected"}
+[00:00:15.041] Browser LOG     Profile saved, redirecting to dashboard...
+[00:00:19.011] Browser LOG     {"$RefreshHelpers$":{},"TURBOPACK":{},"TURBOPACK_CHUNK_LISTS":{},"TURBOPACK_CHUNK_UPDATE_LISTENERS":{},"VSC":{"Constants":{"CONTROLLER_SIZE_LIMITS":{"AUDIO_MIN_HEIGHT":20,"AUDIO_MIN_WIDTH":20,"VIDEO_MIN_HEIGHT":40,"VIDEO_MIN_WIDTH":40},"CUSTOM_ACTIONS_NO_VALUES":["pause","muted","mark","jump","display"],"DEFAULT_SETTINGS":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":["[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]"],"lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false},"LOG_LEVELS":{"DEBUG":5,"ERROR":2,"INFO":4,"NONE":1,"VERBOSE":6,"WARNING":3},"MESSAGE_TYPES":{"ADJUST_SPEED":"VSC_ADJUST_SPEED","RESET_SPEED":"VSC_RESET_SPEED","SET_SPEED":"VSC_SET_SPEED","TOGGLE_DISPLAY":"VSC_TOGGLE_DISPLAY"},"SPEED_LIMITS":{"MAX":16,"MIN":0.07},"regEndsWithFlags":{},"regStrip":{}},"DomUtils":{},"initialized":true,"logger":{"contextStack":[],"defaultLevel":4,"verbosity":3},"siteHandlerManager":{"availableHandlers":[null,null,null,null,null],"currentHandler":{"hostname":"localhost"}},"stateManager":{"controllers":{}},"videoSpeedConfig":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":["[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]"],"lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}}},"VSC_controller":{"MESSAGE_TYPES":{"ADJUST_SPEED":"VSC_ADJUST_SPEED","RESET_SPEED":"VSC_RESET_SPEED","SET_SPEED":"VSC_SET_SPEED","TOGGLE_DISPLAY":"VSC_TOGGLE_DISPLAY"},"actionHandler":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"eventManager":{"actionHandler":"[Circular]","config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":"[Object]"},"coolDown":false,"lastKeyEventSignature":null,"listeners":{},"timer":null}},"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":["[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]"],"lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"eventManager":{"actionHandler":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":"[Object]"},"eventManager":"[Circular]"},"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"coolDown":false,"lastKeyEventSignature":null,"listeners":{},"timer":null},"initialized":true,"logger":{"contextStack":[],"defaultLevel":4,"verbosity":3},"mediaObserver":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"siteHandler":{"availableHandlers":[null,null,null,null,null],"currentHandler":{"hostname":"localhost"}}},"mutationObserver":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"mediaObserver":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":"[Object]"},"siteHandler":{"availableHandlers":"[Array]","currentHandler":"[Object]"}},"observer":{},"shadowObservers":{}},"siteHandlerManager":{"availableHandlers":[null,null,null,null,null],"currentHandler":{"hostname":"localhost"}}},"VSC_settings":{},"__REACT_DEVTOOLS_BACKEND_MANAGER_INJECTED__":true,"__next_f":[],"__next_r":"XXdoVcGJqkpiWYUdQ66d9","__webpack_hash__":"","_nextjsDevtoolsStyleCache":{"cachedShadowRoot":{"_reactListening2z1na3dz5nk":true},"isObserving":false,"lastInsertedElement":{},"pendingElements":[]},"caches":{},"chrome":{"app":{"InstallState":{"DISABLED":"disabled","INSTALLED":"installed","NOT_INSTALLED":"not_installed"},"RunningState":{"CANNOT_RUN":"cannot_run","READY_TO_RUN":"ready_to_run","RUNNING":"running"},"isInstalled":false}},"clientInformation":{},"closed":false,"cookieStore":{},"credentialless":false,"crossOriginIsolated":false,"crypto":{},"customElements":{},"devToolsOptions":{"allowlist":"","blacklist":"","denylist":"","editor":"","filter":"DO_NOT_FILTER","inject":true,"maxAge":50,"projectPath":"","shouldCatchErrors":false,"showContextMenus":true,"urls":"^https?://localhost|0\\.0\\.0\\.0:\\d+\n^https?://.+\\.github\\.io","useEditor":0,"whitelist":""},"devicePixelRatio":1,"document":{"__reactContainer$1aqutuq9nwy":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":1,"actualStartTime":13688.199999999255,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":3.400000002235174,"actualStartTime":13682.800000000745,"alternate":"[Circular]","child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":"[Object]","actualDuration":3.400000002235174,"actualStartTime":13682.800000000745,"alternate":"[Object]","child":"[Object]","childLanes":2,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80480261,"tag":8,"treeBaseDuration":38.30000000447035,"updateQueue":null},"childLanes":2,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":2.100000001490116,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":"[Array]","errorRecoveryDisabledLanes":0,"expirationTimes":"[Array]","expiredLanes":0,"formState":null,"hiddenUpdates":"[Array]","identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":"[Array]","pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":80480261,"tag":3,"treeBaseDuration":40.400000005960464,"type":null,"updateQueue":{"baseState":"[Object]","callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":"[Object]"}},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":{},"actualDuration":1,"actualStartTime":13688.199999999255,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":"[Object]","actualDuration":3.400000002235174,"actualStartTime":13682.800000000745,"alternate":"[Circular]","child":"[Object]","childLanes":2,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Object]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80480261,"tag":8,"treeBaseDuration":38.30000000447035,"updateQueue":null},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":"[Object]","actualDuration":1,"actualStartTime":13688.199999999255,"alternate":"[Object]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"elementType":"[Object]","flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0.09999999776482582,"sibling":null,"stateNode":null,"subtreeFlags":215746563,"tag":10,"treeBaseDuration":38.50000000745058,"type":"[Object]","updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":{"children":"[Object]"},"memoizedState":null,"mode":27,"pendingProps":{"children":"[Object]"},"ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":215746563,"tag":8,"treeBaseDuration":38.50000000745058,"updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":{"controller":{},"data":{},"refCount":1},"element":{"_owner":null,"_store":{},"key":null,"props":"[Object]"},"isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":2.100000001490116,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"errorRecoveryDisabledLanes":0,"expirationTimes":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],"expiredLanes":0,"formState":null,"hiddenUpdates":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":215746563,"tag":3,"treeBaseDuration":40.6000000089407,"type":null,"updateQueue":{"baseState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":{"hiddenCallbacks":null,"lanes":0,"pending":null}}},"__reactResources$1aqutuq9nwy":{"hoistableScripts":{},"hoistableStyles":{}},"_reactListening2z1na3dz5nk":true,"_reactListeningj0do1w3wtga":true,"location":{"ancestorOrigins":{},"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/profile-form","origin":"http://localhost:3000","pathname":"/profile-form","port":"3000","protocol":"http:","search":""}},"documentPictureInPicture":{},"event":{"isTrusted":true},"external":{},"fence":null,"frameElement":null,"frames":"[Circular]","history":{},"indexedDB":{},"innerHeight":945,"innerWidth":1401,"isSecureContext":true,"launchQueue":{},"length":0,"localStorage":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzMzkyMTExNmEwZTA0OTU0YzQ5OGUyIn0sImlhdCI6MTc2NTAwMjIzMCwiZXhwIjoxNzY1MDA1ODMwfQ.39cLjult44lfQGQ9mRTH2rsRGYJr8iMRz8h-Fq69-_0","user":"{\"id\":\"6933921116a0e04954c498e2\",\"name\":\"Eslam\",\"email\":\"eslam.hassanin24@gmail.com\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzMzkyMTExNmEwZTA0OTU0YzQ5OGUyIn0sImlhdCI6MTc2NTAwMjIzMCwiZXhwIjoxNzY1MDA1ODMwfQ.39cLjult44lfQGQ9mRTH2rsRGYJr8iMRz8h-Fq69-_0\"}"},"location":{"ancestorOrigins":{},"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/profile-form","origin":"http://localhost:3000","pathname":"/profile-form","port":"3000","protocol":"http:","search":""},"locationbar":{},"menubar":{},"name":"","navigation":{},"navigator":{},"nd":{"cache":{"head":null,"lazyData":null,"loading":null,"navigatedAt":1765003120414,"parallelRoutes":{},"prefetchHead":null,"prefetchRsc":null,"rsc":{"_owner":null,"_store":{},"key":"layout","props":{"children":"[Object]","pagePath":"/client/app/layout.tsx","type":"layout"},"type":{"_debugInfo":"[Array]","_payload":"[Object]","_store":"[Object]"}}},"router":{},"tree":["",{"children":["(dashboard)","[Object]",null,null,true]},null,null,true]},"next":{"appDir":true,"router":{},"turbopack":true,"version":"16.0.7"},"onabort":null,"onafterprint":null,"onanimationend":null,"onanimationiteration":null,"onanimationstart":null,"onappinstalled":null,"onauxclick":null,"onbeforeinput":null,"onbeforeinstallprompt":null,"onbeforematch":null,"onbeforeprint":null,"onbeforetoggle":null,"onbeforeunload":null,"onbeforexrselect":null,"onblur":null,"oncancel":null,"oncanplay":null,"oncanplaythrough":null,"onchange":null,"onclick":null,"onclose":null,"oncommand":null,"oncontentvisibilityautostatechange":null,"oncontextlost":null,"oncontextmenu":null,"...":"158 items not stringified"}
+[00:00:19.011] Browser LOG     After logout - localStorage cleared
+[00:00:28.083] Browser LOG     {"meta":{"arg":{"email":"eslam.hassanin24@gmail.com","password":"0147852eso"},"requestId":"oD1j99xZ4l9GFdBd765Bi","requestStatus":"fulfilled"},"payload":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzMzkyMTExNmEwZTA0OTU0YzQ5OGUyIn0sImlhdCI6MTc2NTAwMzE0MCwiZXhwIjoxNzY1MDA2NzQwfQ.rqFdU5fZr9H2pY10an0REAIp5anzQ7B2SDhiBHksKZ0","user":{"email":"eslam.hassanin24@gmail.com","id":"6933921116a0e04954c498e2","name":"Eslam"}},"type":"login/loginUser/fulfilled"}
+[00:00:28.083] Browser LOG     {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzMzkyMTExNmEwZTA0OTU0YzQ5OGUyIn0sImlhdCI6MTc2NTAwMzE0MCwiZXhwIjoxNzY1MDA2NzQwfQ.rqFdU5fZr9H2pY10an0REAIp5anzQ7B2SDhiBHksKZ0","user":{"email":"eslam.hassanin24@gmail.com","id":"6933921116a0e04954c498e2","name":"Eslam"}}
+[00:01:09.007] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:01:09.007] Browser LOG     {"message":"Rejected"}
+[00:01:09.007] Browser LOG     Profile saved, redirecting to dashboard...
+[00:05:47.553] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:05:47.554] Browser LOG     {"message":"Rejected"}
+[00:05:47.554] Browser LOG     Profile saved, redirecting to dashboard...
+[00:06:46.688] Server  LOG      ✓ Compiled in 80ms
+[00:06:47.153] Browser ERROR   ./client/app/hooks/useProfile.ts:66:25
+Parsing ecmascript source code failed
+  64 | 		} catch (error) {
+  65 | 			const errorMsg = error as string;
+> 66 | 			console.log(errorMsg.);
+     | 			                     ^
+  67 | 			
+  68 | 				dispatch(addAlert({
+  69 | 					id: `${Date.now()}`,
 
-Import trace:
+Expected ident
+
+Import traces:
   Client Component Browser:
-    ./client/app/globals.css [Client Component Browser]
-    ./client/app/layout.tsx [Server Component]
-[00:13:46.382] Server  LOG      ✓ Compiled in 60ms
-[00:13:50.521] Server  LOG      ✓ Compiled in 26ms
-[00:14:00.095] Server  LOG      ✓ Compiled in 27ms
-[00:14:02.441] Server  LOG      ✓ Compiled in 25ms
-[00:14:06.071] Server  LOG      ✓ Compiled in 28ms
-[00:14:07.257] Server  LOG      ✓ Compiled in 27ms
-[00:14:08.442] Server  LOG      ✓ Compiled in 25ms
-[00:14:13.094] Server  LOG      ✓ Compiled in 42ms
-[00:14:14.620] Server  LOG      ✓ Compiled in 31ms
-[00:14:16.630] Server  LOG      ✓ Compiled in 32ms
-[00:14:24.602] Server  LOG      ✓ Compiled in 32ms
-[00:14:27.259] Server  LOG      ✓ Compiled in 52ms
-[00:14:28.556] Server  LOG      ✓ Compiled in 40ms
-[00:14:33.763] Server  LOG      ✓ Compiled in 46ms
-[00:14:47.295] Server  LOG      ✓ Compiled in 45ms
-[00:14:53.065] Server  LOG      ✓ Compiled in 42ms
-[00:15:05.381] Server  LOG      ✓ Compiled in 25ms
-[00:15:08.299] Server  LOG      ✓ Compiled in 49ms
-[00:15:13.286] Server  LOG      ✓ Compiled in 55ms
-[00:15:16.885] Server  LOG      ✓ Compiled in 29ms
-[00:15:28.927] Server  LOG      ✓ Compiled in 24ms
-[00:15:32.506] Server  LOG      ✓ Compiled in 48ms
-[00:15:35.461] Server  LOG      ✓ Compiled in 37ms
-[00:15:51.913] Server  LOG      ✓ Compiled in 30ms
-[00:15:54.437] Server  LOG      ✓ Compiled in 24ms
-[00:15:57.409] Server  LOG      ✓ Compiled in 35ms
-[00:16:07.327] Server  LOG      ✓ Compiled in 35ms
-[00:16:08.746] Server  LOG      ✓ Compiled in 26ms
-[00:16:13.053] Server  LOG      ✓ Compiled in 45ms
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:06:53.156] Browser ERROR   ./client/app/hooks/useProfile.ts:66:26
+Parsing ecmascript source code failed
+  64 | 		} catch (error) {
+  65 | 			const errorMsg = error as string;
+> 66 | 			console.log(errorMsg?.);
+     | 			                      ^
+  67 | 			
+  68 | 				dispatch(addAlert({
+  69 | 					id: `${Date.now()}`,
+
+Expected ident
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:07:04.707] Server  LOG      ✓ Compiled in 33ms
+[00:07:06.480] Server  LOG      ✓ Compiled in 26ms
+[00:07:16.580] Server  LOG      ✓ Compiled in 52ms
+[00:07:22.651] Server  LOG      ✓ Compiled in 26ms
+[00:07:23.149] Browser ERROR   ./client/app/hooks/useProfile.ts:64:18
+Parsing ecmascript source code failed
+  62 | 			// });
+  63 | 			return response;
+> 64 | 		} catch (error:) {
+     | 		               ^
+  65 | 			console.log(error.message);
+  66 | 			
+  67 | 				dispatch(addAlert({
+
+Unexpected token `)`. Expected an identifier, void, yield, null, await, break, a string literal, a numeric literal, true, false, `, -, import, this, typeof, {, [, (
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:07:28.157] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:07:28.157] Browser LOG     Rejected
+[00:07:28.157] Browser LOG     Profile saved, redirecting to dashboard...
+[00:08:00.950] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:08:00.951] Browser LOG     Rejected
+[00:08:00.951] Browser LOG     Profile saved, redirecting to dashboard...
+[00:10:09.113] Server  LOG      ✓ Compiled in 59ms
+[00:10:11.673] Server  LOG      ✓ Compiled in 27ms
+[00:10:59.641] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:10:59.641] Browser LOG     Rejected
+[00:10:59.641] Browser LOG     Profile saved, redirecting to dashboard...
+[00:11:51.686] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:11:51.686] Browser LOG     Rejected
+[00:11:51.686] Browser LOG     Profile saved, redirecting to dashboard...
+[00:11:57.501] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:11:57.642] Browser LOG     Profile saved, redirecting to dashboard...
+[00:12:20.133] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:12:20.258] Browser LOG     Profile saved, redirecting to dashboard...
+[00:12:35.322] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS,JS,TYPESCRIPT,REACT,NEXT,TAILWIND,NODE.JS,EXPRESS,MONGODB,PRISMA","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:12:35.494] Browser LOG     Profile saved, redirecting to dashboard...
+[00:12:56.669] Server  LOG      ✓ Compiled in 49ms
+[00:13:12.225] Server  LOG      ✓ Compiled in 33ms
+[00:13:16.581] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS,JS,TYPESCRIPT,REACT,NEXT,TAILWIND,NODE.JS,EXPRESS,MONGODB,PRISMA","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:13:25.753] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS,JS,TYPESCRIPT,REACT,NEXT,TAILWIND,NODE.JS,EXPRESS,MONGODB,PRISMA","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:13:45.940] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:14:35.351] Server  LOG      ✓ Compiled in 47ms
+[00:14:36.149] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:35
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {Select Professional Status}</option>
+     | 						                            ^^^^^^^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Professional'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:39.145] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:40
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {stateSelect Professional Status}</option>
+     | 						                                 ^^^^^^^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Professional'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:40.905] Server  LOG      ✓ Compiled in 22ms
+[00:14:41.155] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:35
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status Select Professional Status}</option>
+     | 						                            ^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Select'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:45.510] Server  LOG      ✓ Compiled in 25ms
+[00:14:46.151] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:38
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status !===Select Professional Status}</option>
+     | 						                               ^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got '='
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:48.238] Server  LOG      ✓ Compiled in 22ms
+[00:14:49.146] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:41
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status !== ''Select Professional Status}</option>
+     | 						                                  ^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Select'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:49.683] Server  LOG      ✓ Compiled in 23ms
+[00:14:50.155] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:51
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status !== '' ? Select Professional Status}</option>
+     | 						                                            ^^^^^^^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Professional'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:55.159] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:55
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status !== '' ? statSelect Professional Status}</option>
+     | 						                                                ^^^^^^^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Professional'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:56.149] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:57
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status !== '' ? statusSelect Professional Status}</option>
+     | 						                                                  ^^^^^^^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Professional'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:58.157] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:60
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status !== '' ? status : Select Professional Status}</option>
+     | 						                                                     ^^^^^^^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Expected '</', got 'Professional'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:14:58.834] Server  LOG      ✓ Compiled in 24ms
+[00:14:59.146] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:73:53
+Parsing ecmascript source code failed
+  71 | 						value={status}
+  72 | 						onChange={(e) => changeHandler(e)}>
+> 73 | 						<option value='0'>* {status !== '' ? status : "Select Professional Status}</option>
+     | 						                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  74 | 						<option value='Developer'>Developer</option>
+  75 | 						<option value='Junior Developer'>Junior Developer</option>
+  76 | 						<option value='Senior Developer'>Senior Developer</option>
+
+Unterminated string constant
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:15:14.050] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Developer","website":"malsebot.netlify.app"}
+[00:15:14.050] Browser LOG     Rejected
+[00:15:22.763] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:15:22.763] Browser LOG     Rejected
+[00:15:31.537] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:16:18.364] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wtes","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"developer","website":"malsebot.netlify.app"}
+[00:16:18.365] Browser LOG     Rejected
+[00:17:16.702] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:17:25.320] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA","POSTGRES"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/malsebot"},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:17:25.320] Browser LOG     Rejected
+[00:17:37.268] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:17:45.946] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA","POSTGRES"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/malsebot"},"status":"developer","website":"malsebot.netlify.app"}
+[00:17:45.946] Browser LOG     Rejected
+[00:20:28.650] Server  LOG      ✓ Compiled in 47ms
+[00:20:30.399] Server  LOG      ✓ Compiled in 26ms
+[00:20:36.773] Server  LOG      ✓ Compiled in 49ms
+[00:20:45.518] Server  LOG      ✓ Compiled in 30ms
+[00:20:46.159] Browser ERROR   ./client/app/hooks/useProfile.ts:68:21
+Parsing ecmascript source code failed
+  66 | 					id: `${Date.now()}`,
+  67 | 					type: 'error',
+> 68 | 					message:  error'Failed to save profile',
+     | 					               ^^^^^^^^^^^^^^^^^^^^^^^^
+  69 | 					duration: 5000,
+  70 | 				}
+  71 | 			))}
+
+Expected ',', got 'string literal (Failed to save profile, 'Failed to save profile')'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:20:47.598] Server  LOG      ✓ Compiled in 21ms
+[00:20:48.160] Browser ERROR   ./client/app/hooks/useProfile.ts:68:22
+Parsing ecmascript source code failed
+  66 | 					id: `${Date.now()}`,
+  67 | 					type: 'error',
+> 68 | 					message:  error :'Failed to save profile',
+     | 					                ^
+  69 | 					duration: 5000,
+  70 | 				}
+  71 | 			))}
+
+Expected ',', got ':'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:20:56.848] Server  LOG      ✓ Compiled in 50ms
+[00:20:57.157] Browser ERROR   ./client/app/hooks/useProfile.ts:68:24
+Parsing ecmascript source code failed
+  66 | 					id: `${Date.now()}`,
+  67 | 					type: 'error',
+> 68 | 					message:  error?. ||'Failed to save profile',
+     | 					                  ^^
+  69 | 					duration: 5000,
+  70 | 				}
+  71 | 			))}
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:21:09.779] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:21:14.809] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA","POSTGRES"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/malsebot"},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:21:14.809] Browser LOG     {}
+[00:22:02.380] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS,JS","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/malsebot"},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:22:09.249] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:23:28.788] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"Vouch","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS,JS,Typescript,React,Next.js,Tailwind,node.js,mongoDB,Express.js","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:23:40.635] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:24:35.310] Server  LOG      ✓ Compiled in 54ms
+[00:24:36.158] Browser ERROR   ./client/app/hooks/useProfile.ts:62:6
+Parsing ecmascript source code failed
+  60 | 				message: 'Profile saved successfully',
+  61 | 				duration: 5000,
+> 62 | 			});
+     | 			  ^
+  63 | 			return response;
+  64 | 		} catch (error) {
+  65 | 				dispatch(addAlert({
+
+Expected ',', got ';'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:24:46.736] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":["HTML","CSS","JS","Typescript","React","Next.js","Tailwind","node.js","mongoDB","Express.js"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:24:46.736] Browser LOG     {}
+[00:24:54.521] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS,JS","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:25:05.775] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Al khobar, Saudiarabia","skills":"HTML,CSS,JS,TypeScript,React,Next.js,MongoDB,Redux","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:25:16.568] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":"HTML,CSS,JS,TypeScript,React,Next.js,MongoDB,Redux","social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:26:47.441] Server  LOG      ✓ Compiled in 45ms
+[00:26:49.521] Server  LOG      ✓ Compiled in 30ms
+[00:27:07.089] Server  LOG      ✓ Compiled in 29ms
+[00:27:07.199] Browser ERROR   uncaughtError: ReferenceError: soctwitter is not defined
+[00:27:09.413] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:27:09.643] Server  LOG      ✓ Compiled in 24ms
+[00:27:09.647] Browser ERROR   uncaughtError: ReferenceError: SpeechRecognitionAlternative is not defined
+[00:27:10.598] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:27:55.338] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:179:22
+Parsing ecmascript source code failed
+  177 | 						placeholder='Facebook URL'
+  178 | 						name='facebook'
+> 179 | 						value={profile.?social.facebook}
+      | 						               ^
+  180 | 						onChange={(e) => changeHandler(e)}
+  181 | 					/>
+  182 | 				</div>
+
+Expected '</', got '?'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:27:57.317] Server  LOG      ✓ Compiled in 23ms
+[00:28:11.464] Server  LOG      ✓ Compiled in 24ms
+[00:29:09.389] Server  LOG      ✓ Compiled in 57ms
+[00:29:10.478] Server  LOG      ✓ Compiled in 23ms
+[00:29:19.151] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:29:30.713] Server  LOG      ✓ Compiled in 31ms
+[00:29:30.821] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:179:13
+Parsing ecmascript source code failed
+  177 | 						placeholder='Facebook URL'
+  178 | 						name='facebook'
+> 179 | 						value=facebook}
+      | 						      ^^^^^^^^
+  180 | 						onChange={(e) => changeHandler(e)}
+  181 | 					/>
+  182 | 				</div>
+
+Expected '</', got 'facebook'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:29:36.035] Server  LOG      ✓ Compiled in 23ms
+[00:32:29.059] Server  LOG      ✓ Compiled in 50ms
+[00:32:33.262] Server  LOG      ✓ Compiled in 37ms
+[00:32:37.741] Server  LOG      ✓ Compiled in 46ms
+[00:33:14.753] Server  LOG      ✓ Compiled in 55ms
+[00:33:36.253] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TYPESCRIPT","REACT","NEXT","TAILWIND","NODE.JS","EXPRESS","MONGODB","PRISMA"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:33:36.253] Browser ERROR   Failed to save profile: {}
+[00:33:54.157] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TypeScript","React","Next.js","MongoDB","Redux","Tailwind","Node.js","Express"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:33:54.157] Browser ERROR   Failed to save profile: {}
+[00:33:58.994] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TypeScript","React","Next.js","MongoDB","Redux","Tailwind"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:33:58.994] Browser ERROR   Failed to save profile: {}
+[00:34:03.199] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TypeScript","React","Next.js","MongoDB"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:34:03.199] Browser ERROR   Failed to save profile: {}
+[00:34:09.833] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:34:09.834] Browser ERROR   Failed to save profile: {}
+[00:34:17.446] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","Typescript","React","Next.js","Tailwind","node.js","mongoDB","Express.js"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":""},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:34:17.446] Browser ERROR   Failed to save profile: {}
+[00:35:02.138] Server  LOG      ✓ Compiled in 72ms
+[00:35:04.969] Server  LOG      ✓ Compiled in 27ms
+[00:35:07.017] Server  LOG      ✓ Compiled in 27ms
+[00:35:08.990] Server  LOG      ✓ Compiled in 31ms
+[00:35:12.809] Server  LOG      ✓ Compiled in 28ms
+[00:35:15.569] Server  LOG      ✓ Compiled in 31ms
+[00:35:16.146] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:179:23
+Parsing ecmascript source code failed
+  177 | 						placeholder='Facebook URL'
+  178 | 						name='facebook'
+> 179 | 						value={facebook.}
+      | 						                ^
+  180 | 						onChange={(e) => changeHandler(e)}
+  181 | 					/>
+  182 | 				</div>
+
+Expected '</', got '}'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:37.570] Server  LOG      ✓ Compiled in 58ms
+[00:35:39.581] Server  LOG      ✓ Compiled in 28ms
+[00:35:40.156] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:28:2
+Parsing ecmascript source code failed
+  26 | 	});
+  27 | 	const 
+> 28 | 	const {
+     | 	^^^^^
+  29 | 		status,
+  30 | 		company,
+  31 | 		website,
+
+Expected ident
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:40.877] Server  LOG      ✓ Compiled in 26ms
+[00:35:41.159] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:27:8
+Parsing ecmascript source code failed
+  25 | 		},
+  26 | 	});
+> 27 | 	const {}
+     | 	      ^^
+  28 | 	const {
+  29 | 		status,
+  30 | 		company,
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:48.151] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:27:8
+Parsing ecmascript source code failed
+  25 | 		},
+  26 | 	});
+> 27 | 	const { youtube, facebook, twitter, instagram, linkedin };
+     | 	      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  28 | 	const {
+  29 | 		status,
+  30 | 		company,
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:54.009] Server  LOG      ✓ Compiled in 35ms
+[00:35:54.159] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:22
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		social: { youtube, facebook, twitter, instagram, linkedin },
+     | 		                   ^^^^^^^^
+  37 | 	} = formData;
+  38 |
+  39 | 	const changeHandler = (
+
+the name `facebook` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:54.159] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:41
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		social: { youtube, facebook, twitter, instagram, linkedin },
+     | 		                                      ^^^^^^^^^
+  37 | 	} = formData;
+  38 |
+  39 | 	const changeHandler = (
+
+the name `instagram` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:54.159] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:52
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		social: { youtube, facebook, twitter, instagram, linkedin },
+     | 		                                                 ^^^^^^^^
+  37 | 	} = formData;
+  38 |
+  39 | 	const changeHandler = (
+
+the name `linkedin` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:54.159] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:32
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		social: { youtube, facebook, twitter, instagram, linkedin },
+     | 		                             ^^^^^^^
+  37 | 	} = formData;
+  38 |
+  39 | 	const changeHandler = (
+
+the name `twitter` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:54.160] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:13
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		social: { youtube, facebook, twitter, instagram, linkedin },
+     | 		          ^^^^^^^
+  37 | 	} = formData;
+  38 |
+  39 | 	const changeHandler = (
+
+the name `youtube` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:35:59.160] Browser ERROR   uncaughtError: ReferenceError: Cannot access 'social' before initialization
+[00:36:06.387] Server  LOG      ✓ Compiled in 56ms
+[00:36:07.149] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:37:3
+Ecmascript file had an error
+  35 | 		skills,
+  36 | 		youtube,
+> 37 | 		facebook,
+     | 		^^^^^^^^
+  38 | 		twitter,
+  39 | 		instagram,
+  40 | 		linkedin,
+
+the name `facebook` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:07.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:39:3
+Ecmascript file had an error
+  37 | 		facebook,
+  38 | 		twitter,
+> 39 | 		instagram,
+     | 		^^^^^^^^^
+  40 | 		linkedin,
+  41 | 	} = formData;
+  42 |
+
+the name `instagram` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:07.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:40:3
+Ecmascript file had an error
+  38 | 		twitter,
+  39 | 		instagram,
+> 40 | 		linkedin,
+     | 		^^^^^^^^
+  41 | 	} = formData;
+  42 |
+  43 | 	const changeHandler = (
+
+the name `linkedin` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:07.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:38:3
+Ecmascript file had an error
+  36 | 		youtube,
+  37 | 		facebook,
+> 38 | 		twitter,
+     | 		^^^^^^^
+  39 | 		instagram,
+  40 | 		linkedin,
+  41 | 	} = formData;
+
+the name `twitter` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:07.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:3
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		youtube,
+     | 		^^^^^^^
+  37 | 		facebook,
+  38 | 		twitter,
+  39 | 		instagram,
+
+the name `youtube` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:22.959] Server  LOG      ✓ Compiled in 61ms
+[00:36:23.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:37:3
+Ecmascript file had an error
+  35 | 		skills,
+  36 | 		youtube,
+> 37 | 		facebook,
+     | 		^^^^^^^^
+  38 | 		twitter,
+  39 | 		instagram,
+  40 | 		linkedin,
+
+the name `facebook` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:23.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:39:3
+Ecmascript file had an error
+  37 | 		facebook,
+  38 | 		twitter,
+> 39 | 		instagram,
+     | 		^^^^^^^^^
+  40 | 		linkedin,
+  41 | 	} = formData;
+  42 |
+
+the name `instagram` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:23.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:40:3
+Ecmascript file had an error
+  38 | 		twitter,
+  39 | 		instagram,
+> 40 | 		linkedin,
+     | 		^^^^^^^^
+  41 | 	} = formData;
+  42 |
+  43 | 	const changeHandler = (
+
+the name `linkedin` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:23.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:38:3
+Ecmascript file had an error
+  36 | 		youtube,
+  37 | 		facebook,
+> 38 | 		twitter,
+     | 		^^^^^^^
+  39 | 		instagram,
+  40 | 		linkedin,
+  41 | 	} = formData;
+
+the name `twitter` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:23.150] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:3
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		youtube,
+     | 		^^^^^^^
+  37 | 		facebook,
+  38 | 		twitter,
+  39 | 		instagram,
+
+the name `youtube` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:25.774] Server  LOG      ✓ Compiled in 55ms
+[00:36:26.153] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:37:3
+Ecmascript file had an error
+  35 | 		skills,
+  36 | 		youtube,
+> 37 | 		facebook,
+     | 		^^^^^^^^
+  38 | 		twitter,
+  39 | 		instagram,
+  40 | 		linkedin,
+
+the name `facebook` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:26.153] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:39:3
+Ecmascript file had an error
+  37 | 		facebook,
+  38 | 		twitter,
+> 39 | 		instagram,
+     | 		^^^^^^^^^
+  40 | 		linkedin,
+  41 | 	} = formData;
+  42 |
+
+the name `instagram` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:26.153] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:40:3
+Ecmascript file had an error
+  38 | 		twitter,
+  39 | 		instagram,
+> 40 | 		linkedin,
+     | 		^^^^^^^^
+  41 | 	} = formData;
+  42 |
+  43 | 	const changeHandler = (
+
+the name `linkedin` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:26.153] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:38:3
+Ecmascript file had an error
+  36 | 		youtube,
+  37 | 		facebook,
+> 38 | 		twitter,
+     | 		^^^^^^^
+  39 | 		instagram,
+  40 | 		linkedin,
+  41 | 	} = formData;
+
+the name `twitter` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:26.153] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:36:3
+Ecmascript file had an error
+  34 | 		githubusername,
+  35 | 		skills,
+> 36 | 		youtube,
+     | 		^^^^^^^
+  37 | 		facebook,
+  38 | 		twitter,
+  39 | 		instagram,
+
+the name `youtube` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:52.606] Server  LOG      ✓ Compiled in 60ms
+[00:36:53.147] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:41:19
+Ecmascript file had an error
+  39 | 		linkedin,
+  40 | 	} = formData;
+> 41 | 	const { youtube, facebook, twitter, instagram, linkedin } = formData.social;
+     | 	                 ^^^^^^^^
+  42 |
+  43 | 	const changeHandler = (
+  44 | 		e: React.ChangeEvent<
+
+the name `facebook` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:53.148] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:41:38
+Ecmascript file had an error
+  39 | 		linkedin,
+  40 | 	} = formData;
+> 41 | 	const { youtube, facebook, twitter, instagram, linkedin } = formData.social;
+     | 	                                    ^^^^^^^^^
+  42 |
+  43 | 	const changeHandler = (
+  44 | 		e: React.ChangeEvent<
+
+the name `instagram` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:53.148] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:41:49
+Ecmascript file had an error
+  39 | 		linkedin,
+  40 | 	} = formData;
+> 41 | 	const { youtube, facebook, twitter, instagram, linkedin } = formData.social;
+     | 	                                               ^^^^^^^^
+  42 |
+  43 | 	const changeHandler = (
+  44 | 		e: React.ChangeEvent<
+
+the name `linkedin` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:53.148] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:41:29
+Ecmascript file had an error
+  39 | 		linkedin,
+  40 | 	} = formData;
+> 41 | 	const { youtube, facebook, twitter, instagram, linkedin } = formData.social;
+     | 	                           ^^^^^^^
+  42 |
+  43 | 	const changeHandler = (
+  44 | 		e: React.ChangeEvent<
+
+the name `twitter` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:53.148] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:41:10
+Ecmascript file had an error
+  39 | 		linkedin,
+  40 | 	} = formData;
+> 41 | 	const { youtube, facebook, twitter, instagram, linkedin } = formData.social;
+     | 	        ^^^^^^^
+  42 |
+  43 | 	const changeHandler = (
+  44 | 		e: React.ChangeEvent<
+
+the name `youtube` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:36:55.210] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:36:57.187] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+-                         style={{--vsc-domain:"\"localhost\""}}
+                        >
+                  ...
+
+[00:37:13.154] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:28:2
+Parsing ecmascript source code failed
+  26 | 	});
+  27 | 	const handleSocialChange = (
+> 28 | 	const {
+     | 	^^^^^
+  29 | 		status,
+  30 | 		company,
+  31 | 		website,
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:37:15.145] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:30:8
+Parsing ecmascript source code failed
+  28 | 		setFormData({
+  29 | 			...formData,
+> 30 | 	const {
+     | 	      ^
+  31 | 		status,
+  32 | 		company,
+  33 | 		website,
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:37:17.471] Server  LOG      ✓ Compiled in 27ms
+[00:38:05.067] Server  LOG      ✓ Compiled in 30ms
+[00:38:08.524] Server  LOG      ✓ Compiled in 32ms
+[00:38:27.960] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TypeScript","React","Next.js","MongoDB","Redux"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/malsebot"},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:38:27.960] Browser LOG     {}
+[00:38:34.902] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:38:45.340] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","githubusername":"MALSEBOT","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TypeScript","React","Next.js","MongoDB","Redux"],"social":{"facebook":"youtube.com/user/malsebot","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/malsebot"},"status":"Junior Developer","website":"malsebot.netlify.app"}
+[00:38:45.340] Browser LOG     {}
+[00:40:44.059] Server  LOG      ✓ Compiled in 44ms
+[00:40:45.155] Browser ERROR   ./client/app/hooks/useProfile.ts:64:17
+Parsing ecmascript source code failed
+  62 | 			}));
+  63 | 			return response;
+> 64 | 		} catch (error[]) {
+     | 		              ^
+  65 | 				dispatch(addAlert({
+  66 | 					id: `${Date.now()}`,
+  67 | 					type: 'error',
+
+Expected ')', got '['
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:40:56.331] Server  LOG      ✓ Compiled in 26ms
+[00:40:57.400] Server  LOG      ✓ Compiled in 27ms
+[00:41:04.337] Server  LOG      ✓ Compiled in 58ms
+[00:41:15.445] Server  LOG      ✓ Compiled in 28ms
+[00:41:22.418] Server  LOG      ✓ Compiled in 34ms
+[00:41:26.845] Server  LOG      ✓ Compiled in 30ms
+[00:41:30.960] Server  LOG      ✓ Compiled in 29ms
+[00:41:31.150] Browser ERROR   ./client/app/hooks/useProfile.ts:69:26
+Parsing ecmascript source code failed
+  67 | 					id: `${Date.now()}`,
+  68 | 					type: 'error',
+> 69 | 					message:  errorMsg. ||'Failed to save profile',
+     | 					                    ^^
+  70 | 					duration: 5000,
+  71 | 				}
+  72 | 			))}
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./client/app/hooks/useProfile.ts [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/hooks/useProfile.ts [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/dashboard/page.tsx [Server Component]
+[00:45:31.476] Server  LOG      ✓ Compiled in 58ms
+[00:45:32.152] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'youtube')
+[00:45:34.358] Server  LOG      ✓ Compiled in 27ms
+[00:45:35.157] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:25:8
+Parsing ecmascript source code failed
+  23 | 			linkedin: profile?.social?.linkedin || '',
+  24 | 	});
+> 25 | 	const {
+     | 	      ^
+> 26 | 		status,
+     | ^^^^^^^^^
+> 27 | 		company,
+     | ^^^^^^^^^
+> 28 | 		website,
+     | ^^^^^^^^^
+> 29 | 		location,
+     | ^^^^^^^^^
+> 30 | 		bio,
+     | ^^^^^^^^^
+> 31 | 		githubusername,
+     | ^^^^^^^^^
+> 32 | 		skills,
+     | ^^^^^^^^^
+> 33 | 		 youtube, facebook, twitter, instagram, linkedin },
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  34 | 	} = formData;
+  35 | 	
+  36 | 	const handleSocialChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:45:35.725] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:45:38.154] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+-                         style={{--vsc-domain:"\"localhost\""}}
+                        >
+                  ...
+
+[00:46:10.262] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","facebook":"sads","githubusername":"MALSEBOT","instagram":"","linkedin":"","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TypeScript","React","Next.js","MongoDB","Redux"],"status":"Junior Developer","twitter":"sda","website":"malsebot.netlify.app","youtube":"youtube.com/user/malsebot"}
+[00:46:10.262] Browser ERROR   uncaughtError: Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.
+[00:46:10.262] Browser LOG     {}
+[00:46:52.354] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:46:52.629] Server  LOG      ✓ Compiled in 56ms
+[00:46:55.152] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+-                         style={{--vsc-domain:"\"localhost\""}}
+                        >
+                  ...
+
+[00:47:02.147] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:18:28
+Parsing ecmascript source code failed
+  16 | 		bio: profile?.bio || '',
+  17 | 		githubusername: profile?.githubusername || '',
+> 18 | 		skills: profile?.skills. || '',
+     | 		                         ^^
+  19 | 		youtube: profile?.social?.youtube || '',
+  20 | 		facebook: profile?.social?.facebook || '',
+  21 | 		twitter: profile?.social?.twitter || '',
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:47:03.378] Server  LOG      ✓ Compiled in 32ms
+[00:48:00.527] Browser ERROR   uncaughtError: TypeError: profile?.skills.split is not a function
+[00:48:12.702] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:48:12.710] Server  LOG      ✓ Compiled in 30ms
+[00:48:15.158] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+-                         style={{--vsc-domain:"\"localhost\""}}
+                        >
+                  ...
+
+[00:48:25.151] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:32:9
+Parsing ecmascript source code failed
+  30 | 		bio,
+  31 | 		githubusername,
+> 32 | 		skills.split(',').map((skill) => skill.trim()),
+     | 		      ^
+  33 | 		youtube,
+  34 | 		facebook,
+  35 | 		twitter,
+
+Expected ',', got '.'
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:48:36.988] Server  LOG      ✓ Compiled in 31ms
+[00:50:24.491] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","facebook":"","githubusername":"MALSEBOT","instagram":"","linkedin":"","location":"Egypt, Alexandria","skills":["HTML","CSS","JS","TypeScript","React","Next.js","MongoDB","Redux"],"status":"Junior Developer","twitter":"","website":"malsebot.netlify.app","youtube":"youtube.com/user/malsebot"}
+[00:50:24.491] Browser ERROR   uncaughtError: Error: Objects are not valid as a React child (found: object with keys {message}). If you meant to render a collection of children, use an array instead.
+[00:50:24.491] Browser LOG     {}
+[00:50:43.019] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:50:43.339] Server  LOG      ✓ Compiled in 27ms
+[00:50:45.150] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+-                         style={{--vsc-domain:"\"localhost\""}}
+                        >
+                  ...
+
+[00:51:08.856] Browser ERROR   uncaughtError: TypeError: profile?.skills.split is not a function
+[00:51:58.012] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:51:58.347] Server  LOG      ✓ Compiled in 48ms
+[00:52:00.162] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/login" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                  ...
+
+[00:52:19.154] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:18:28
+Parsing ecmascript source code failed
+  16 | 		bio: profile?.bio || '',
+  17 | 		githubusername: profile?.githubusername || '',
+> 18 | 		skills: profile?.skills. || '',
+     | 		                         ^^
+  19 | 		youtube: profile?.social?.youtube || '',
+  20 | 		facebook: profile?.social?.facebook || '',
+  21 | 		twitter: profile?.social?.twitter || '',
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:52:41.458] Server  LOG      ✓ Compiled in 46ms
+[00:52:58.151] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:18:28
+Parsing ecmascript source code failed
+  16 | 		bio: profile?.bio || '',
+  17 | 		githubusername: profile?.githubusername || '',
+> 18 | 		skills: profile?.skills. || '',
+     | 		                         ^^
+  19 | 		youtube: profile?.social?.youtube || '',
+  20 | 		facebook: profile?.social?.facebook || '',
+  21 | 		twitter: profile?.social?.twitter || '',
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:53:00.148] Browser ERROR   ./client/app/(dashboard)/profile-form/page.tsx:18:28
+Parsing ecmascript source code failed
+  16 | 		bio: profile?.bio || '',
+  17 | 		githubusername: profile?.githubusername || '',
+> 18 | 		skills: profile?.skills. || '',
+     | 		                         ^^
+  19 | 		youtube: profile?.social?.youtube || '',
+  20 | 		facebook: profile?.social?.facebook || '',
+  21 | 		twitter: profile?.social?.twitter || '',
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component Browser]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./client/app/(dashboard)/profile-form/page.tsx [Client Component SSR]
+    ./client/app/(dashboard)/profile-form/page.tsx [Server Component]
+[00:53:00.366] Server  LOG      ✓ Compiled in 27ms
+[00:53:10.856] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","facebook":"","githubusername":"MALSEBOT","instagram":"","linkedin":"","location":"Egypt, Alexandria","skills":"HTML,CSS,JS,TypeScript,React,Next.js,MongoDB,Redux","status":"Junior Developer","twitter":"","website":"malsebot.netlify.app","youtube":"youtube.com/user/malsebot"}
+[00:53:27.499] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","facebook":"","githubusername":"MALSEBOT","instagram":"","linkedin":"","location":"Egypt, Alexandria","skills":"HTML,CSS,JS,TypeScript,React,Next.js,MongoDB","status":"Junior Developer","twitter":"","website":"malsebot.netlify.app","youtube":"youtube.com/user/malsebot"}
+[00:53:36.999] Browser LOG     {"bio":"enthusecite Fullstack developer working at Vouch tech ","company":"wteeth","facebook":"","githubusername":"MALSEBOT","instagram":"","linkedin":"","location":"Egypt, Alexandria","skills":"HTML,CSS,JS,TypeScript,React,Next.js,MongoDB,Redux,Tailwind,Node.js,Express","status":"Junior Developer","twitter":"","website":"malsebot.netlify.app","youtube":"youtube.com/user/malsebot"}

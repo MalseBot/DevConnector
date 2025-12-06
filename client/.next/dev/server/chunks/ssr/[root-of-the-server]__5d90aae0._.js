@@ -137,7 +137,7 @@ const api = __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modul
     baseURL: ("TURBOPACK compile-time value", "http://localhost:5000/api"),
     headers: {
         'Content-Type': 'application/json',
-        'x-auth-token': ("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : ''
+        'x-auth-token': ("TURBOPACK compile-time value", "undefined") !== 'undefined' && localStorage.getItem('token') || ''
     }
 });
 const __TURBOPACK__default__export__ = api;
@@ -661,7 +661,7 @@ const createUpdateProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].post('/profiles', profileData);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to create/update profile');
+        return rejectWithValue(error.response.data.errors?.[0].msg);
     }
 });
 const profileSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({

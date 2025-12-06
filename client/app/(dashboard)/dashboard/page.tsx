@@ -1,6 +1,6 @@
 /** @format */
 'use client';
-import { CgProfile } from "react-icons/cg"; 
+import { CgProfile } from 'react-icons/cg';
 import { useProfile } from '@/app/hooks/useProfile';
 import Link from 'next/link';
 import { useEffect } from 'react';
@@ -8,17 +8,15 @@ const Dashboard = () => {
 	const { profile, getCurrentProfile } = useProfile();
 
 	useEffect(() => {
-	getCurrentProfile();
+		getCurrentProfile();
 	}, [getCurrentProfile]);
-			
-		
 
 	return (
 		<>
 			<section className='container-custom'>
 				<h1 className='large font-bold text-primary'>Dashboard</h1>
 				<p className='lead flex items-center gap-2 capitalize'>
-					<CgProfile /> <span >Welcome {profile?.user?.name}</span>
+					<CgProfile /> <span>Welcome {profile?.user?.name}</span>
 				</p>
 				<div className='dash-buttons'>
 					<Link

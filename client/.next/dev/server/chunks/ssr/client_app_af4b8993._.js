@@ -18,7 +18,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$sl
 ;
 ;
 const useProfile = ()=>{
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAppDispatch"])();
     const profileState = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAppSelector"])((state)=>state.profile);
     // Wrap in useCallback to prevent recreating on every render
@@ -26,18 +25,11 @@ const useProfile = ()=>{
         try {
             const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getCurrentProfile"])()).unwrap();
             if (!response) {
-                console.log(response);
-                router.push('/profile-form');
-                dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
-                    id: `${Date.now()}`,
-                    type: 'warning',
-                    message: 'Please create your profile',
-                    duration: 5000
-                }));
+                (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["redirect"])('/profile-form');
             }
             return response;
-        } catch (error) {
-            const errorMsg = error;
+        } catch (error1) {
+            const errorMsg = error1;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
@@ -46,22 +38,21 @@ const useProfile = ()=>{
             }));
         }
     }, [
-        dispatch,
-        router
+        dispatch
     ]);
     const fetchProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (userId)=>{
         try {
             const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getProfileById"])(userId)).unwrap();
             return response;
-        } catch (error) {
-            const errorMsg = error;
+        } catch (error1) {
+            const errorMsg = error1;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
                 message: errorMsg,
                 duration: 5000
             }));
-            throw error;
+            throw error1;
         }
     }, [
         dispatch
@@ -69,17 +60,23 @@ const useProfile = ()=>{
     const saveProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (profileData)=>{
         try {
             const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createUpdateProfile"])(profileData)).unwrap();
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
+                id: `${Date.now()}`,
+                type: 'success',
+                message: 'Profile saved successfully',
+                duration: 5000
+            }));
             return response;
-        } catch (error) {
-            const errorMsg = error;
+        } catch (error1) {
+            const errorMsg = error1;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
-                message: errorMsg,
+                message: errorMsg || 'Failed to save profile',
                 duration: 5000
             }));
-            throw error;
         }
+        throw error;
     }, [
         dispatch
     ]);
@@ -107,15 +104,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ne
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useProfile$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/hooks/useProfile.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 'use client';
 ;
 ;
 ;
 ;
-;
 const ProfileForm = ()=>{
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const { createUpdateProfile, profile } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useProfile$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useProfile"])();
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
         status: profile?.status || '',
@@ -124,30 +118,25 @@ const ProfileForm = ()=>{
         location: profile?.location || '',
         bio: profile?.bio || '',
         githubusername: profile?.githubusername || '',
-        skills: profile?.skills || '',
-        social: {
-            youtube: profile?.social?.youtube || '',
-            facebook: profile?.social?.facebook || '',
-            twitter: profile?.social?.twitter || '',
-            instagram: profile?.social?.instagram || '',
-            linkedin: profile?.social?.linkedin || ''
-        }
+        skills: profile?.skills.toString() || '',
+        youtube: profile?.social?.youtube || '',
+        facebook: profile?.social?.facebook || '',
+        twitter: profile?.social?.twitter || '',
+        instagram: profile?.social?.instagram || '',
+        linkedin: profile?.social?.linkedin || ''
     });
-    const { status, company, website, location, bio, githubusername, skills, social: { youtube, facebook, twitter, instagram, linkedin } } = formData;
+    const { status, company, website, location, bio, githubusername, skills, youtube, facebook, twitter, instagram, linkedin } = formData;
     const changeHandler = (e)=>setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
     const submitHandler = async (e)=>{
         e.preventDefault();
-        // Convert comma-separated skills string into array
         try {
             await createUpdateProfile(formData);
-            // redirect to dashboard after successful save
-            router.push('/dashboard');
+        // redirect to dashboard after successful save
         } catch (err) {
-            // useProfile will dispatch alerts; just swallow here
-            console.error(err);
+            console.log(err);
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -158,7 +147,7 @@ const ProfileForm = ()=>{
                 children: "Create Your Profile"
             }, void 0, false, {
                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                lineNumber: 64,
+                lineNumber: 59,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -168,21 +157,21 @@ const ProfileForm = ()=>{
                         className: "fas fa-user"
                     }, void 0, false, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 66,
+                        lineNumber: 61,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     " Lets get some information to make your profile stand out"
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                lineNumber: 65,
+                lineNumber: 60,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
                 children: "* required field"
             }, void 0, false, {
                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                lineNumber: 69,
+                lineNumber: 64,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -199,10 +188,13 @@ const ProfileForm = ()=>{
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                         value: "0",
-                                        children: "* Select Professional Status"
-                                    }, void 0, false, {
+                                        children: [
+                                            "* ",
+                                            status !== '' ? status : 'Select Professional Status'
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 78,
+                                        lineNumber: 73,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -210,7 +202,7 @@ const ProfileForm = ()=>{
                                         children: "Developer"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 76,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -218,7 +210,7 @@ const ProfileForm = ()=>{
                                         children: "Junior Developer"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 77,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -226,7 +218,7 @@ const ProfileForm = ()=>{
                                         children: "Senior Developer"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 78,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -234,7 +226,7 @@ const ProfileForm = ()=>{
                                         children: "Manager"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 82,
+                                        lineNumber: 79,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -242,7 +234,7 @@ const ProfileForm = ()=>{
                                         children: "Student or Learning"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 80,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -250,7 +242,7 @@ const ProfileForm = ()=>{
                                         children: "Instructor or Teacher"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 84,
+                                        lineNumber: 81,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -258,7 +250,7 @@ const ProfileForm = ()=>{
                                         children: "Intern"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 85,
+                                        lineNumber: 82,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -266,13 +258,13 @@ const ProfileForm = ()=>{
                                         children: "Other"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 83,
                                         columnNumber: 7
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 74,
+                                lineNumber: 69,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -280,13 +272,13 @@ const ProfileForm = ()=>{
                                 children: "Give us an idea of where you are at in your career"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 88,
+                                lineNumber: 85,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 73,
+                        lineNumber: 68,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -300,7 +292,7 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 93,
+                                lineNumber: 90,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -308,13 +300,13 @@ const ProfileForm = ()=>{
                                 children: "Could be your own company or one you work for"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 100,
+                                lineNumber: 97,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 92,
+                        lineNumber: 89,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -328,7 +320,7 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 105,
+                                lineNumber: 102,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -336,13 +328,13 @@ const ProfileForm = ()=>{
                                 children: "Could be your own or a company website"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 112,
+                                lineNumber: 109,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 104,
+                        lineNumber: 101,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -356,7 +348,7 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 117,
+                                lineNumber: 114,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -364,13 +356,13 @@ const ProfileForm = ()=>{
                                 children: "City & state suggested (eg. Boston, MA)"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 124,
+                                lineNumber: 121,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 116,
+                        lineNumber: 113,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -384,7 +376,7 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 129,
+                                lineNumber: 126,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -392,13 +384,13 @@ const ProfileForm = ()=>{
                                 children: "Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 136,
+                                lineNumber: 133,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 128,
+                        lineNumber: 125,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -412,7 +404,7 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 141,
+                                lineNumber: 138,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -420,13 +412,13 @@ const ProfileForm = ()=>{
                                 children: "If you want your latest repos and a Github link, include your username"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 148,
+                                lineNumber: 145,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 140,
+                        lineNumber: 137,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -439,7 +431,7 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 154,
+                                lineNumber: 151,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
@@ -447,13 +439,13 @@ const ProfileForm = ()=>{
                                 children: "Tell us a little about yourself"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 159,
+                                lineNumber: 156,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 153,
+                        lineNumber: 150,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -464,20 +456,20 @@ const ProfileForm = ()=>{
                                 children: "Add Social Network Links"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 163,
+                                lineNumber: 160,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("small", {
                                 children: "Optional"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 164,
+                                lineNumber: 161,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 162,
+                        lineNumber: 159,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -487,7 +479,7 @@ const ProfileForm = ()=>{
                                 className: "fab fa-twitter fa-2x"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 168,
+                                lineNumber: 165,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -498,13 +490,13 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 169,
+                                lineNumber: 166,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 167,
+                        lineNumber: 164,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -514,7 +506,7 @@ const ProfileForm = ()=>{
                                 className: "fab fa-facebook fa-2x"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 179,
+                                lineNumber: 176,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -525,13 +517,13 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 180,
+                                lineNumber: 177,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 178,
+                        lineNumber: 175,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -541,7 +533,7 @@ const ProfileForm = ()=>{
                                 className: "fab fa-youtube fa-2x"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 190,
+                                lineNumber: 187,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -552,13 +544,13 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 191,
+                                lineNumber: 188,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 189,
+                        lineNumber: 186,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -568,7 +560,7 @@ const ProfileForm = ()=>{
                                 className: "fab fa-linkedin fa-2x"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 201,
+                                lineNumber: 198,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -579,13 +571,13 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 202,
+                                lineNumber: 199,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 200,
+                        lineNumber: 197,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -595,7 +587,7 @@ const ProfileForm = ()=>{
                                 className: "fab fa-instagram fa-2x"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 212,
+                                lineNumber: 209,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -606,13 +598,13 @@ const ProfileForm = ()=>{
                                 onChange: (e)=>changeHandler(e)
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                                lineNumber: 213,
+                                lineNumber: 210,
                                 columnNumber: 6
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 211,
+                        lineNumber: 208,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -621,7 +613,7 @@ const ProfileForm = ()=>{
                         children: "submit"
                     }, void 0, false, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 221,
+                        lineNumber: 218,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -630,19 +622,19 @@ const ProfileForm = ()=>{
                         children: "Go Back"
                     }, void 0, false, {
                         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                        lineNumber: 226,
+                        lineNumber: 223,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-                lineNumber: 70,
+                lineNumber: 65,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/client/app/(dashboard)/profile-form/page.tsx",
-        lineNumber: 63,
+        lineNumber: 58,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 };

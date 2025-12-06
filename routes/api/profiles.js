@@ -1,8 +1,8 @@
 /** @format */
 
 const express = require('express');
-const config = require('config')
-const request = require('request')
+const config = require('config');
+const request = require('request');
 const router = express.Router();
 const Profile = require('../../models/Profile');
 const auth = require('../../middleware/auth');
@@ -27,7 +27,7 @@ router.get('/me', auth, async (req, res) => {
 	}
 });
 
-// @route    POST api/Profile
+// @route    POST api/Profiles
 // @desc     Create or update user profile
 // @access   Private
 
@@ -62,21 +62,31 @@ router.post(
 		const profileFields = {};
 		profileFields.user = req.user.id;
 		if (company) profileFields.company = company;
+		else profileFields.company = '';
 		if (website) profileFields.website = website;
+		else profileFields.website = '';
 		if (location) profileFields.location = location;
+		else profileFields.location = '';
 		if (bio) profileFields.bio = bio;
+		else profileFields.bio = '';
 		if (status) profileFields.status = status;
+		else profileFields.status = '';
 		if (githubusername) profileFields.githubusername = githubusername;
-		if (skills) {
-			profileFields.skills = skills.split(',').map((skill) => skill.trim());
-		}
+		else profileFields.githubusername = '';
+		if (skills) profileFields.skills = skills.split(',').map((skill) => skill.trim());
+		else profileFields.skills = [];
 		// Build social object
 		profileFields.social = {};
 		if (youtube) profileFields.social.youtube = youtube;
+		else profileFields.social.youtube = '';
 		if (twitter) profileFields.social.twitter = twitter;
+		else profileFields.social.twitter = '';
 		if (facebook) profileFields.social.facebook = facebook;
+		else profileFields.social.facebook = '';
 		if (linkedin) profileFields.social.linkedin = linkedin;
+		else profileFields.social.linkedin = '';
 		if (instagram) profileFields.social.instagram = instagram;
+		else profileFields.social.instagram = '';
 
 		try {
 			let profile = await Profile.findOne({ user: req.user.id });
@@ -94,7 +104,7 @@ router.post(
 			await profile.save();
 			res.json(profile);
 		} catch (err) {
-			console.error(err.message);
+			console.error(err);
 			res.status(500).send('Server Error');
 		}
 	}
@@ -279,33 +289,34 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 	}
 });
 
-
 // @route    Get /github/:username
 // @desc     get github repos
 // @access   Public
 
-router.get('/github/:username',(req,res)=>{
+router.get('/github/:username', (req, res) => {
 	try {
-		const options={
-			uri:`https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc&client_id=${config.get("githubClientID")}&client_secret=${config.get('githubClientSecret')}`,
-			method:'GET',
-			headers:{'user-agent' : 'node.js'}
-		}
-		request(options,(error,response,body)=>{
-			if(error) console.log(error);
+		const options = {
+			uri: `https://api.github.com/users/${
+				req.params.username
+			}/repos?per_page=5&sort=created:asc&client_id=${config.get(
+				'githubClientID'
+			)}&client_secret=${config.get('githubClientSecret')}`,
+			method: 'GET',
+			headers: { 'user-agent': 'node.js' },
+		};
+		request(options, (error, response, body) => {
+			if (error) console.log(error);
 
-			if(response.statusCode !== 200) {
-				res.status(404).json({msg:"No gihub profile found"})
-			}else{
-				res.json(JSON.parse(body))
+			if (response.statusCode !== 200) {
+				res.status(404).json({ msg: 'No gihub profile found' });
+			} else {
+				res.json(JSON.parse(body));
 			}
-			
-		})
+		});
 	} catch (error) {
 		console.log(error);
-		res.status(500).send('Server Error')
-		
+		res.status(500).send('Server Error');
 	}
-})
+});
 
 module.exports = router;

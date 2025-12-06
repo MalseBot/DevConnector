@@ -3,13 +3,12 @@
 'use client';
 
 import { useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addAlert } from '../store/slices/alertSlice';
 import { clearError, clearProfile, createUpdateProfile, getCurrentProfile, getProfileById } from '../store/slices/profileSlice';
 
 export const useProfile = () => {
-	const router = useRouter();
 	const dispatch = useAppDispatch();
 	const profileState = useAppSelector((state) => state.profile);
 	
@@ -17,18 +16,8 @@ export const useProfile = () => {
 	const fetchCurrentProfile = useCallback(async () => {
 		try {
 			const response = await dispatch(getCurrentProfile()).unwrap();
-			if (!response) {
-				console.log(response);
-				
-				router.push('/profile-form');
-				dispatch(
-					addAlert({
-						id: `${Date.now()}`,
-						type: 'warning',
-						message: 'Please create your profile',
-						duration: 5000,
-					})
-				);
+			if(!response){
+				redirect('/profile-form');
 			}
 			return response;
 		} catch (error) {
@@ -42,7 +31,7 @@ export const useProfile = () => {
 				})
 			);
 		}
-	}, [dispatch, router]);
+	}, [dispatch]);
 
     const fetchProfileById = useCallback(async (userId: string) => {
 		try {
@@ -65,19 +54,23 @@ export const useProfile = () => {
     const saveProfile = useCallback(async (profileData: any) => {
 		try {
 			const response = await dispatch(createUpdateProfile(profileData)).unwrap();
+			dispatch(addAlert({
+				id: `${Date.now()}`,
+				type: 'success',
+				message: 'Profile saved successfully',
+				duration: 5000,
+			}));
 			return response;
 		} catch (error) {
-			const errorMsg = error as string;
-			dispatch(
-				addAlert({
+						const errorMsg = error as string;
+				dispatch(addAlert({
 					id: `${Date.now()}`,
 					type: 'error',
-					message: errorMsg,
+					message:  errorMsg ||'Failed to save profile',
 					duration: 5000,
-				})
-			);
+				}
+			))}
 			throw error;
-		}
 	}, [dispatch]);
                 return{
                     profile: profileState.profile,

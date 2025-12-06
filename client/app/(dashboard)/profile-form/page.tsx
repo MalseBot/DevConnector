@@ -5,10 +5,8 @@
 import React, { useState } from 'react';
 import { useProfile } from '@/app/hooks/useProfile';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 const ProfileForm = () => {
-	const router = useRouter();
 	const { createUpdateProfile, profile } = useProfile();
 	const [formData, setFormData] = useState({
 		status: profile?.status || '',
@@ -17,14 +15,12 @@ const ProfileForm = () => {
 		location: profile?.location || '',
 		bio: profile?.bio || '',
 		githubusername: profile?.githubusername || '',
-		skills: profile?.skills || '',
-		social: {
-			youtube: profile?.social?.youtube || '',
-			facebook: profile?.social?.facebook || '',
-			twitter: profile?.social?.twitter || '',
-			instagram: profile?.social?.instagram || '',
-			linkedin: profile?.social?.linkedin || '',
-		},
+		skills: profile?.skills.toString() || '',
+		youtube: profile?.social?.youtube || '',
+		facebook: profile?.social?.facebook || '',
+		twitter: profile?.social?.twitter || '',
+		instagram: profile?.social?.instagram || '',
+		linkedin: profile?.social?.linkedin || '',
 	});
 	const {
 		status,
@@ -34,9 +30,12 @@ const ProfileForm = () => {
 		bio,
 		githubusername,
 		skills,
-		social: { youtube, facebook, twitter, instagram, linkedin },
+		youtube,
+		facebook,
+		twitter,
+		instagram,
+		linkedin,
 	} = formData;
-
 
 	const changeHandler = (
 		e: React.ChangeEvent<
@@ -47,15 +46,11 @@ const ProfileForm = () => {
 	const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		// Convert comma-separated skills string into array
-
 		try {
 			await createUpdateProfile(formData);
 			// redirect to dashboard after successful save
-			router.push('/dashboard');
 		} catch (err) {
-			// useProfile will dispatch alerts; just swallow here
-			console.error(err);
+			console.log(err);
 		}
 	};
 
@@ -75,7 +70,9 @@ const ProfileForm = () => {
 						name='status'
 						value={status}
 						onChange={(e) => changeHandler(e)}>
-						<option value='0'>* Select Professional Status</option>
+						<option value='0'>
+							* {status !== '' ? status : 'Select Professional Status'}
+						</option>
 						<option value='Developer'>Developer</option>
 						<option value='Junior Developer'>Junior Developer</option>
 						<option value='Senior Developer'>Senior Developer</option>
