@@ -41,7 +41,7 @@ const Alert = ()=>{
 if(alerts.length === 0 )return null
 
     return (
-			<div className='fixed top-4 right-4 z-50 w-80 max-w-full'>
+			<div className='fixed bottom-4 right-4 z-50 w-80 max-w-full'>
 				{alerts.map((alert) => (
 					<div
 						key={alert.id}

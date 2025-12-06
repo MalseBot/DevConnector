@@ -7,7 +7,7 @@ import { useAuth } from '@/app/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 export default function Register() {
 	const router = useRouter();
-	const { register, registerLoading, isAuthenticated } = useAuth();
+	const { register, registerLoading } = useAuth();
 
 	const [formData, setFormData] = useState({
 		name: '',
@@ -38,13 +38,10 @@ export default function Register() {
 				email: formData.email,
 				password: formData.password,
 			});
+			router.push('/login');
 		}
 	};
-	useEffect(() => {
-			if (isAuthenticated) {
-				router.push('/');
-			}
-		}, [isAuthenticated, router]);
+
 	return (
 		<section className='container'>
 			<h1 className='large text-primary'>Sign Up</h1>

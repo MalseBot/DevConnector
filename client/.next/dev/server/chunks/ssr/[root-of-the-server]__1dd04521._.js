@@ -163,7 +163,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js
 ;
 const initialState = {
     user: null,
-    isLoading: true,
+    isLoading: false,
     error: null,
     success: false
 };
@@ -250,7 +250,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js
 ;
 const initialState = {
     user: null,
-    isLoading: true,
+    isLoading: false,
     error: null,
     isAuthenticated: false
 };
@@ -287,8 +287,8 @@ const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f
         loadUserFromToken: (state, action)=>{
             if (action.payload) {
                 state.user = action.payload;
-                state.isLoading = false;
                 state.isAuthenticated = true;
+                state.isLoading = false;
             }
         }
     },
@@ -299,9 +299,9 @@ const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f
             state.error = null;
         })// Fulfilled state
         .addCase(loginUser.fulfilled, (state, action)=>{
+            state.user = action.payload;
             state.isLoading = false;
             state.isAuthenticated = true;
-            state.error = null;
             console.log(action);
             const token = action.payload.token;
             if (token) {
@@ -413,11 +413,10 @@ const useAuth = ()=>{
             }));
             return result;
         } catch (error) {
-            const errorMsg = error;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
-                message: errorMsg,
+                message: error?.message || error || 'Login failed',
                 duration: 5000
             }));
         }
@@ -530,7 +529,14 @@ const Navbar = ()=>{
                     isAuthenticated ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: user?.name
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/dashboard",
+                                    children: user?.name
+                                }, void 0, false, {
+                                    fileName: "[project]/client/app/components/layouts/Navbar.tsx",
+                                    lineNumber: 28,
+                                    columnNumber: 11
+                                }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
                                 lineNumber: 28,
@@ -778,7 +784,7 @@ const Alert = ()=>{
     };
     if (alerts.length === 0) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "fixed top-4 right-4 z-50 w-80 max-w-full",
+        className: "fixed bottom-4 right-4 z-50 w-80 max-w-full",
         children: alerts.map((alert)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: getAlertStyles(alert.type),
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {

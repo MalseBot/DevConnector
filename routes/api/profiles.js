@@ -45,11 +45,11 @@ router.post(
 		}
 
 		const {
+			status,
 			company,
 			website,
 			location,
 			bio,
-			status,
 			githubusername,
 			skills,
 			youtube,

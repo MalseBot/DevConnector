@@ -74,13 +74,12 @@ export const useAuth = () => {
 				})
 			);
 			return result;
-		} catch (error) {
-			const errorMsg = error as string;
+		} catch (error : Array<string>|string) {
 			dispatch(
 				addAlert({
 					id: `${Date.now()}`,
 					type: 'error',
-					message: errorMsg,
+					message: error?.message ||error||'Login failed',
 					duration: 5000,
 				})
 			);

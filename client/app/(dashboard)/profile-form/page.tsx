@@ -1,7 +1,236 @@
-import React from 'react'
+/** @format */
 
-export default function ProfileForm() {
-  return (
-    <div>page</div>
-  )
-}
+'use client';
+
+import React, { useState } from 'react';
+import { useProfile } from '@/app/hooks/useProfile';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
+const ProfileForm = () => {
+	const router = useRouter();
+	const { createUpdateProfile, profile } = useProfile();
+	const [formData, setFormData] = useState({
+		status: profile?.status || '',
+		company: profile?.company || '',
+		website: profile?.website || '',
+		location: profile?.location || '',
+		bio: profile?.bio || '',
+		githubusername: profile?.githubusername || '',
+		skills: profile?.skills || '',
+		social: {
+			youtube: profile?.social?.youtube || '',
+			facebook: profile?.social?.facebook || '',
+			twitter: profile?.social?.twitter || '',
+			instagram: profile?.social?.instagram || '',
+			linkedin: profile?.social?.linkedin || '',
+		},
+	});
+	const {
+		status,
+		company,
+		website,
+		location,
+		bio,
+		githubusername,
+		skills,
+		social: { youtube, facebook, twitter, instagram, linkedin },
+	} = formData;
+
+
+	const changeHandler = (
+		e: React.ChangeEvent<
+			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+		>
+	): void => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+	const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		// Convert comma-separated skills string into array
+
+		try {
+			await createUpdateProfile(formData);
+			// redirect to dashboard after successful save
+			router.push('/dashboard');
+		} catch (err) {
+			// useProfile will dispatch alerts; just swallow here
+			console.error(err);
+		}
+	};
+
+	return (
+		<section className='container'>
+			<h1 className='large text-primary'>Create Your Profile</h1>
+			<p className='lead'>
+				<i className='fas fa-user'></i> Lets get some information to make your
+				profile stand out
+			</p>
+			<small>* required field</small>
+			<form
+				className='form'
+				onSubmit={submitHandler}>
+				<div className='form-group'>
+					<select
+						name='status'
+						value={status}
+						onChange={(e) => changeHandler(e)}>
+						<option value='0'>* Select Professional Status</option>
+						<option value='Developer'>Developer</option>
+						<option value='Junior Developer'>Junior Developer</option>
+						<option value='Senior Developer'>Senior Developer</option>
+						<option value='Manager'>Manager</option>
+						<option value='Student or Learning'>Student or Learning</option>
+						<option value='Instructor'>Instructor or Teacher</option>
+						<option value='Intern'>Intern</option>
+						<option value='Other'>Other</option>
+					</select>
+					<small className='form-text'>
+						Give us an idea of where you are at in your career
+					</small>
+				</div>
+				<div className='form-group'>
+					<input
+						type='text'
+						placeholder='Company'
+						name='company'
+						value={company}
+						onChange={(e) => changeHandler(e)}
+					/>
+					<small className='form-text'>
+						Could be your own company or one you work for
+					</small>
+				</div>
+				<div className='form-group'>
+					<input
+						type='text'
+						placeholder='Website'
+						name='website'
+						value={website}
+						onChange={(e) => changeHandler(e)}
+					/>
+					<small className='form-text'>
+						Could be your own or a company website
+					</small>
+				</div>
+				<div className='form-group'>
+					<input
+						type='text'
+						placeholder='Location'
+						name='location'
+						value={location}
+						onChange={(e) => changeHandler(e)}
+					/>
+					<small className='form-text'>
+						City & state suggested (eg. Boston, MA)
+					</small>
+				</div>
+				<div className='form-group'>
+					<input
+						type='text'
+						placeholder='* Skills'
+						name='skills'
+						value={skills}
+						onChange={(e) => changeHandler(e)}
+					/>
+					<small className='form-text'>
+						Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+					</small>
+				</div>
+				<div className='form-group'>
+					<input
+						type='text'
+						placeholder='Github Username'
+						name='githubusername'
+						value={githubusername}
+						onChange={(e) => changeHandler(e)}
+					/>
+					<small className='form-text'>
+						If you want your latest repos and a Github link, include your
+						username
+					</small>
+				</div>
+				<div className='form-group'>
+					<textarea
+						placeholder='A short bio of yourself'
+						name='bio'
+						value={bio}
+						onChange={(e) => changeHandler(e)}></textarea>
+					<small className='form-text'>Tell us a little about yourself</small>
+				</div>
+
+				<div className='my-2'>
+					<h3 className='text-primary'>Add Social Network Links</h3>
+					<small>Optional</small>
+				</div>
+
+				<div className='form-group social-input'>
+					<i className='fab fa-twitter fa-2x'></i>
+					<input
+						type='text'
+						placeholder='Twitter URL'
+						name='twitter'
+						value={twitter}
+						onChange={(e) => changeHandler(e)}
+					/>
+				</div>
+
+				<div className='form-group social-input'>
+					<i className='fab fa-facebook fa-2x'></i>
+					<input
+						type='text'
+						placeholder='Facebook URL'
+						name='facebook'
+						value={facebook}
+						onChange={(e) => changeHandler(e)}
+					/>
+				</div>
+
+				<div className='form-group social-input'>
+					<i className='fab fa-youtube fa-2x'></i>
+					<input
+						type='text'
+						placeholder='YouTube URL'
+						name='youtube'
+						value={youtube}
+						onChange={(e) => changeHandler(e)}
+					/>
+				</div>
+
+				<div className='form-group social-input'>
+					<i className='fab fa-linkedin fa-2x'></i>
+					<input
+						type='text'
+						placeholder='Linkedin URL'
+						name='linkedin'
+						value={linkedin}
+						onChange={(e) => changeHandler(e)}
+					/>
+				</div>
+
+				<div className='form-group social-input'>
+					<i className='fab fa-instagram fa-2x'></i>
+					<input
+						type='text'
+						placeholder='Instagram URL'
+						name='instagram'
+						value={instagram}
+						onChange={(e) => changeHandler(e)}
+					/>
+				</div>
+				<button
+					type='submit'
+					className='btn btn-primary'>
+					submit
+				</button>
+				<Link
+					className='btn btn-light my-1'
+					href='/dashboard'>
+					Go Back
+				</Link>
+			</form>
+		</section>
+	);
+};
+
+export default ProfileForm;

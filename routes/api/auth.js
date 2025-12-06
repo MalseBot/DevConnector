@@ -61,7 +61,7 @@ Router.post(
             jwt.sign(
                 payload,
                 config.get('jwtSecret'),
-                { expiresIn: 360000 },
+                { expiresIn: 3600 },
                 (err, token) => {
                     if (err) throw err;
                     res.json({token,user:{
@@ -72,8 +72,6 @@ Router.post(
                 }
             );
         } catch (error) {
-            console.error(error.message);
-
             res.status(500).send('Server error');
         }
     }

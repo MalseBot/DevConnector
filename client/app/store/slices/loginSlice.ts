@@ -24,7 +24,7 @@ export interface LoginState {
 
 const initialState: LoginState = {
 	user: null,
-	isLoading: true,
+	isLoading: false,
 	error: null,
 	isAuthenticated: false,
 };
@@ -72,9 +72,8 @@ export const loginSlice = createSlice({
 		loadUserFromToken: (state, action:{payload:AuthUser}) => {
 			if (action.payload) {
 				state.user = action.payload;
-				state.isLoading = false;
 				state.isAuthenticated = true;
-
+				state.isLoading = false;
 			}
 		},
 	},
@@ -87,9 +86,9 @@ export const loginSlice = createSlice({
 			})
 			// Fulfilled state
 			.addCase(loginUser.fulfilled, (state, action) => {
+				state.user = action.payload
 				state.isLoading = false;
 				state.isAuthenticated = true;
-				state.error = null;
 				console.log(action);
 				
 				const token = action.payload.token;

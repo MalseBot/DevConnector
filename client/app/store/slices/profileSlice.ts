@@ -2,7 +2,6 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
-import { redirect, RedirectType } from 'next/navigation';
 
 interface User {
 	id: string;
@@ -47,7 +46,7 @@ interface Profile {
 	website: string;
 	location: string;
 	status: string;
-	skills: string[];
+	skills: string;
 	bio: string;
 	githubusername: string;
 	experience: Experience[];
