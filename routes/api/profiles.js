@@ -210,7 +210,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
 		const profile = await Profile.findOne({ user: req.user.id });
 		await profile.experience.id(req.params.exp_id).deleteOne();
 		await profile.save();
-		res.send('Experience Deleted successfuly');
+		res.send(profile);
 	} catch (error) {
 		console.log(error.message);
 		res.status(500).send('Server Error');
@@ -282,7 +282,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 		const profile = await Profile.findOne({ user: req.user.id });
 		await profile.education.id(req.params.edu_id).deleteOne();
 		await profile.save();
-		res.send('Education Deleted successfuly');
+		res.send(profile);
 	} catch (error) {
 		console.log(error.message);
 		res.status(500).send('Server Error');

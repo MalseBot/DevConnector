@@ -2,66 +2,8 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
+import { ProfileState, Profile, Education, Experience  } from '../types/profile';
 
-interface User {
-	id: string;
-	name: string;
-	email: string;
-	avatar: string;
-}
-
-interface Experience {
-	id: string;
-	title: string;
-	company: string;
-	location: string;
-	from: string;
-	to?: string;
-	current: boolean;
-	description?: string;
-}
-
-interface Education {
-	id: string;
-	school: string;
-	degree: string;
-	fieldofstudy: string;
-	from: string;
-	to?: string;
-	current: boolean;
-	description?: string;
-}
-
-interface Social {
-	youtube?: string;
-	twitter?: string;
-	facebook?: string;
-	linkedin?: string;
-	instagram?: string;
-}
-
-interface Profile {
-	user: User;
-	company: string;
-	website: string;
-	location: string;
-	status: string;
-	skills: string;
-	bio: string;
-	githubusername: string;
-	experience: Experience[];
-	education: Education[];
-	social: Social;
-	date: string;
-}
-
-const ProfileState = {
-	profile: null as Profile | null,
-	profiles: [] as Profile[],
-	repos: [],
-	isLoading: false,
-	error: null as string | null,
-};
 
 const initialState: typeof ProfileState = ProfileState;
 
@@ -101,11 +43,77 @@ export const createUpdateProfile = createAsyncThunk(
 			return response.data;
 		} catch (error: any) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg
+				error.response.data.errors?.[0].msg || 'Failed to save profile'
 			);
 		}
 	}
 );
+
+export const addExperience = createAsyncThunk(
+	'profile/addExperience',
+	async (experienceData: Partial<Experience>, { rejectWithValue }) => {
+		try {
+			console.log(experienceData);
+
+			const response = await api.put('/profiles/experience', experienceData);
+			return response.data;
+		} catch (error: any) {
+			return rejectWithValue(
+				error.response.data.errors?.[0].msg || 'Failed to save profile'
+			);
+		}
+	}
+);
+
+export const deleteExperience = createAsyncThunk(
+	'profile/deleteExperience',
+	async (eduId: string, { rejectWithValue }) => {
+		try {
+			const response = await api.delete(`/profiles/experience/${eduId}`);
+
+			return response.data;
+		} catch (error: any) {
+			return rejectWithValue(
+				error.response.data.errors?.[0].msg || 'Failed to delete experience'
+			);
+		}
+	}
+);
+
+export const addEducation = createAsyncThunk(
+	'profile/addEducation',
+	async (educationData: Partial<Education>, { rejectWithValue }) => {
+		try {
+			console.log(educationData);
+			const response = await api.put('/profiles/education', educationData);
+			console.log(response);
+			
+			return response.data;
+		} catch (error: any) {
+			return rejectWithValue(
+				error.response.data.errors?.[0].msg || 'Failed to save profile'
+			);
+		}
+	}
+);
+
+export const deleteEducation = createAsyncThunk(
+	'profile/deleteEducation',
+	async (eduId: string, { rejectWithValue }) => {
+		try {
+
+			const response = await api.delete(`/profiles/education/${eduId}`);
+			
+			return response.data;
+		} catch (error: any) {
+			return rejectWithValue(
+				error.response.data.errors?.[0].msg || 'Failed to delete education'
+			);
+		}
+	}
+);
+
+
 
 export const profileSlice = createSlice({
 	name: 'profile',
@@ -158,6 +166,50 @@ export const profileSlice = createSlice({
 				state.profile = action.payload;
 			})
 			.addCase(createUpdateProfile.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload as string;
+			})
+			.addCase(addEducation.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(addEducation.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.profile = action.payload;
+			})
+			.addCase(addEducation.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload as string;
+			})
+			.addCase(deleteEducation.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(deleteEducation.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.profile = action.payload;
+			})
+			.addCase(deleteEducation.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload as string;
+			})
+			.addCase(addExperience.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(addExperience.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.profile = action.payload;
+			})
+			.addCase(addExperience.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload as string;
+			})
+			.addCase(deleteExperience.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(deleteExperience.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.profile = action.payload;
+			})
+			.addCase(deleteExperience.rejected, (state, action) => {
 				state.isLoading = false;
 				state.error = action.payload as string;
 			});

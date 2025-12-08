@@ -14,9 +14,9 @@ import {
 	loadUserFromToken,
 } from '@/app/store/slices/loginSlice';
 import { addAlert } from '@/app/store/slices/alertSlice';
-import type { RegisterUser } from '@/app/store/slices/registerSlice';
-import type { LoginCredentials } from '@/app/store/slices/loginSlice';
+
 import { useCallback } from 'react';
+import { AuthUser, LoginCredentials, RegisterUser } from '../store/types/auth';
 
 /**
  * Custom hook for authentication
@@ -24,12 +24,7 @@ import { useCallback } from 'react';
  * Usage:
  * const { register, login, logout, user, isAuthenticated } = useAuth();
  */
-export interface AuthUser {
-	id: string;
-	name: string;
-	email: string;
-	token: string;
-}
+
 export const useAuth = () => {
 	const dispatch = useAppDispatch();
 	const registerState = useAppSelector((state) => state.register);
@@ -74,7 +69,7 @@ export const useAuth = () => {
 				})
 			);
 			return result;
-		} catch (error : Array<string>|string) {
+		} catch (error : any) {
 			dispatch(
 				addAlert({
 					id: `${Date.now()}`,

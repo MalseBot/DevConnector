@@ -2,25 +2,8 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
-
-export interface LoginCredentials {
-	email: string;
-	password: string;
-}
-
-export interface AuthUser {
-	id: string;
-	name: string;
-	email: string;
-	token: string;
-}
-
-export interface LoginState {
-	user: AuthUser | null;
-	isLoading: boolean;
-	error: string | null;
-	isAuthenticated: boolean;
-}
+import { AuthUser, LoginCredentials, LoginState } from '../types/auth';
+import { clearProfile } from './profileSlice';
 
 const initialState: LoginState = {
 	user: null,
@@ -37,9 +20,25 @@ export const loginUser = createAsyncThunk(
 			const response = await api.post('/auth', credentials);
 			// Assuming the API returns { token, user: { id, name, email } }
 			return response.data;
-		} catch (error : any) {
-			
-				return rejectWithValue(error.response.data.errors?.[0].msg || 'Login failed');
+		} catch (error: any) {
+			return rejectWithValue(
+				error.response.data.errors?.[0].msg || 'Login failed'
+			);
+		}
+	}
+);
+
+export const validateToken = createAsyncThunk(
+	'login/validateToken',
+	async (token: string, { rejectWithValue }) => {
+		try {
+			// include token in Authorization header (Bearer)
+			const response = await api.get('/auth');
+			return response.data; // Assuming it returns user data if token is valid
+		} catch (error: any) {
+			return rejectWithValue(
+				error.response?.data || error.message || 'Token validation failed'
+			);
 		}
 	}
 );
@@ -54,12 +53,12 @@ export const loginSlice = createSlice({
 			state.isAuthenticated = false;
 			state.isLoading = false;
 			state.error = null;
-			
+			clearProfile();
+
 			// Clear token and user data from localStorage
-				console.log(window);
-				localStorage.removeItem('token');
-				localStorage.removeItem('user');
-			
+			console.log(window);
+			localStorage.removeItem('token');
+			localStorage.removeItem('user');
 		},
 
 		// Clear error
@@ -69,7 +68,7 @@ export const loginSlice = createSlice({
 		},
 
 		// Load user from token (on app init)
-		loadUserFromToken: (state, action:{payload:AuthUser}) => {
+		loadUserFromToken: (state, action: { payload: AuthUser }) => {
 			if (action.payload) {
 				state.user = action.payload;
 				state.isAuthenticated = true;
@@ -86,13 +85,13 @@ export const loginSlice = createSlice({
 			})
 			// Fulfilled state
 			.addCase(loginUser.fulfilled, (state, action) => {
-				state.user = action.payload
+				state.user = action.payload;
 				state.isLoading = false;
 				state.isAuthenticated = true;
 				console.log(action);
-				
+
 				const token = action.payload.token;
-				if(token){
+				if (token) {
 					const decodedToken = JSON.parse(atob(token.split('.')[1]));
 					const userId = decodedToken.user.id;
 
@@ -115,6 +114,45 @@ export const loginSlice = createSlice({
 				state.error = action.payload as string;
 				state.isAuthenticated = false;
 				state.user = null;
+			})
+			// Validate token lifecycle
+			.addCase(validateToken.pending, (state) => {
+				state.isLoading = true;
+				state.error = null;
+			})
+			.addCase(validateToken.fulfilled, (state, action) => {
+				state.isLoading = false;
+				// action.payload should contain user info returned by backend
+				const payload = action.payload;
+				if (payload) {
+					// preserve token from localStorage if present
+					const token =
+						typeof window !== 'undefined'
+							? localStorage.getItem('token')
+							: undefined;
+					state.user = {
+						id: payload.user?.id || payload.id || '',
+						name: payload.user?.name || payload.name || '',
+						email: payload.user?.email || payload.email || '',
+						token: token || '',
+					};
+					state.isAuthenticated = true;
+					// refresh stored user data
+					if (typeof window !== 'undefined' && state.user) {
+						localStorage.setItem('user', JSON.stringify(state.user));
+					}
+				}
+			})
+			.addCase(validateToken.rejected, (state, action) => {
+				// Token invalid or expired -> force logout
+				state.isLoading = false;
+				state.error = (action.payload as string) || 'Token invalid';
+				state.isAuthenticated = false;
+				state.user = null;
+				if (typeof window !== 'undefined') {
+					localStorage.removeItem('token');
+					localStorage.removeItem('user');
+				}
 			});
 	},
 });

@@ -2,26 +2,8 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
+import { RegisterUser,RegisterState } from '../types/auth';
 
-export interface RegisterUser {
-	name: string;
-	email: string;
-	password: string;
-}
-
-export interface AuthUser {
-	id: string;
-	name: string;
-	email: string;
-	token: string;
-}
-
-export interface RegisterState {
-	user: AuthUser | null;
-	isLoading: boolean;
-	error: string | null;
-	success: boolean;
-}
 
 const initialState: RegisterState = {
 	user: null,

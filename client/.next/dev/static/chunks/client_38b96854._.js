@@ -621,7 +621,8 @@ const getCurrentProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$cl
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get('/profiles/me');
         return response.data;
     } catch (error) {
-        rejectWithValue(error.response.data.errors?.[0].msg);
+        rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to fetch profile');
+        console.log(error.response || 'Failed to fetch profile');
     }
 });
 const getProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/getProfileById', async (userId, { rejectWithValue })=>{
@@ -638,7 +639,7 @@ const createUpdateProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post('/profiles', profileData);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg);
+        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to save profile');
     }
 });
 const profileSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({

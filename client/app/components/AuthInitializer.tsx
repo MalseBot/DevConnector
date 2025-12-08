@@ -2,29 +2,21 @@
 
 'use client';
 import { useEffect } from 'react';
-import { useAuth } from '@/app/hooks/useAuth';
+import { useAppDispatch } from '@/app/store/hooks';
+import { validateToken } from '@/app/store/slices/loginSlice';
 
 export function AuthInitializer() {
-	const { loadUserFromToken } = useAuth();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		// On app init, check if token exists in localStorage
-		if (typeof window !== 'undefined') {
-			const token = localStorage.getItem('token');
-			const user = localStorage.getItem('user');
+		if (typeof window === 'undefined') return;
 
-			if (token && user) {
-				try {
-					const parsedUser = JSON.parse(user);
-					loadUserFromToken(parsedUser);
-				} catch (error) {
-					console.error('Failed to load user from token:', error);
-					localStorage.removeItem('token');
-					localStorage.removeItem('user');
-				}
-			}
-		}
-	}, [loadUserFromToken]);
+		const token = localStorage.getItem('token');
+		if (!token) return;
 
-	return null; // This component doesn't render anything
+		// Dispatch validateToken; the slice will clear storage on rejection
+		dispatch(validateToken(token));
+	}, [dispatch]);
+
+	return null;
 }
