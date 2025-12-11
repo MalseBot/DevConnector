@@ -36,7 +36,7 @@ export interface Profile {
 	website: string;
 	location: string;
 	status: string;
-	skills: string;
+	skills: [string];
 	bio: string;
 	githubusername: string;
 	experience: Experience[];
@@ -45,9 +45,21 @@ export interface Profile {
 	date: Date;
 }
 
+export interface ProfileCU {
+	company: string;
+	website: string;
+	location: string;
+	status: string;
+	skills: string;
+	bio: string;
+	githubusername: string;
+	date: Date;
+}
+
 export const ProfileState = {
 	profile: null as Profile | null,
 	profiles: [] as Profile[],
+	profileDetail: null as Profile | null,
 	repos: [],
 	isLoading: false,
 	error: null as string | null,

@@ -21,6 +21,7 @@ const ProfileForm = () => {
 		twitter: profile?.social?.twitter || '',
 		instagram: profile?.social?.instagram || '',
 		linkedin: profile?.social?.linkedin || '',
+		date: new Date(),
 	});
 	const {
 		status,

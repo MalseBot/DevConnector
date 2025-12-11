@@ -126,12 +126,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 function ProtectedRoute({ children }) {
     _s();
-    const { isAuthenticated, loginLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
+    const { loginLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
     // Show loading state while checking auth
     if (loginLoading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$components$2f$Loading$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
             fileName: "[project]/client/app/components/ProtectedRoute.tsx",
-            lineNumber: 19,
+            lineNumber: 17,
             columnNumber: 10
         }, this);
     }
@@ -139,7 +139,7 @@ function ProtectedRoute({ children }) {
         children: children
     }, void 0, false);
 }
-_s(ProtectedRoute, "EcDiEWaX/kZrvUCxEZQ6o9oLGCM=", false, function() {
+_s(ProtectedRoute, "AIPojH5NJ4VHEMvKXhlwcPIC/i0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useAuth$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"]
     ];

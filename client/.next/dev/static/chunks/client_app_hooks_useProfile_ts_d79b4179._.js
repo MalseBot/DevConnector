@@ -6,6 +6,7 @@
     "useProfile",
     ()=>useProfile
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/hooks.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/slices/alertSlice.ts [app-client] (ecmascript)");
@@ -16,6 +17,16 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
+// helper to extract a string message from unknown errors
+const getErrorMessage = (error)=>{
+    if (__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+        return error.response?.data?.errors?.[0]?.msg || error.response?.data?.message || error.message || 'Unknown server error';
+    }
+    if (error instanceof Error) return error.message;
+    if (typeof error === 'string') return error;
+    return 'Unknown error';
+};
 const useProfile = ()=>{
     _s();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppDispatch"])();
@@ -32,7 +43,7 @@ const useProfile = ()=>{
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
-                    message: error?.message || 'Profile Error',
+                    message: getErrorMessage(error) || 'Profile Error',
                     duration: 5000
                 }));
             }
@@ -46,7 +57,7 @@ const useProfile = ()=>{
                 const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getProfileById"])(userId)).unwrap();
                 return response;
             } catch (error) {
-                const errorMsg = error;
+                const errorMsg = getErrorMessage(error);
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
@@ -57,6 +68,25 @@ const useProfile = ()=>{
             }
         }
     }["useProfile.useCallback[fetchProfileById]"], [
+        dispatch
+    ]);
+    const Profiles = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "useProfile.useCallback[Profiles]": async ()=>{
+            try {
+                const res = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getAllProfiles"])()).unwrap();
+                return res;
+            } catch (error) {
+                const errorMsg = getErrorMessage(error);
+                dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
+                    id: `${Date.now()}`,
+                    type: 'error',
+                    message: errorMsg || 'Failed to fetch profiles',
+                    duration: 5000
+                }));
+                throw error;
+            }
+        }
+    }["useProfile.useCallback[Profiles]"], [
         dispatch
     ]);
     const saveProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
@@ -71,7 +101,7 @@ const useProfile = ()=>{
                 }));
                 return response;
             } catch (error) {
-                const errorMsg = error;
+                const errorMsg = getErrorMessage(error);
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
@@ -96,7 +126,7 @@ const useProfile = ()=>{
                 }));
                 return response;
             } catch (error) {
-                const errorMsg = error;
+                const errorMsg = getErrorMessage(error);
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
@@ -121,7 +151,7 @@ const useProfile = ()=>{
                 }));
                 return response;
             } catch (error) {
-                const errorMsg = error;
+                const errorMsg = getErrorMessage(error);
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
@@ -146,7 +176,7 @@ const useProfile = ()=>{
                 }));
                 return response;
             } catch (error) {
-                const errorMsg = error;
+                const errorMsg = getErrorMessage(error);
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
@@ -171,7 +201,7 @@ const useProfile = ()=>{
                 }));
                 return response;
             } catch (error) {
-                const errorMsg = error;
+                const errorMsg = getErrorMessage(error);
                 dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addAlert"])({
                     id: `${Date.now()}`,
                     type: 'error',
@@ -190,6 +220,7 @@ const useProfile = ()=>{
         profileLoading: profileState.isLoading,
         profileError: profileState.error,
         getCurrentProfile: fetchCurrentProfile,
+        getAllProfiles: Profiles,
         getProfileById: fetchProfileById,
         createUpdateProfile: saveProfile,
         addExperience: addExperienceToProfile,
@@ -200,7 +231,7 @@ const useProfile = ()=>{
         clearProfileError: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clearError"])())
     };
 };
-_s(useProfile, "cUlU3LfFt6/wEBe959P0O+2qcdY=", false, function() {
+_s(useProfile, "G3UcmH0aG/mIq4+cX1SFgC+rNm0=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppDispatch"],
         __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppSelector"]

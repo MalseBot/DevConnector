@@ -15,7 +15,7 @@ export function AuthInitializer() {
 		if (!token) return;
 
 		// Dispatch validateToken; the slice will clear storage on rejection
-		dispatch(validateToken(token));
+		dispatch(validateToken());
 	}, [dispatch]);
 
 	return null;

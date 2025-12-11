@@ -136,10 +136,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ax
 const api = __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].create({
     baseURL: ("TURBOPACK compile-time value", "http://localhost:5000/api"),
     headers: {
-        'Content-Type': 'application/json',
-        'x-auth-token': localStorage.getItem('token')
+        'Content-Type': 'application/json'
     }
 });
+// Add request interceptor to attach the current token from localStorage on every request
+if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+;
 const __TURBOPACK__default__export__ = api;
 }),
 "[project]/client/app/store/slices/registerSlice.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -281,11 +283,9 @@ const initialState = __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$a
 const getCurrentProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/getCurrentProfile', async (_, { rejectWithValue })=>{
     try {
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get('/profiles/me');
-        console.log(response.data);
         return response.data;
     } catch (error) {
-        rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to fetch profile');
-        console.log(error.response || 'Failed to fetch profile');
+        rejectWithValue(error.response.data.errors?.[0].msg);
     }
 });
 const getProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/getProfileById', async (userId, { rejectWithValue })=>{
@@ -293,7 +293,7 @@ const getProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$clien
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`/profiles/user/${userId}`);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to fetch profile');
+        return rejectWithValue(error);
     }
 });
 const createUpdateProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/createUpdateProfile', async (profileData, { rejectWithValue })=>{
@@ -326,6 +326,7 @@ const addEducation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$
     try {
         console.log(educationData);
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].put('/profiles/education', educationData);
+        console.log(response);
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to save profile');
@@ -362,7 +363,6 @@ const profileSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$
         }).addCase(getCurrentProfile.fulfilled, (state, action)=>{
             state.isLoading = false;
             state.profile = action.payload;
-            console.log(action);
         }).addCase(getCurrentProfile.rejected, (state, action)=>{
             state.isLoading = false;
             state.error = action.payload;
@@ -428,6 +428,8 @@ const __TURBOPACK__default__export__ = profileSlice.reducer;
     ()=>clearError,
     "default",
     ()=>__TURBOPACK__default__export__,
+    "deleteUser",
+    ()=>deleteUser,
     "loadUserFromToken",
     ()=>loadUserFromToken,
     "loginSlice",
@@ -463,14 +465,18 @@ const loginUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$
 const validateToken = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('login/validateToken', async (token, { rejectWithValue })=>{
     try {
         // include token in Authorization header (Bearer)
-        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get('/auth', {
-            headers: {
-                Authorization: token ? `Bearer ${token}` : ''
-            }
-        });
+        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get('/auth');
         return response.data; // Assuming it returns user data if token is valid
     } catch (error) {
         return rejectWithValue(error.response?.data || error.message || 'Token validation failed');
+    }
+});
+const deleteUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('register/deleteUser', async (_, { rejectWithValue })=>{
+    try {
+        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].delete(`/profiles`);
+        return response.data;
+    } catch (error) {
+        return rejectWithValue(error.response?.data.errors?.[0].msg);
     }
 });
 const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({
@@ -564,6 +570,20 @@ const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f
             state.user = null;
             if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
             ;
+        }).addCase(deleteUser.fulfilled, (state)=>{
+            // On user deletion, clear state
+            state.user = null;
+            state.isAuthenticated = false;
+            state.isLoading = false;
+            state.error = null;
+            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            ;
+        }).addCase(deleteUser.rejected, (state, action)=>{
+            state.isLoading = false;
+            state.error = action.payload;
+        }).addCase(deleteUser.pending, (state)=>{
+            state.isLoading = true;
+            state.error = null;
         });
     }
 });
@@ -654,18 +674,16 @@ const useAuth = ()=>{
             }));
             return result;
         } catch (error) {
+            const errorMsg = error;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
-                message: error?.message || error || 'Login failed',
+                message: errorMsg?.message || 'Login failed',
                 duration: 5000
             }));
         }
     };
     const handleLogout = ()=>{
-        // console.log('Logout button clicked'); // Debug log
-        // console.log('Before logout - user:', user); // Debug log
-        // console.log('Before logout - isAuthenticated:', isAuthenticated); // Debug log
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["logout"])());
         // Clear localStorage
         if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
@@ -677,6 +695,25 @@ const useAuth = ()=>{
             message: 'Logged out successfully',
             duration: 3000
         }));
+    };
+    const handleDeleteUser = async ()=>{
+        try {
+            const result = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["deleteUser"])()).unwrap();
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
+                id: `${Date.now()}`,
+                type: 'success',
+                message: 'User deleted successfully',
+                duration: 5000
+            }));
+            return result;
+        } catch (error) {
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
+                id: `${Date.now()}`,
+                type: 'error',
+                message: error || 'User deletion failed',
+                duration: 5000
+            }));
+        }
     };
     return {
         // Register
@@ -693,6 +730,7 @@ const useAuth = ()=>{
         user: loginState.user,
         isAuthenticated: loginState.isAuthenticated,
         logout: handleLogout,
+        deleteUser: handleDeleteUser,
         clearLoginError: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clearError"])()),
         loadUserFromToken: (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((user)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loadUserFromToken"])(user)), [
             dispatch

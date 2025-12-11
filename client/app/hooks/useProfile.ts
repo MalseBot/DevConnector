@@ -2,6 +2,7 @@
 
 'use client';
 
+import axios from 'axios';
 import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addAlert } from '../store/slices/alertSlice';
@@ -11,11 +12,17 @@ import {
 	createUpdateProfile,
 	getCurrentProfile,
 	getProfileById,
+	getAllProfiles,
 	addExperience,
 	addEducation,
 	deleteEducation,
 	deleteExperience,
 } from '../store/slices/profileSlice';
+import { Education, Experience, ProfileCU } from '../store/types/profile';
+import { getErrorMessage } from '@/errorHandler';
+
+// helper to extract a string message from unknown errors
+
 
 export const useProfile = () => {
 	const dispatch = useAppDispatch();
@@ -26,12 +33,12 @@ export const useProfile = () => {
 		try {
 			const response = await dispatch(getCurrentProfile()).unwrap();
 			return response;
-		} catch (error: any) {
+		} catch (error: unknown) {
 			dispatch(
 				addAlert({
 					id: `${Date.now()}`,
 					type: 'error',
-					message: error?.message || 'Profile Error',
+					message: getErrorMessage(error) || 'Profile Error',
 					duration: 5000,
 				})
 			);
@@ -43,8 +50,8 @@ export const useProfile = () => {
 			try {
 				const response = await dispatch(getProfileById(userId)).unwrap();
 				return response;
-			} catch (error) {
-				const errorMsg = error as string;
+			} catch (error: unknown) {
+				const errorMsg = getErrorMessage(error);
 				dispatch(
 					addAlert({
 						id: `${Date.now()}`,
@@ -59,8 +66,26 @@ export const useProfile = () => {
 		[dispatch]
 	);
 
+	const allProfiles = useCallback(async () => {
+		try {
+			const res = await dispatch(getAllProfiles()).unwrap();
+			return res;
+		} catch (error) {
+			const errorMsg = getErrorMessage(error);
+			dispatch(
+				addAlert({
+					id: `${Date.now()}`,
+					type: 'error',
+					message: errorMsg || 'Failed to fetch profiles',
+					duration: 5000,
+				})
+			);
+			throw error;
+		}
+	},[dispatch]);
+
 	const saveProfile = useCallback(
-		async (profileData: any) => {
+		async (profileData: ProfileCU) => {
 			try {
 				const response = await dispatch(
 					createUpdateProfile(profileData)
@@ -74,8 +99,8 @@ export const useProfile = () => {
 					})
 				);
 				return response;
-			} catch (error) {
-				const errorMsg = error as string;
+			} catch (error: unknown) {
+				const errorMsg = getErrorMessage(error);
 				dispatch(
 					addAlert({
 						id: `${Date.now()}`,
@@ -91,7 +116,7 @@ export const useProfile = () => {
 	);
 
 	const addExperienceToProfile = useCallback(
-		async (experienceData: any) => {
+		async (experienceData: Experience) => {
 			try {
 				const response = await dispatch(addExperience(experienceData)).unwrap();
 				dispatch(
@@ -103,8 +128,8 @@ export const useProfile = () => {
 					})
 				);
 				return response;
-			} catch (error) {
-				const errorMsg = error as string;
+			} catch (error: unknown) {
+				const errorMsg = getErrorMessage(error);
 				dispatch(
 					addAlert({
 						id: `${Date.now()}`,
@@ -132,8 +157,8 @@ export const useProfile = () => {
 					})
 				);
 				return response;
-			} catch (error) {
-				const errorMsg = error as string;
+			} catch (error: unknown) {
+				const errorMsg = getErrorMessage(error);
 				dispatch(
 					addAlert({
 						id: `${Date.now()}`,
@@ -149,7 +174,7 @@ export const useProfile = () => {
 	);
 
 	const addEducationToProfile = useCallback(
-		async (educationData: any) => {
+		async (educationData: Education) => {
 			try {
 				const response = await dispatch(addEducation(educationData)).unwrap();
 				dispatch(
@@ -161,8 +186,8 @@ export const useProfile = () => {
 					})
 				);
 				return response;
-			} catch (error) {
-				const errorMsg = error as string;
+			} catch (error: unknown) {
+				const errorMsg = getErrorMessage(error);
 				dispatch(
 					addAlert({
 						id: `${Date.now()}`,
@@ -190,14 +215,13 @@ export const useProfile = () => {
 					})
 				);
 				return response;
-			} catch (error) {
-				
-				const errorMsg = error as string;
+			} catch (error: unknown) {
+				const errorMsg = getErrorMessage(error);
 				dispatch(
 					addAlert({
 						id: `${Date.now()}`,
 						type: 'error',
-						message: errorMsg ,
+						message: errorMsg,
 						duration: 5000,
 					})
 				);
@@ -212,8 +236,10 @@ export const useProfile = () => {
 		profiles: profileState.profiles,
 		profileLoading: profileState.isLoading,
 		profileError: profileState.error,
+		profileDetail: profileState.profileDetail,
 
 		getCurrentProfile: fetchCurrentProfile,
+		getAllProfiles:allProfiles,
 		getProfileById: fetchProfileById,
 		createUpdateProfile: saveProfile,
 		addExperience: addExperienceToProfile,

@@ -14,7 +14,6 @@
 	body {
 		font-family: 'Raleway', sans-serif;
 		line-height: 1.6;
-		background-color: var(--light-color);
 		color: var(--dark-color);
 	}
 
@@ -34,6 +33,7 @@
 	img {
 		width: 100%;
 	}
+	
 }
 
 @layer components {
@@ -41,6 +41,8 @@
 	.container-custom {
 		@apply max-w-[1100px] mx-auto overflow-hidden px-8 mt-24 mb-12;
 	}
+
+
 
 	/* Text Styles */
 	.x-large {
@@ -69,7 +71,10 @@
 
 	/* Buttons */
 	.btn {
-		@apply inline-block bg-gray-200 text-gray-800 px-5 py-2 text-base border-none cursor-pointer mr-2 transition-opacity duration-200 ease-in outline-none;
+		color: var(--dark-color);
+		background-color: var(--light-color);
+		@apply  flex gap-1 items-center px-5 py-2 text-base border-none cursor-pointer mr-2 transition-opacity duration-200 ease-in outline-none
+		;
 	}
 
 	.btn:hover {
@@ -168,7 +173,8 @@
 	}
 
 	.bg-dark {
-		@apply bg-gray-800 text-white;
+		background-color: var(--dark-color);
+		color: white;
 	}
 
 	.bg-danger {
@@ -251,7 +257,7 @@
 
 	/* Navbar */
 	.navbar {
-		@apply flex justify-between items-center py-3 px-8 fixed z-10 w-full top-0 border-b border-cyan-600 opacity-90 bg-gray-800;
+		@apply flex justify-between items-center py-3 px-8 fixed z-10 w-full top-0 border-b border-cyan-600 opacity-90
 	}
 
 	.navbar ul {
@@ -517,7 +523,7 @@
 	}
 
 	.dash-buttons a {
-		@apply block w-full mb-1;
+		@apply  w-full mb-1;
 	}
 
 	.post {

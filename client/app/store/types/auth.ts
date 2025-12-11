@@ -1,12 +1,12 @@
 export interface User {
-	id: string;
+	_id: string;
 	name: string;
 	email: string;
 	avatar: string;
 }
 
 export interface AuthUser {
-	id: string;
+	_id: string;
 	name: string;
 	email: string;
 	token: string;

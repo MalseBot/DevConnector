@@ -4,6 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
 import { AuthUser, LoginCredentials, LoginState } from '../types/auth';
 import { clearProfile } from './profileSlice';
+import { getErrorMessage } from '@/errorHandler';
 
 const initialState: LoginState = {
 	user: null,
@@ -20,9 +21,9 @@ export const loginUser = createAsyncThunk(
 			const response = await api.post('/auth', credentials);
 			// Assuming the API returns { token, user: { id, name, email } }
 			return response.data;
-		} catch (error: any) {
+		} catch (error: unknown) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Login failed'
+				getErrorMessage(error) || 'Failed to delete education'
 			);
 		}
 	}
@@ -30,14 +31,28 @@ export const loginUser = createAsyncThunk(
 
 export const validateToken = createAsyncThunk(
 	'login/validateToken',
-	async (token: string, { rejectWithValue }) => {
+	async (_, { rejectWithValue }) => {
 		try {
 			// include token in Authorization header (Bearer)
 			const response = await api.get('/auth');
 			return response.data; // Assuming it returns user data if token is valid
-		} catch (error: any) {
+		} catch (error: unknown) {
 			return rejectWithValue(
-				error.response?.data || error.message || 'Token validation failed'
+				getErrorMessage(error) || 'Failed to delete education'
+			);
+		}
+	}
+);
+
+export const deleteUser = createAsyncThunk(
+	'register/deleteUser',
+	async (_, { rejectWithValue }) => {
+		try {
+			const response = await api.delete(`/profiles`);
+			return response.data;
+		} catch (error: unknown) {
+			return rejectWithValue(
+				getErrorMessage(error) || 'Failed to delete education'
 			);
 		}
 	}
@@ -96,7 +111,7 @@ export const loginSlice = createSlice({
 					const userId = decodedToken.user.id;
 
 					state.user = {
-						id: userId,
+						_id: userId,
 						name: action.payload.user.name,
 						email: action.payload.user.email,
 						token: token,
@@ -131,7 +146,7 @@ export const loginSlice = createSlice({
 							? localStorage.getItem('token')
 							: undefined;
 					state.user = {
-						id: payload.user?.id || payload.id || '',
+						_id: payload.user?.id || payload.id || '',
 						name: payload.user?.name || payload.name || '',
 						email: payload.user?.email || payload.email || '',
 						token: token || '',
@@ -153,6 +168,22 @@ export const loginSlice = createSlice({
 					localStorage.removeItem('token');
 					localStorage.removeItem('user');
 				}
+			}).addCase(deleteUser.fulfilled, (state) => {
+				// On user deletion, clear state
+				state.user = null;
+				state.isAuthenticated = false;
+				state.isLoading = false;
+				state.error = null;
+				if (typeof window !== 'undefined') {
+					localStorage.removeItem('token');
+					localStorage.removeItem('user');
+				}
+			}).addCase(deleteUser.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload as string;
+			}).addCase(deleteUser.pending, (state) => {
+				state.isLoading = true;
+				state.error = null;
 			});
 	},
 });

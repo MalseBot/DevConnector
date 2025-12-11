@@ -12,11 +12,14 @@ import {
 	logout,
 	clearError as clearLoginError,
 	loadUserFromToken,
+	deleteUser,
 } from '@/app/store/slices/loginSlice';
 import { addAlert } from '@/app/store/slices/alertSlice';
 
 import { useCallback } from 'react';
 import { AuthUser, LoginCredentials, RegisterUser } from '../store/types/auth';
+import { clearProfile } from '../store/slices/profileSlice';
+import { useProfile } from './useProfile';
 
 /**
  * Custom hook for authentication
@@ -29,6 +32,7 @@ export const useAuth = () => {
 	const dispatch = useAppDispatch();
 	const registerState = useAppSelector((state) => state.register);
 	const loginState = useAppSelector((state) => state.login);
+	const {getCurrentProfile} = useProfile();
 
 	const handleRegister = async (userData: RegisterUser) => {
 		try {
@@ -47,19 +51,18 @@ export const useAuth = () => {
 				addAlert({
 					id: `${Date.now()}`,
 					type: 'error',
-					message: error as string || 'Registration failed',
+					message: (error as string) || 'Registration failed',
 					duration: 5000,
 				})
 			);
-
 		}
 	};
 
 	const handleLogin = async (credentials: LoginCredentials) => {
 		try {
-			const result = await dispatch(loginUser(credentials)).unwrap();
-			console.log(result);
-			
+			const res = await dispatch(loginUser(credentials)).unwrap();
+			if(res) getCurrentProfile();
+
 			dispatch(
 				addAlert({
 					id: `${Date.now()}`,
@@ -68,13 +71,14 @@ export const useAuth = () => {
 					duration: 5000,
 				})
 			);
-			return result;
-		} catch (error : any) {
+			return res;
+		} catch (error) {
+			const errorMsg = error as { message: string };
 			dispatch(
 				addAlert({
 					id: `${Date.now()}`,
 					type: 'error',
-					message: error?.message ||error||'Login failed',
+					message: errorMsg?.message || 'Login failed',
 					duration: 5000,
 				})
 			);
@@ -82,21 +86,15 @@ export const useAuth = () => {
 	};
 
 	const handleLogout = () => {
-		// console.log('Logout button clicked'); // Debug log
-		// console.log('Before logout - user:', user); // Debug log
-		// console.log('Before logout - isAuthenticated:', isAuthenticated); // Debug log
-
 		dispatch(logout());
-
+		clearProfile()
 		// Clear localStorage
 		if (typeof window !== 'undefined') {
 			localStorage.removeItem('token');
 			localStorage.removeItem('user');
 			localStorage.removeItem('profile');
 		}
-
 		console.log('After logout - localStorage cleared'); // Debug log
-
 		dispatch(
 			addAlert({
 				id: `${Date.now()}`,
@@ -105,6 +103,30 @@ export const useAuth = () => {
 				duration: 3000,
 			})
 		);
+	};
+
+	const handleDeleteUser = async () => {
+		try {
+			const result = await dispatch(deleteUser()).unwrap();
+			dispatch(
+				addAlert({
+					id: `${Date.now()}`,
+					type: 'success',
+					message: 'User deleted successfully',
+					duration: 5000,
+				})
+			);
+			return result;
+		} catch (error) {
+			dispatch(
+				addAlert({
+					id: `${Date.now()}`,
+					type: 'error',
+					message: (error as string) || 'User deletion failed',
+					duration: 5000,
+				})
+			);
+		}
 	};
 
 	return {
@@ -123,7 +145,11 @@ export const useAuth = () => {
 		user: loginState.user,
 		isAuthenticated: loginState.isAuthenticated,
 		logout: handleLogout,
+		deleteUser: handleDeleteUser,
 		clearLoginError: () => dispatch(clearLoginError()),
-		loadUserFromToken:useCallback( (user: AuthUser) => dispatch(loadUserFromToken(user)), [dispatch]),
+		loadUserFromToken: useCallback(
+			(user: AuthUser) => dispatch(loadUserFromToken(user)),
+			[dispatch]
+		),
 	};
 };

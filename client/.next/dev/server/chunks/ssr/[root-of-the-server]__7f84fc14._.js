@@ -273,19 +273,31 @@ const ProfileState = {
     "profileSlice",
     ()=>profileSlice
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/node_modules/axios/lib/axios.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/client/node_modules/@reduxjs/toolkit/dist/redux-toolkit.modern.mjs [app-ssr] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/utils/api.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$types$2f$profile$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/client/app/store/types/profile.ts [app-ssr] (ecmascript)");
 ;
 ;
 ;
+;
+// helper to extract a string message from unknown errors
+const getErrorMessage = (error)=>{
+    if (__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
+        // try common backend shapes
+        return error.response?.data?.errors?.[0]?.msg || error.response?.data?.message || error.message || 'Unknown server error';
+    }
+    if (error instanceof Error) return error.message;
+    if (typeof error === 'string') return error;
+    return 'Unknown error';
+};
 const initialState = __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$types$2f$profile$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ProfileState"];
 const getCurrentProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/getCurrentProfile', async (_, { rejectWithValue })=>{
     try {
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get('/profiles/me');
         return response.data;
     } catch (error) {
-        rejectWithValue(error.response.data.errors?.[0].msg);
+        return rejectWithValue(getErrorMessage(error));
     }
 });
 const getProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/getProfileById', async (userId, { rejectWithValue })=>{
@@ -293,7 +305,7 @@ const getProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$clien
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`/profiles/user/${userId}`);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to fetch profile');
+        return rejectWithValue(getErrorMessage(error) || 'Failed to fetch profile');
     }
 });
 const createUpdateProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/createUpdateProfile', async (profileData, { rejectWithValue })=>{
@@ -302,7 +314,7 @@ const createUpdateProfile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].post('/profiles', profileData);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to save profile');
+        return rejectWithValue(getErrorMessage(error));
     }
 });
 const addExperience = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/addExperience', async (experienceData, { rejectWithValue })=>{
@@ -311,7 +323,7 @@ const addExperience = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].put('/profiles/experience', experienceData);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to save profile');
+        return rejectWithValue(getErrorMessage(error) || 'Failed to save profile');
     }
 });
 const deleteExperience = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/deleteExperience', async (eduId, { rejectWithValue })=>{
@@ -319,7 +331,7 @@ const deleteExperience = (0, __TURBOPACK__imported__module__$5b$project$5d2f$cli
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].delete(`/profiles/experience/${eduId}`);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to delete experience');
+        return rejectWithValue(getErrorMessage(error) || 'Failed to delete experience');
     }
 });
 const addEducation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/addEducation', async (educationData, { rejectWithValue })=>{
@@ -329,7 +341,7 @@ const addEducation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$
         console.log(response);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to save profile');
+        return rejectWithValue(getErrorMessage(error) || 'Failed to save profile');
     }
 });
 const deleteEducation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/deleteEducation', async (eduId, { rejectWithValue })=>{
@@ -337,7 +349,7 @@ const deleteEducation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$clie
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].delete(`/profiles/education/${eduId}`);
         return response.data;
     } catch (error) {
-        return rejectWithValue(error.response.data.errors?.[0].msg || 'Failed to delete education');
+        return rejectWithValue(getErrorMessage(error) || 'Failed to delete education');
     }
 });
 const profileSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({
@@ -381,7 +393,7 @@ const profileSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$
             state.profile = action.payload;
         }).addCase(createUpdateProfile.rejected, (state, action)=>{
             state.isLoading = false;
-            state.error = action.payload;
+            state.error = action.error.message;
         }).addCase(addEducation.pending, (state)=>{
             state.isLoading = true;
         }).addCase(addEducation.fulfilled, (state, action)=>{
@@ -428,6 +440,8 @@ const __TURBOPACK__default__export__ = profileSlice.reducer;
     ()=>clearError,
     "default",
     ()=>__TURBOPACK__default__export__,
+    "deleteUser",
+    ()=>deleteUser,
     "loadUserFromToken",
     ()=>loadUserFromToken,
     "loginSlice",
@@ -467,6 +481,14 @@ const validateToken = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client
         return response.data; // Assuming it returns user data if token is valid
     } catch (error) {
         return rejectWithValue(error.response?.data || error.message || 'Token validation failed');
+    }
+});
+const deleteUser = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('register/deleteUser', async (_, { rejectWithValue })=>{
+    try {
+        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].delete(`/profiles`);
+        return response.data;
+    } catch (error) {
+        return rejectWithValue(error.response?.data.errors?.[0].msg);
     }
 });
 const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createSlice"])({
@@ -560,6 +582,20 @@ const loginSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f
             state.user = null;
             if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
             ;
+        }).addCase(deleteUser.fulfilled, (state)=>{
+            // On user deletion, clear state
+            state.user = null;
+            state.isAuthenticated = false;
+            state.isLoading = false;
+            state.error = null;
+            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            ;
+        }).addCase(deleteUser.rejected, (state, action)=>{
+            state.isLoading = false;
+            state.error = action.payload;
+        }).addCase(deleteUser.pending, (state)=>{
+            state.isLoading = true;
+            state.error = null;
         });
     }
 });
@@ -650,18 +686,16 @@ const useAuth = ()=>{
             }));
             return result;
         } catch (error) {
+            const errorMsg = error;
             dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
                 id: `${Date.now()}`,
                 type: 'error',
-                message: error?.message || error || 'Login failed',
+                message: errorMsg?.message || 'Login failed',
                 duration: 5000
             }));
         }
     };
     const handleLogout = ()=>{
-        // console.log('Logout button clicked'); // Debug log
-        // console.log('Before logout - user:', user); // Debug log
-        // console.log('Before logout - isAuthenticated:', isAuthenticated); // Debug log
         dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["logout"])());
         // Clear localStorage
         if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
@@ -673,6 +707,25 @@ const useAuth = ()=>{
             message: 'Logged out successfully',
             duration: 3000
         }));
+    };
+    const handleDeleteUser = async ()=>{
+        try {
+            const result = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["deleteUser"])()).unwrap();
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
+                id: `${Date.now()}`,
+                type: 'success',
+                message: 'User deleted successfully',
+                duration: 5000
+            }));
+            return result;
+        } catch (error) {
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
+                id: `${Date.now()}`,
+                type: 'error',
+                message: error || 'User deletion failed',
+                duration: 5000
+            }));
+        }
     };
     return {
         // Register
@@ -689,6 +742,7 @@ const useAuth = ()=>{
         user: loginState.user,
         isAuthenticated: loginState.isAuthenticated,
         logout: handleLogout,
+        deleteUser: handleDeleteUser,
         clearLoginError: ()=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clearError"])()),
         loadUserFromToken: (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((user)=>dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$loginSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loadUserFromToken"])(user)), [
             dispatch
@@ -728,7 +782,7 @@ const Navbar = ()=>{
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             src: __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$public$2f$icon$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$client$2f$public$2f$icon$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"],
-                            className: "w-12 inline-block",
+                            className: "w-12 inline-block text-white",
                             alt: "Logo"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
@@ -757,12 +811,12 @@ const Navbar = ()=>{
                             children: "Developers"
                         }, void 0, false, {
                             fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                            lineNumber: 26,
+                            lineNumber: 27,
                             columnNumber: 6
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                        lineNumber: 25,
+                        lineNumber: 26,
                         columnNumber: 5
                     }, ("TURBOPACK compile-time value", void 0)),
                     isAuthenticated ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -773,12 +827,12 @@ const Navbar = ()=>{
                                     children: user?.name
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 32,
                                     columnNumber: 8
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                lineNumber: 30,
+                                lineNumber: 31,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0)),
                             ' ',
@@ -788,12 +842,12 @@ const Navbar = ()=>{
                                     children: "Log out"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                    lineNumber: 34,
+                                    lineNumber: 35,
                                     columnNumber: 8
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                lineNumber: 33,
+                                lineNumber: 34,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
@@ -805,12 +859,12 @@ const Navbar = ()=>{
                                     children: "Register"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                    lineNumber: 40,
+                                    lineNumber: 41,
                                     columnNumber: 8
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                lineNumber: 39,
+                                lineNumber: 40,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -819,12 +873,12 @@ const Navbar = ()=>{
                                     children: "Login"
                                 }, void 0, false, {
                                     fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                    lineNumber: 43,
+                                    lineNumber: 44,
                                     columnNumber: 8
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                                lineNumber: 42,
+                                lineNumber: 43,
                                 columnNumber: 7
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
@@ -832,7 +886,7 @@ const Navbar = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/components/layouts/Navbar.tsx",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 4
             }, ("TURBOPACK compile-time value", void 0))
         ]

@@ -3,6 +3,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
 import { RegisterUser,RegisterState } from '../types/auth';
+import { getErrorMessage } from '@/errorHandler';
 
 
 const initialState: RegisterState = {
@@ -19,8 +20,10 @@ export const registerUser = createAsyncThunk(
 		try {
 			const response = await api.post('/users', userData);
 			return response.data;
-		} catch (error:any) {
-			return rejectWithValue(error.response?.data.errors?.[0].msg);
+		} catch (error: unknown) {
+			return rejectWithValue(
+				getErrorMessage(error) || 'Failed to delete education'
+			);
 		}
 	}
 );
@@ -61,7 +64,7 @@ export const registerSlice = createSlice({
 					const userId = decodedToken.user.id;
 
 					state.user = {
-						id: userId,
+						_id: userId,
 						name: action.payload.user.name,
 						email: action.payload.user.email,
 						token: token,

@@ -1,9 +1,25 @@
 /** @format */
 
+import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
-import { ProfileState, Profile, Education, Experience  } from '../types/profile';
+import { ProfileState, Profile, Education, Experience, ProfileCU } from '../types/profile';
 
+// helper to extract a string message from unknown errors
+const getErrorMessage = (error: unknown): string => {
+	if (axios.isAxiosError(error)) {
+		// try common backend shapes
+		return (
+			(error.response?.data )?.errors?.[0]?.msg ||
+			(error.response?.data )?.message ||
+			error.message ||
+			'Unknown server error'
+		);
+	}
+	if (error instanceof Error) return error.message;
+	if (typeof error === 'string') return error;
+	return 'Unknown error';
+};
 
 const initialState: typeof ProfileState = ProfileState;
 
@@ -13,11 +29,25 @@ export const getCurrentProfile = createAsyncThunk(
 		try {
 			const response = await api.get('/profiles/me');
 			return response.data;
-		} catch (error: any) {
-			rejectWithValue(error.response.data.errors?.[0].msg);
+		} catch (error: unknown) {
+			return rejectWithValue(getErrorMessage(error));
 		}
 	}
 );
+
+	export const getAllProfiles = createAsyncThunk(
+		'profile/getAllProfiles',
+		async (_, { rejectWithValue }) => {
+			try {
+				const response = await api.get('/profiles');
+				return response.data;
+			} catch (error: unknown) {
+				return rejectWithValue(
+					getErrorMessage(error) || 'Failed to fetch profiles'
+				);
+			}
+		}
+	);
 
 export const getProfileById = createAsyncThunk(
 	'profile/getProfileById',
@@ -25,9 +55,9 @@ export const getProfileById = createAsyncThunk(
 		try {
 			const response = await api.get(`/profiles/user/${userId}`);
 			return response.data;
-		} catch (error: any) {
+		} catch (error: unknown) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Failed to fetch profile'
+				getErrorMessage(error) || 'Failed to fetch profile'
 			);
 		}
 	}
@@ -35,16 +65,14 @@ export const getProfileById = createAsyncThunk(
 
 export const createUpdateProfile = createAsyncThunk(
 	'profile/createUpdateProfile',
-	async (profileData: Partial<Profile>, { rejectWithValue }) => {
+	async (profileData: Partial<ProfileCU>, { rejectWithValue }) => {
 		try {
 			console.log(profileData);
-			
+
 			const response = await api.post('/profiles', profileData);
 			return response.data;
-		} catch (error: any) {
-			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Failed to save profile'
-			);
+		} catch (error: unknown) {
+			return rejectWithValue(getErrorMessage(error));
 		}
 	}
 );
@@ -57,9 +85,9 @@ export const addExperience = createAsyncThunk(
 
 			const response = await api.put('/profiles/experience', experienceData);
 			return response.data;
-		} catch (error: any) {
+		} catch (error: unknown) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Failed to save profile'
+				getErrorMessage(error) || 'Failed to save profile'
 			);
 		}
 	}
@@ -72,9 +100,9 @@ export const deleteExperience = createAsyncThunk(
 			const response = await api.delete(`/profiles/experience/${eduId}`);
 
 			return response.data;
-		} catch (error: any) {
+		} catch (error: unknown) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Failed to delete experience'
+				getErrorMessage(error) || 'Failed to delete experience'
 			);
 		}
 	}
@@ -87,11 +115,11 @@ export const addEducation = createAsyncThunk(
 			console.log(educationData);
 			const response = await api.put('/profiles/education', educationData);
 			console.log(response);
-			
+
 			return response.data;
-		} catch (error: any) {
+		} catch (error: unknown) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Failed to save profile'
+				getErrorMessage(error) || 'Failed to save profile'
 			);
 		}
 	}
@@ -101,19 +129,16 @@ export const deleteEducation = createAsyncThunk(
 	'profile/deleteEducation',
 	async (eduId: string, { rejectWithValue }) => {
 		try {
-
 			const response = await api.delete(`/profiles/education/${eduId}`);
-			
+
 			return response.data;
-		} catch (error: any) {
+		} catch (error: unknown) {
 			return rejectWithValue(
-				error.response.data.errors?.[0].msg || 'Failed to delete education'
+				getErrorMessage(error) || 'Failed to delete education'
 			);
 		}
 	}
 );
-
-
 
 export const profileSlice = createSlice({
 	name: 'profile',
@@ -147,12 +172,23 @@ export const profileSlice = createSlice({
 				state.isLoading = false;
 				state.error = action.payload as string;
 			})
+			.addCase(getAllProfiles.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(getAllProfiles.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.profiles = action.payload;
+			})
+			.addCase(getAllProfiles.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload as string;
+			})
 			.addCase(getProfileById.pending, (state) => {
 				state.isLoading = true;
 			})
 			.addCase(getProfileById.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.profile = action.payload;
+				state.profileDetail = action.payload;
 			})
 			.addCase(getProfileById.rejected, (state, action) => {
 				state.isLoading = false;
@@ -167,7 +203,7 @@ export const profileSlice = createSlice({
 			})
 			.addCase(createUpdateProfile.rejected, (state, action) => {
 				state.isLoading = false;
-				state.error = action.payload as string;
+				state.error = action.error.message as string;
 			})
 			.addCase(addEducation.pending, (state) => {
 				state.isLoading = true;

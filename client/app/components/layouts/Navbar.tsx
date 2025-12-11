@@ -1,46 +1,72 @@
 /** @format */
 'use client';
-import Image from 'next/image';
-import logo from '../../../public/icon.png';
+import { FaCode } from 'react-icons/fa';
+import { IoIosLogOut } from 'react-icons/io';
+import { CgProfile } from 'react-icons/cg';
+import { TbLogin } from 'react-icons/tb';
+import { IoCreateOutline } from 'react-icons/io5';
+import { RiUserCommunityLine } from 'react-icons/ri';
+
 import Link from 'next/link';
 import { useAuth } from '@/app/hooks/useAuth';
 const Navbar = () => {
 	const { isAuthenticated, user,logout } = useAuth();
 	// Placeholder for auth state
 	return (
-		<nav className='navbar bg-dark '>
+		<nav className='navbar bg-dark'>
 			<h1 className=' self-center'>
 				<Link
 					href='/'
-					className=' font-bold text-4xl flex items-center'>
-					<Image
-						src={logo}
-						className='w-12 inline-block'
-						alt='Logo'
-					/>{' '}
+					className='text-4xl flex items-center'>
+					<FaCode className=' mx-1' />
 					DevConnector
 				</Link>
 			</h1>
-			<ul className=' md:text-2xl'>
+			<ul className=' md:text-xl flex items-center'>
 				<li>
-					<Link href='/profiles'>Developers</Link>
+					<Link
+						href='/profiles'
+						className='flex items-center gap-1'>
+						<RiUserCommunityLine />
+						Developers
+					</Link>
 				</li>
 				{isAuthenticated ? (
 					<>
 						<li>
-							<Link href={'/dashboard'}>{user?.name}</Link>
-						</li>{' '}
+							<Link
+								href={'/dashboard'}
+								className='flex items-center gap-1'>
+								<CgProfile />
+								<span className='hide-sm'>{user?.name}</span>
+							</Link>
+						</li>
 						<li>
-							<button onClick={() => logout()}>Log out</button>
+							<button
+								onClick={() => logout()}
+								className='flex items-center gap-1' type='button'>
+								<IoIosLogOut />
+								<span className='hide-sm'>Log out</span>
+							</button>
 						</li>
 					</>
 				) : (
 					<>
 						<li>
-							<Link href='/register'>Register</Link>
+							<Link
+								href='/register'
+								className='flex items-center gap-1' type='button'>
+								<IoCreateOutline />
+								<span className={'hide-sm'}>Register</span>
+							</Link>
 						</li>
 						<li>
-							<Link href='/login'>Login</Link>
+							<Link
+								href='/login'
+								className='flex items-center gap-1' type=' button'> 
+								<TbLogin />
+								<span className={'hide-sm'}>Login</span>
+							</Link>
 						</li>
 					</>
 				)}
