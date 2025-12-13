@@ -2,7 +2,12 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
-import { ProfileState, Education, Experience, ProfileCU } from '../types/profile';
+import {
+	ProfileState,
+	Education,
+	Experience,
+	ProfileCU,
+} from '../types/profile';
 import { getErrorMessage } from '@/errorHandler';
 
 // helper to extract a string message from unknown errors
@@ -21,19 +26,33 @@ export const getCurrentProfile = createAsyncThunk(
 	}
 );
 
-	export const getAllProfiles = createAsyncThunk(
-		'profile/getAllProfiles',
-		async (_, { rejectWithValue }) => {
-			try {
-				const response = await api.get('/profiles');
-				return response.data;
-			} catch (error: unknown) {
-				return rejectWithValue(
-					getErrorMessage(error) || 'Failed to fetch profiles'
-				);
-			}
+export const getAllProfiles = createAsyncThunk(
+	'profile/getAllProfiles',
+	async (_, { rejectWithValue }) => {
+		try {
+			const response = await api.get('/profiles');
+			return response.data;
+		} catch (error: unknown) {
+			return rejectWithValue(
+				getErrorMessage(error) || 'Failed to fetch profiles'
+			);
 		}
-	);
+	}
+);
+
+export const getUserGithubRepos = createAsyncThunk(
+	'prrofile/github/:username',
+	async (username: string, { rejectWithValue }) => {
+		try {
+			const response = await api.get(`/profiles/github/${username}`);
+			return response;
+		} catch (error) {
+			return rejectWithValue(
+				getErrorMessage(error) || 'Failed to fetch profile'
+			);
+		}
+	}
+);
 
 export const getProfileById = createAsyncThunk(
 	'profile/getProfileById',
@@ -155,6 +174,17 @@ export const profileSlice = createSlice({
 				state.profile = action.payload;
 			})
 			.addCase(getCurrentProfile.rejected, (state, action) => {
+				state.isLoading = false;
+				state.error = action.payload as string;
+			})
+			.addCase(getUserGithubRepos.pending, (state) => {
+				state.isLoading = true;
+			})
+			.addCase(getUserGithubRepos.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.repos = action.payload.data;
+			})
+			.addCase(getUserGithubRepos.rejected, (state, action) => {
 				state.isLoading = false;
 				state.error = action.payload as string;
 			})

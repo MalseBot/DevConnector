@@ -1,6 +1,6 @@
 {
     "mongoURI": "mongodb+srv://eso20016_db_user:0147852@devconnect.qe1blre.mongodb.net/?retryWrites=true&w=majority&appName=DevConnect",
     "jwtSecret":"mysecrettoken",
-    "githubClientSecret":"f0ee90835df317fc65162574eea36791383ae5c4",
+    "githubClientSecret":"1a1230fa33ef0427c18912ac2c1ceb6b08608064",
     "githubClientID":"Iv23liCOXYU3v2Epc0HE"
 }

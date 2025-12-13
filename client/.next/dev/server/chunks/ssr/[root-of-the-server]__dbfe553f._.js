@@ -172,18 +172,23 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$re
 ;
 function ProfileByIdPage() {
     const params = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useParams"])();
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const id = params?.id;
-    const { profileDetail, profileLoading, profile, getProfileById } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useProfile$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useProfile"])();
+    const { profileDetail, profileLoading, profile, getProfileById, getUserGithubRepos, repos } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$hooks$2f$useProfile$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useProfile"])();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         getProfileById(id);
     }, [
         id,
         getProfileById
     ]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (profileDetail) getUserGithubRepos(profileDetail?.githubusername);
+    }, [
+        getUserGithubRepos,
+        profileDetail
+    ]);
     if (profileLoading || !profileDetail) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$components$2f$Loading$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-        lineNumber: 26,
+        lineNumber: 29,
         columnNumber: 47
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -195,7 +200,7 @@ function ProfileByIdPage() {
                 children: "Go Back"
             }, void 0, false, {
                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                lineNumber: 30,
+                lineNumber: 33,
                 columnNumber: 4
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -212,7 +217,7 @@ function ProfileByIdPage() {
                                 height: 80
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 38,
+                                lineNumber: 41,
                                 columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -222,7 +227,7 @@ function ProfileByIdPage() {
                                         children: profileDetail.user?.name
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 46,
+                                        lineNumber: 49,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -230,7 +235,7 @@ function ProfileByIdPage() {
                                         children: profileDetail.company
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 49,
+                                        lineNumber: 52,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -238,7 +243,7 @@ function ProfileByIdPage() {
                                         children: profileDetail.location
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 50,
+                                        lineNumber: 53,
                                         columnNumber: 7
                                     }, this),
                                     profile?.user._id === id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -247,19 +252,19 @@ function ProfileByIdPage() {
                                         children: "Edit Profile"
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 52,
+                                        lineNumber: 55,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 45,
+                                lineNumber: 48,
                                 columnNumber: 6
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                        lineNumber: 37,
+                        lineNumber: 40,
                         columnNumber: 5
                     }, this),
                     profileDetail.bio && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -270,20 +275,20 @@ function ProfileByIdPage() {
                                 children: "Bio"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 64,
+                                lineNumber: 66,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: profileDetail.bio
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 65,
+                                lineNumber: 67,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                        lineNumber: 63,
+                        lineNumber: 65,
                         columnNumber: 6
                     }, this),
                     profileDetail.experience?.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -294,7 +299,7 @@ function ProfileByIdPage() {
                                 children: "Experience"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 71,
+                                lineNumber: 73,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
@@ -307,7 +312,7 @@ function ProfileByIdPage() {
                                                     children: "Company"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                    lineNumber: 75,
+                                                    lineNumber: 77,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -315,7 +320,7 @@ function ProfileByIdPage() {
                                                     children: "Title"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                    lineNumber: 76,
+                                                    lineNumber: 78,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -323,18 +328,18 @@ function ProfileByIdPage() {
                                                     children: "Years"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                    lineNumber: 77,
+                                                    lineNumber: 79,
                                                     columnNumber: 10
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                            lineNumber: 74,
+                                            lineNumber: 76,
                                             columnNumber: 9
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 73,
+                                        lineNumber: 75,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -344,7 +349,7 @@ function ProfileByIdPage() {
                                                         children: exp.company
                                                     }, void 0, false, {
                                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                        lineNumber: 83,
+                                                        lineNumber: 85,
                                                         columnNumber: 11
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -352,7 +357,7 @@ function ProfileByIdPage() {
                                                         children: exp.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                        lineNumber: 84,
+                                                        lineNumber: 86,
                                                         columnNumber: 11
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -360,30 +365,30 @@ function ProfileByIdPage() {
                                                         children: exp.current ? `${(0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(exp.from, 'dd,MMMM,yyyy')} - currently` : `${(0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(exp.from, 'dd,MMMM,yyyy')} - ${(0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(exp.to, 'dd,MMMM,yyyy')}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                        lineNumber: 85,
+                                                        lineNumber: 87,
                                                         columnNumber: 11
                                                     }, this)
                                                 ]
                                             }, exp._id, true, {
                                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                lineNumber: 82,
+                                                lineNumber: 84,
                                                 columnNumber: 10
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 82,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 74,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                        lineNumber: 70,
+                        lineNumber: 72,
                         columnNumber: 6
                     }, this),
                     profileDetail.education?.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -394,7 +399,7 @@ function ProfileByIdPage() {
                                 children: "Education"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 102,
+                                lineNumber: 104,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
@@ -407,7 +412,7 @@ function ProfileByIdPage() {
                                                     children: "School"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                    lineNumber: 106,
+                                                    lineNumber: 108,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -415,7 +420,7 @@ function ProfileByIdPage() {
                                                     children: "Degree"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                    lineNumber: 107,
+                                                    lineNumber: 109,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -423,18 +428,18 @@ function ProfileByIdPage() {
                                                     children: "Years"
                                                 }, void 0, false, {
                                                     fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                    lineNumber: 108,
+                                                    lineNumber: 110,
                                                     columnNumber: 10
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                            lineNumber: 105,
+                                            lineNumber: 107,
                                             columnNumber: 9
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 104,
+                                        lineNumber: 106,
                                         columnNumber: 8
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -444,7 +449,7 @@ function ProfileByIdPage() {
                                                         children: edu.school
                                                     }, void 0, false, {
                                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                        lineNumber: 114,
+                                                        lineNumber: 116,
                                                         columnNumber: 11
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -452,7 +457,7 @@ function ProfileByIdPage() {
                                                         children: edu.degree
                                                     }, void 0, false, {
                                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                        lineNumber: 115,
+                                                        lineNumber: 117,
                                                         columnNumber: 11
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -460,30 +465,30 @@ function ProfileByIdPage() {
                                                         children: edu.current ? `${(0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(edu.from, 'dd,MMMM,yyyy')} - currently` : `${(0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(edu.from, 'dd,MMMM,yyyy')} - ${(0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$date$2d$fns$2f$format$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["format"])(edu.to, 'dd,MMMM,yyyy')}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                        lineNumber: 116,
+                                                        lineNumber: 118,
                                                         columnNumber: 11
                                                     }, this)
                                                 ]
                                             }, edu._id, true, {
                                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 115,
                                                 columnNumber: 10
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 111,
+                                        lineNumber: 113,
                                         columnNumber: 8
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 103,
+                                lineNumber: 105,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                        lineNumber: 101,
+                        lineNumber: 103,
                         columnNumber: 6
                     }, this),
                     profileDetail.skills?.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -494,7 +499,7 @@ function ProfileByIdPage() {
                                 children: "Skills"
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 133,
+                                lineNumber: 135,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -504,7 +509,7 @@ function ProfileByIdPage() {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FaCheck"], {}, void 0, false, {
                                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                                lineNumber: 139,
+                                                lineNumber: 141,
                                                 columnNumber: 10
                                             }, this),
                                             " ",
@@ -512,30 +517,147 @@ function ProfileByIdPage() {
                                         ]
                                     }, i, true, {
                                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                        lineNumber: 136,
+                                        lineNumber: 138,
                                         columnNumber: 9
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                                lineNumber: 134,
+                                lineNumber: 136,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                        lineNumber: 132,
+                        lineNumber: 134,
                         columnNumber: 6
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-                lineNumber: 36,
+                lineNumber: 39,
                 columnNumber: 4
+            }, this),
+            repos.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "profile-github",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: "text-primary my-4",
+                        children: "GitHub Repositories"
+                    }, void 0, false, {
+                        fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                        lineNumber: 150,
+                        columnNumber: 7
+                    }, this),
+                    repos.map((repo)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "repo bg-white p-4 mb-4 rounded border border-gray-200",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col md:flex-row md:items-center md:justify-between",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex-1",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                className: "text-lg font-semibold",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                    href: repo.url,
+                                                    target: "_blank",
+                                                    rel: "noopener noreferrer",
+                                                    className: "text-primary",
+                                                    children: repo.name
+                                                }, void 0, false, {
+                                                    fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                                    lineNumber: 158,
+                                                    columnNumber: 12
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                                lineNumber: 157,
+                                                columnNumber: 11
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-600 mt-1",
+                                                children: repo.description
+                                            }, void 0, false, {
+                                                fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                                lineNumber: 166,
+                                                columnNumber: 11
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                        lineNumber: 156,
+                                        columnNumber: 10
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "mt-2 md:mt-0",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex gap-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "badge badge-light",
+                                                    children: [
+                                                        "Stars: ",
+                                                        repo.stars
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                                    lineNumber: 170,
+                                                    columnNumber: 12
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "badge badge-dark",
+                                                    children: [
+                                                        "Forks: ",
+                                                        repo.forks
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                                    lineNumber: 173,
+                                                    columnNumber: 12
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "badge badge-primary",
+                                                    children: [
+                                                        "Issues: ",
+                                                        repo.issues
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                                    lineNumber: 176,
+                                                    columnNumber: 12
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                            lineNumber: 169,
+                                            columnNumber: 11
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                        lineNumber: 168,
+                                        columnNumber: 10
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                                lineNumber: 155,
+                                columnNumber: 9
+                            }, this)
+                        }, repo.id, false, {
+                            fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                            lineNumber: 152,
+                            columnNumber: 8
+                        }, this))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
+                lineNumber: 149,
+                columnNumber: 6
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/client/app/(connect)/profile/[id]/page.tsx",
-        lineNumber: 29,
+        lineNumber: 32,
         columnNumber: 3
     }, this);
 }

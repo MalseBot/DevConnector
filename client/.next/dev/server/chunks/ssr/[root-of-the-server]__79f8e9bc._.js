@@ -272,6 +272,8 @@ const ProfileState = {
     ()=>getCurrentProfile,
     "getProfileById",
     ()=>getProfileById,
+    "getUserGithubRepos",
+    ()=>getUserGithubRepos,
     "profileSlice",
     ()=>profileSlice
 ]);
@@ -299,6 +301,14 @@ const getAllProfiles = (0, __TURBOPACK__imported__module__$5b$project$5d2f$clien
         return response.data;
     } catch (error) {
         return rejectWithValue((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$errorHandler$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getErrorMessage"])(error) || 'Failed to fetch profiles');
+    }
+});
+const getUserGithubRepos = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('prrofile/github/:username', async (username, { rejectWithValue })=>{
+    try {
+        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$utils$2f$api$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`/profiles/github/${username}`);
+        return response;
+    } catch (error) {
+        return rejectWithValue((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$errorHandler$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getErrorMessage"])(error) || 'Failed to fetch profile');
     }
 });
 const getProfileById = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f40$reduxjs$2f$toolkit$2f$dist$2f$redux$2d$toolkit$2e$modern$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createAsyncThunk"])('profile/getProfileById', async (userId, { rejectWithValue })=>{
@@ -377,6 +387,14 @@ const profileSlice = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$
             state.isLoading = false;
             state.profile = action.payload;
         }).addCase(getCurrentProfile.rejected, (state, action)=>{
+            state.isLoading = false;
+            state.error = action.payload;
+        }).addCase(getUserGithubRepos.pending, (state)=>{
+            state.isLoading = true;
+        }).addCase(getUserGithubRepos.fulfilled, (state, action)=>{
+            state.isLoading = false;
+            state.repos = action.payload.data;
+        }).addCase(getUserGithubRepos.rejected, (state, action)=>{
             state.isLoading = false;
             state.error = action.payload;
         }).addCase(getAllProfiles.pending, (state)=>{
@@ -830,12 +848,31 @@ const useProfile = ()=>{
     }, [
         dispatch
     ]);
+    const fetchGithubRepos = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])(async (username)=>{
+        try {
+            const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getUserGithubRepos"])(username)).unwrap();
+            return response.data;
+        } catch (error) {
+            const errorMsg = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$errorHandler$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getErrorMessage"])(error);
+            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
+                id: `${Date.now()}`,
+                type: 'error',
+                message: errorMsg,
+                duration: 5000
+            }));
+            throw error;
+        }
+    }, [
+        dispatch
+    ]);
     return {
         profile: profileState.profile,
         profiles: profileState.profiles,
         profileLoading: profileState.isLoading,
+        repos: profileState.repos,
         profileError: profileState.error,
         profileDetail: profileState.profileDetail,
+        getUserGithubRepos: fetchGithubRepos,
         getCurrentProfile: fetchCurrentProfile,
         getAllProfiles: allProfiles,
         getProfileById: fetchProfileById,

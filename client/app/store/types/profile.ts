@@ -56,11 +56,29 @@ export interface ProfileCU {
 	date: Date;
 }
 
+export interface Repos {
+	id:string;
+	name:string;
+	full_name:string;
+	description:string;
+	url:string;
+	homepage:string;
+	stars:string;
+	forks:string;
+	issues:string;
+	created_at:string;
+	updated_at:string;
+	topics:string;
+	fork:string;
+	private:string;
+	license:string;
+}
+
 export const ProfileState = {
 	profile: null as Profile | null,
 	profiles: [] as Profile[],
 	profileDetail: null as Profile | null,
-	repos: [],
+	repos: [] as Repos[],
 	isLoading: false,
 	error: null as string | null,
 };

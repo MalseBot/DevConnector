@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import PicPlaceholder from '@/public/placeholder.jpg';
-import { FaThumbsUp, FaTimes } from 'react-icons/fa';
+import { FaThumbsUp, FaTimes, FaUser } from 'react-icons/fa';
 import { usePost } from '@/app/hooks/usePost';
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/hooks/useAuth';
@@ -48,7 +48,7 @@ export default function Posts() {
 		<section className='container-custom'>
 			<h1 className='large text-primary'>Posts</h1>
 			<p className='lead'>
-				<i className='fas fa-user'></i> Welcome to the community!
+				<FaUser/> Welcome to the community!
 			</p>
 
 			{/* Create Post Form */}

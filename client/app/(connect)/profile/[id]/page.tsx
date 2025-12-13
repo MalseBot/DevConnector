@@ -3,7 +3,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useProfile } from '@/app/hooks/useProfile';
 import Loading from '@/app/components/Loading';
 import Image from 'next/image';
@@ -16,11 +16,15 @@ export default function ProfileByIdPage() {
 	const params = useParams();
 	const id = params?.id as string
 	
-	const { profileDetail, profileLoading,profile, getProfileById } =
+	const { profileDetail, profileLoading,profile, getProfileById,getUserGithubRepos, repos } =
 		useProfile();
 	useEffect(() => {		
 		getProfileById(id);
 	}, [id, getProfileById,]);
+	useEffect(()=>{
+		if(profileDetail)
+		getUserGithubRepos(profileDetail?.githubusername)
+	},[getUserGithubRepos,profileDetail])
 
 	if (profileLoading || !profileDetail) return <Loading />;
 
@@ -49,12 +53,11 @@ export default function ProfileByIdPage() {
 						<p className='text-sm'>{profileDetail.location}</p>
 						{profile?.user._id === id && (
 							<Link
-							href={`/profile-form`}
-							className='btn btn-primary mt-2'>
-							Edit Profile
-						</Link>
+								href={`/profile-form`}
+								className='btn btn-primary mt-2'>
+								Edit Profile
+							</Link>
 						)}
-						
 					</div>
 				</div>
 
@@ -142,6 +145,44 @@ export default function ProfileByIdPage() {
 					</div>
 				)}
 			</div>
+				{repos.length > 0 && (
+					<div className='profile-github'>
+						<h2 className='text-primary my-4'>GitHub Repositories</h2>
+						{repos.map((repo) => (
+							<div
+								key={repo.id}
+								className='repo bg-white p-4 mb-4 rounded border border-gray-200'>
+								<div className='flex flex-col md:flex-row md:items-center md:justify-between'>
+									<div className='flex-1'>
+										<h4 className='text-lg font-semibold'>
+											<a
+												href={repo.url}
+												target='_blank'
+												rel='noopener noreferrer'
+												className='text-primary'>
+												{repo.name}
+											</a>
+										</h4>
+										<p className='text-gray-600 mt-1'>{repo.description}</p>
+									</div>
+									<div className='mt-2 md:mt-0'>
+										<div className='flex gap-3'>
+											<span className='badge badge-light'>
+												Stars: {repo.stars}
+											</span>
+											<span className='badge badge-dark'>
+												Forks: {repo.forks}
+											</span>
+											<span className='badge badge-primary'>
+												Issues: {repo.issues}
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				)}
 		</section>
 	);
 }

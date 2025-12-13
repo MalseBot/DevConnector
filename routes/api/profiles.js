@@ -296,22 +296,44 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 router.get('/github/:username', (req, res) => {
 	try {
 		const options = {
-			uri: `https://api.github.com/users/${
-				req.params.username
-			}/repos?per_page=5&sort=created:asc&client_id=${config.get(
-				'githubClientID'
-			)}&client_secret=${config.get('githubClientSecret')}`,
+			uri: `https://api.github.com/users/${req.params.username}/repos`,
+			qs: {
+				per_page: 5,
+				sort: 'created',
+				direction: 'dsc',
+				client_id: config.get('githubClientID'),
+				client_secret: config.get('githubClientSecret'),
+			},
 			method: 'GET',
 			headers: { 'user-agent': 'node.js' },
 		};
 		request(options, (error, response, body) => {
-			if (error) console.log(error);
+			if (error) {
+				return res.status(500).json({ msg: 'Error fetching GitHub profile' });
+			}
 
 			if (response.statusCode !== 200) {
-				res.status(404).json({ msg: 'No gihub profile found' });
-			} else {
-				res.json(JSON.parse(body));
+				return res.status(404).json({ msg: 'No GitHub profile found' });
 			}
+
+			res.json(JSON.parse(body).map(repo => ({
+            id: repo.id,
+            name: repo.name,
+            full_name: repo.full_name,
+            description: repo.description || 'No description',
+            url: repo.html_url,
+            homepage: repo.homepage || null,
+            language: repo.language,
+            stars: repo.stargazers_count,
+            forks: repo.forks_count,
+            issues: repo.open_issues_count,
+            created_at: repo.created_at,
+            updated_at: repo.updated_at,
+            topics: repo.topics || [],
+            fork: repo.fork,
+            private: repo.private,
+            license: repo.license?.name || null
+        })));
 		});
 	} catch (error) {
 		console.log(error);

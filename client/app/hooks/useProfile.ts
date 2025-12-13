@@ -17,6 +17,7 @@ import {
 	addEducation,
 	deleteEducation,
 	deleteExperience,
+	getUserGithubRepos,
 } from '../store/slices/profileSlice';
 import { Education, Experience, ProfileCU } from '../store/types/profile';
 import { getErrorMessage } from '@/errorHandler';
@@ -231,13 +232,35 @@ export const useProfile = () => {
 		[dispatch]
 	);
 
+	const fetchGithubRepos = useCallback(
+		async (username: string) => {
+			try {
+				const response = await dispatch(getUserGithubRepos(username)).unwrap();
+				return response.data;
+			} catch (error: unknown) {
+				const errorMsg = getErrorMessage(error);
+				dispatch(
+					addAlert({
+						id: `${Date.now()}`,
+						type: 'error',
+						message: errorMsg,
+						duration: 5000,
+					})
+				);
+				throw error;
+			}
+		},
+		[dispatch]
+	);
+
 	return {
 		profile: profileState.profile,
 		profiles: profileState.profiles,
 		profileLoading: profileState.isLoading,
+		repos:profileState.repos,
 		profileError: profileState.error,
 		profileDetail: profileState.profileDetail,
-
+		getUserGithubRepos:fetchGithubRepos,
 		getCurrentProfile: fetchCurrentProfile,
 		getAllProfiles:allProfiles,
 		getProfileById: fetchProfileById,
