@@ -1,7 +1,7 @@
 /** @format */
 'use client';
 import { FaCode } from 'react-icons/fa';
-import { IoIosLogOut } from 'react-icons/io';
+import { IoIosLogOut, IoMdChatbubbles } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
 import { TbLogin } from 'react-icons/tb';
 import { IoCreateOutline } from 'react-icons/io5';
@@ -31,6 +31,14 @@ const Navbar = () => {
 						Developers
 					</Link>
 				</li>
+				<li>
+					<Link
+						href='/posts'
+						className='flex items-center gap-1'>
+						<IoMdChatbubbles />
+						Posts
+					</Link>
+				</li>
 				{isAuthenticated ? (
 					<>
 						<li>
@@ -44,7 +52,8 @@ const Navbar = () => {
 						<li>
 							<button
 								onClick={() => logout()}
-								className='flex items-center gap-1' type='button'>
+								className='flex items-center gap-1'
+								type='button'>
 								<IoIosLogOut />
 								<span className='hide-sm'>Log out</span>
 							</button>
@@ -55,7 +64,8 @@ const Navbar = () => {
 						<li>
 							<Link
 								href='/register'
-								className='flex items-center gap-1' type='button'>
+								className='flex items-center gap-1'
+								type='button'>
 								<IoCreateOutline />
 								<span className={'hide-sm'}>Register</span>
 							</Link>
@@ -63,7 +73,8 @@ const Navbar = () => {
 						<li>
 							<Link
 								href='/login'
-								className='flex items-center gap-1' type=' button'> 
+								className='flex items-center gap-1'
+								type=' button'>
 								<TbLogin />
 								<span className={'hide-sm'}>Login</span>
 							</Link>

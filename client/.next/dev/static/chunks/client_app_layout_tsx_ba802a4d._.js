@@ -11,7 +11,7 @@
   "static/chunks/1e749_react-icons_lib_47385b99._.js",
   "static/chunks/1e749_axios_lib_ab256652._.js",
   "static/chunks/1e749_2426f6b7._.js",
-  "static/chunks/client_30387de2._.js"
+  "static/chunks/client_1027edfd._.js"
 ],
     source: "dynamic"
 });

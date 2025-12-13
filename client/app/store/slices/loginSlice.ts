@@ -146,7 +146,7 @@ export const loginSlice = createSlice({
 							? localStorage.getItem('token')
 							: undefined;
 					state.user = {
-						_id: payload.user?.id || payload.id || '',
+						_id: payload.user?._id || payload._id || '',
 						name: payload.user?.name || payload.name || '',
 						email: payload.user?.email || payload.email || '',
 						token: token || '',

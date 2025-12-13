@@ -14,7 +14,6 @@ import { FaCheck } from 'react-icons/fa';
 
 export default function ProfileByIdPage() {
 	const params = useParams();
-	const router = useRouter();
 	const id = params?.id as string
 	
 	const { profileDetail, profileLoading,profile, getProfileById } =

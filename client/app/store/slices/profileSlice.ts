@@ -1,25 +1,11 @@
 /** @format */
 
-import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '@/utils/api';
-import { ProfileState, Profile, Education, Experience, ProfileCU } from '../types/profile';
+import { ProfileState, Education, Experience, ProfileCU } from '../types/profile';
+import { getErrorMessage } from '@/errorHandler';
 
 // helper to extract a string message from unknown errors
-const getErrorMessage = (error: unknown): string => {
-	if (axios.isAxiosError(error)) {
-		// try common backend shapes
-		return (
-			(error.response?.data )?.errors?.[0]?.msg ||
-			(error.response?.data )?.message ||
-			error.message ||
-			'Unknown server error'
-		);
-	}
-	if (error instanceof Error) return error.message;
-	if (typeof error === 'string') return error;
-	return 'Unknown error';
-};
 
 const initialState: typeof ProfileState = ProfileState;
 

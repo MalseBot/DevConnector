@@ -1,0 +1,3 @@
+{
+  "/(connect)/posts/page": "app/(connect)/posts/page.js"
+}

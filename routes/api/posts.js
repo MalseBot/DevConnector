@@ -41,7 +41,7 @@ router.post(
 // @route    GET api/Posts
 // @desc     get all Post
 // @access   Private
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
 		const Posts = await Post.find().sort('asc');
 
@@ -93,70 +93,53 @@ router.delete('/:id', auth, async (req, res) => {
 	}
 });
 
-// @route    PUT api/Posts/like/:id
-// @desc     Like post
-// @access   Private
-
+// Like
 router.put('/like/:id', auth, async (req, res) => {
 	try {
 		const post = await Post.findById(req.params.id);
+		if (!post) return res.status(404).json({ msg: 'Post not found' });
 
-		if (
-			post.like.filter((like) => like.user.toString() === req.user.id).length >
-			0
-		) {
+		if (post.like.some((l) => l.user.toString() === req.user.id)) {
 			return res.status(400).json({ msg: 'Post already liked' });
 		}
 
 		post.like.unshift({ user: req.user.id });
-
 		await post.save();
 
-		res.json(post.like);
-	} catch (error) {
-		console.log(error.message);
-
+		res.json(post);
+	} catch (err) {
+		console.error(err.message);
 		res.status(500).send('Server Error');
 	}
 });
 
-// @route    PUT api/Posts/like/:id
-// @desc     Like post
-// @access   Private
-
+// Unlike
 router.put('/unlike/:id', auth, async (req, res) => {
 	try {
 		const post = await Post.findById(req.params.id);
+		if (!post) return res.status(404).json({ msg: 'Post not found' });
 
-		if (
-			post.like.filter((like) => like.user.toString() === req.user.id)
-				.length === 0
-		) {
+		const userIds = post.like.map((l) => l.user.toString());
+		if (!userIds.includes(req.user.id)) {
 			return res.status(400).json({ msg: 'Post not liked' });
 		}
-		const removeIndex = post.like.map((like) =>
-			like.user.toString().indexOf(req.user.id)
-		);
-		post.like.splice(removeIndex, 1);
 
+		const removeIndex = userIds.indexOf(req.user.id);
+		post.like.splice(removeIndex, 1);
 		await post.save();
 
-		res.json(post.like);
-	} catch (error) {
-		console.log(error.message);
-
+		res.json(post);
+	} catch (err) {
+		console.error(err.message);
 		res.status(500).send('Server Error');
 	}
 });
 
-// @route    POST api/Posts/comments/:id
-// @desc     comment on a post
-// @access   Private
-
+// Add comment (return normalized like array too)
 router.post(
 	'/comment/:id',
 	auth,
-	[[check('text', 'Text is Required').notEmpty()]],
+	[check('text', 'Text is Required').notEmpty()],
 	async (req, res) => {
 		try {
 			const errors = validationResult(req);
@@ -165,42 +148,44 @@ router.post(
 
 			const user = await User.findById(req.user.id).select('-password');
 			const post = await Post.findById(req.params.id);
+			if (!post) return res.status(404).json({ msg: 'Post not found' });
 
 			const newComment = {
 				text: req.body.text,
 				name: user.name,
 				avatar: user.avatar,
 				user: req.user.id,
-			}
-			post.comment.unshift(newComment)
+			};
+			post.comment.unshift(newComment);
 			await post.save();
-			res.json(post.comment);
-		} catch (error) {
-			console.log(error.message);
 
+			res.json(post);
+		} catch (err) {
+			console.error(err.message);
 			res.status(500).send('Server Error');
 		}
 	}
 );
-
 // @route    DELETE api/Posts/comment/:id/:comment_id
 // @desc     Delete comment
 // @access   Private
 router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
 	try {
 		const post = await Post.findById(req.params.id);
-		const comment = post.comment.find(comment => comment.id === req.params.comment_id)
+		const comment = post.comment.find(
+			(comment) => comment.id === req.params.comment_id
+		);
 		if (!post) return res.status(404).send('Post not found');
 		if (!comment) return res.status(404).send('comment not found');
-		
+
 		//only user commented or post owner can remove a comment
 		if (
 			post.user.toString() === req.user.id ||
 			comment.user.toString() === req.user.id
-		){
-			post.comment.splice(comment,1)
-			await post.save()
-		}else{
+		) {
+			post.comment.splice(comment, 1);
+			await post.save();
+		} else {
 			return res.status(401).json({ msg: 'User not authorized' });
 		}
 

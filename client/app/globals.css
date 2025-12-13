@@ -380,7 +380,7 @@
 	}
 
 	.post {
-		@apply grid grid-cols-5 gap-8 items-center;
+		@apply grid grid-cols-[1fr_3fr] gap-8 items-center;
 	}
 
 	.post > div:first-child {

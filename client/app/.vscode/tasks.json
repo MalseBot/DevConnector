@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Add post slice and hook",
+			"type": "shell",
+			"command": "echo created files",
+			"isBackground": false
+		},
+		{
+			"label": "noop",
+			"type": "shell",
+			"command": "echo noop",
+			"isBackground": false
+		}
+	]
+}
