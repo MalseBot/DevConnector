@@ -1,82 +1,170 @@
-[00:00:01.961] Server  LOG      ✓ Ready in 1303ms
-[00:00:05.037] Server  LOG      ○ Compiling /profile/[id] ...
-[00:00:08.800] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/profile/6..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/client/ap...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html
-                          lang="en"
--                         suppresshydrationwarning="true"
--                         data-lt-installed="true"
-                        >
-                  ...
-
-[00:00:09.671] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
-Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"etRyjrPwRHirkYvq2-Hk0","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T09:00:27Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
-(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
-(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
-[00:02:04.385] Server  LOG      ✓ Compiled in 72ms
-[00:02:05.468] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
-Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"QcgHmrw6pUsqNwvsostRe","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T09:00:27Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
-(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
-(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
-[00:02:05.468] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
-Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"KaxAmame8KOSCoo6dn9xU","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T09:00:27Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
-(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
-(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
-[00:02:05.983] Server  LOG      ✓ Compiled in 42ms
-[00:02:06.463] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
-Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"S8rm5UudJBs56UnhWMUZN","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T09:00:27Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
-(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
-(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
-[00:02:07.465] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
-Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"hV-0QBXdz-6FATOGGjH5j","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T09:00:27Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
-(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
-(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
-[00:03:05.082] Server  LOG      ✓ Compiled in 60ms
-[00:03:05.787] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
-Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"HtKJrRRy6VVhcCgtkuAic","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T09:00:27Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
-(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
-(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
-[00:03:06.124] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
-Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"Hglnp61wDWLeaXdZFA1VR","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T09:00:27Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
-(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
-(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
-[00:03:54.760] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:03.063] Server  LOG      ✓ Ready in 2.1s
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.106] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.107] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.108] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "Network Error"
+[00:00:03.109] Browser ERROR   unhandledRejection: "Network Error"
+[00:00:03.109] Browser ERROR   unhandledRejection: "Network Error"
+[00:00:03.109] Browser LOG     {"$RefreshHelpers$":{},"InstallTrigger":null,"TURBOPACK":{},"TURBOPACK_CHUNK_LISTS":{},"TURBOPACK_CHUNK_UPDATE_LISTENERS":{},"__REACT_DEVTOOLS_BACKEND_MANAGER_INJECTED__":true,"__next_f":[],"__next_r":"qivw0z_J_0zmbKAeltG6q","__webpack_hash__":"","_nextjsDevtoolsStyleCache":{"cachedShadowRoot":{"_reactListeninghgbr3rmrgv5":true},"isObserving":false,"lastInsertedElement":{},"pendingElements":[]},"caches":{},"clientInformation":{},"closed":false,"cookieStore":{},"crossOriginIsolated":false,"crypto":{},"customElements":{},"devToolsOptions":{"allowlist":"","blacklist":"","denylist":"","editor":"","filter":"DO_NOT_FILTER","inject":true,"maxAge":50,"projectPath":"","shouldCatchErrors":false,"showContextMenus":true,"urls":"^https?://localhost|0\\.0\\.0\\.0:\\d+\n^https?://.+\\.github\\.io","useEditor":0,"whitelist":""},"devicePixelRatio":1,"document":{"__reactContainer$mbq3g6s25d":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":17,"actualStartTime":276689,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":5,"actualStartTime":276719,"alternate":"[Circular]","child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":5,"actualStartTime":276719,"alternate":"[Object]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80480261,"tag":8,"treeBaseDuration":12,"updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":"[Array]","errorRecoveryDisabledLanes":0,"expirationTimes":"[Array]","expiredLanes":0,"formState":null,"hiddenUpdates":"[Array]","identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":"[Array]","pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":80480261,"tag":3,"treeBaseDuration":12,"type":null,"updateQueue":{"baseState":"[Object]","callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":"[Object]"}},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":17,"actualStartTime":276690,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":5,"actualStartTime":276719,"alternate":"[Circular]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Object]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80480261,"tag":8,"treeBaseDuration":12,"updateQueue":null},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":17,"actualStartTime":276690,"alternate":"[Object]","child":"[Object]","childLanes":2,"deletions":null,"dependencies":null,"elementType":"[Object]","flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80480261,"tag":10,"treeBaseDuration":23,"type":"[Object]","updateQueue":null},"childLanes":2,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":{"children":"[Object]"},"memoizedState":null,"mode":27,"pendingProps":{"children":"[Object]"},"ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80480261,"tag":8,"treeBaseDuration":23,"updateQueue":null},"childLanes":2,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":{"controller":{},"data":{},"refCount":1},"element":{"_owner":null,"_store":{},"key":null,"props":"[Object]"},"isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":5,"actualStartTime":276719,"alternate":"[Circular]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":"[Object]","mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":"[Circular]","subtreeFlags":80480261,"tag":3,"treeBaseDuration":12,"type":null,"updateQueue":"[Object]"},"effectDuration":0,"entangledLanes":0,"entanglements":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"errorRecoveryDisabledLanes":0,"expirationTimes":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],"expiredLanes":0,"formState":null,"hiddenUpdates":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":80480261,"tag":3,"treeBaseDuration":23,"type":null,"updateQueue":{"baseState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":{"hiddenCallbacks":null,"lanes":0,"pending":null}}},"__reactResources$mbq3g6s25d":{"hoistableScripts":{},"hoistableStyles":{}},"_reactListeninghgbr3rmrgv5":true,"_reactListeningk25xlqkh27q":true,"location":{"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/add-experience","origin":"http://localhost:3000","pathname":"/add-experience","port":"3000","protocol":"http:","search":""}},"event":{"isTrusted":true},"external":{},"frameElement":null,"frames":"[Circular]","fullScreen":false,"history":{},"indexedDB":{},"innerHeight":918,"innerWidth":1920,"isSecureContext":true,"length":0,"localStorage":{"cafe-pos-theme":"dark","hasVisited":"true","i18nextLng":"ar","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjU4ODA3YjYzOTNhZjJmODBlMzU1In0sImlhdCI6MTc2ODMxNTAwOSwiZXhwIjoxNzY4Njc1MDA5fQ.f70NPoXGGdK9_Bhardw2lAiTpPxIRfJM0RVkeL24SjQ","user":"{\"_id\":\"696658807b6393af2f80e355\",\"name\":\"john doe\",\"email\":\"johndoe@gmail.com\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjU4ODA3YjYzOTNhZjJmODBlMzU1In0sImlhdCI6MTc2ODMxNTAwOSwiZXhwIjoxNzY4Njc1MDA5fQ.f70NPoXGGdK9_Bhardw2lAiTpPxIRfJM0RVkeL24SjQ\"}"},"location":{"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/add-experience","origin":"http://localhost:3000","pathname":"/add-experience","port":"3000","protocol":"http:","search":""},"locationbar":{},"menubar":{},"mozInnerScreenX":0,"mozInnerScreenY":114,"name":"","navigator":{},"nd":{"cache":{"head":null,"lazyData":null,"loading":null,"navigatedAt":1768315717117,"parallelRoutes":{},"prefetchHead":null,"prefetchRsc":null,"rsc":{"_owner":null,"_store":{},"key":"layout","props":{"children":"[Object]","pagePath":"/client/app/layout.tsx","type":"layout"},"type":{"_debugInfo":"[Array]","_payload":"[Object]","_store":"[Object]"}}},"router":{},"tree":["",{"children":["(dashboard)","[Object]",null,null,true]},null,null,true]},"next":{"appDir":true,"router":{},"turbopack":true,"version":"16.0.7"},"onabort":null,"onafterprint":null,"onanimationcancel":null,"onanimationend":null,"onanimationiteration":null,"onanimationstart":null,"onauxclick":null,"onbeforeinput":null,"onbeforematch":null,"onbeforeprint":null,"onbeforetoggle":null,"onbeforeunload":null,"onblur":null,"oncancel":null,"oncanplay":null,"oncanplaythrough":null,"onchange":null,"onclick":null,"onclose":null,"oncommand":null,"oncontentvisibilityautostatechange":null,"oncontextlost":null,"oncontextmenu":null,"oncontextrestored":null,"oncopy":null,"oncuechange":null,"oncut":null,"ondblclick":null,"ondevicemotion":null,"ondeviceorientation":null,"...":"144 items not stringified"}
+[00:00:03.109] Browser LOG     After logout - localStorage cleared
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:03.109] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:04.162] Browser ERROR   Failed to fetch RSC payload for http://localhost:3000/. Falling back to browser navigation. {}
+[00:00:06.262] Server  LOG      ○ Compiling / ...
+[00:00:11.334] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -121,10 +209,828 @@ It can also happen if the client has a browser extension installed which messes 
                         >
                   ...
 
-[00:04:02.374] Browser LOG     {"$RefreshHelpers$":{},"TURBOPACK":{},"TURBOPACK_CHUNK_LISTS":{},"TURBOPACK_CHUNK_UPDATE_LISTENERS":{},"VSC":{"Constants":{"CONTROLLER_SIZE_LIMITS":{"AUDIO_MIN_HEIGHT":20,"AUDIO_MIN_WIDTH":20,"VIDEO_MIN_HEIGHT":40,"VIDEO_MIN_WIDTH":40},"CUSTOM_ACTIONS_NO_VALUES":["pause","muted","mark","jump","display"],"DEFAULT_SETTINGS":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":["[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]"],"lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false},"LOG_LEVELS":{"DEBUG":5,"ERROR":2,"INFO":4,"NONE":1,"VERBOSE":6,"WARNING":3},"MESSAGE_TYPES":{"ADJUST_SPEED":"VSC_ADJUST_SPEED","RESET_SPEED":"VSC_RESET_SPEED","SET_SPEED":"VSC_SET_SPEED","TOGGLE_DISPLAY":"VSC_TOGGLE_DISPLAY"},"SPEED_LIMITS":{"MAX":16,"MIN":0.07},"regEndsWithFlags":{},"regStrip":{}},"DomUtils":{},"initialized":true,"logger":{"contextStack":[],"defaultLevel":4,"verbosity":3},"siteHandlerManager":{"availableHandlers":[null,null,null,null,null],"currentHandler":{"hostname":"localhost"}},"stateManager":{"controllers":{}},"videoSpeedConfig":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":["[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]"],"lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}}},"VSC_controller":{"MESSAGE_TYPES":{"ADJUST_SPEED":"VSC_ADJUST_SPEED","RESET_SPEED":"VSC_RESET_SPEED","SET_SPEED":"VSC_SET_SPEED","TOGGLE_DISPLAY":"VSC_TOGGLE_DISPLAY"},"actionHandler":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"eventManager":{"actionHandler":"[Circular]","config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":"[Object]"},"coolDown":false,"lastKeyEventSignature":null,"listeners":{},"timer":null}},"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":["[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]","[Object]"],"lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"eventManager":{"actionHandler":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":"[Object]"},"eventManager":"[Circular]"},"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"coolDown":false,"lastKeyEventSignature":null,"listeners":{},"timer":null},"initialized":true,"logger":{"contextStack":[],"defaultLevel":4,"verbosity":3},"mediaObserver":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"siteHandler":{"availableHandlers":[null,null,null,null,null],"currentHandler":{"hostname":"localhost"}}},"mutationObserver":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":{"audioBoolean":true,"blacklist":"www.instagram.com\nx.com\nimgur.com\nteams.microsoft.com\nmeet.google.com","controllerButtonSize":14,"controllerOpacity":0.3,"defaultLogLevel":4,"displayKeyCode":86,"enabled":true,"forceLastSavedSpeed":false,"keyBindings":"[Array]","lastSpeed":1,"logLevel":3,"rememberSpeed":false,"startHidden":false}},"mediaObserver":{"config":{"SAVE_DELAY":1000,"pendingSave":null,"saveTimer":null,"settings":"[Object]"},"siteHandler":{"availableHandlers":"[Array]","currentHandler":"[Object]"}},"observer":{},"shadowObservers":{}},"siteHandlerManager":{"availableHandlers":[null,null,null,null,null],"currentHandler":{"hostname":"localhost"}}},"VSC_settings":{},"__next_f":[],"__next_r":"7XqeKlcaBlE8idTMukR2Z","__webpack_hash__":"","_nextjsDevtoolsStyleCache":{"cachedShadowRoot":{"_reactListeningq7nvtz12pqc":true},"isObserving":false,"lastInsertedElement":{},"pendingElements":[]},"caches":{},"chrome":{"app":{"InstallState":{"DISABLED":"disabled","INSTALLED":"installed","NOT_INSTALLED":"not_installed"},"RunningState":{"CANNOT_RUN":"cannot_run","READY_TO_RUN":"ready_to_run","RUNNING":"running"},"isInstalled":false}},"clientInformation":{},"closed":false,"cookieStore":{},"credentialless":false,"crossOriginIsolated":false,"crypto":{},"customElements":{},"devToolsOptions":{"allowlist":"","blacklist":"","denylist":"","editor":"","filter":"DO_NOT_FILTER","inject":true,"maxAge":50,"projectPath":"","shouldCatchErrors":false,"showContextMenus":true,"urls":"^https?://localhost|0\\.0\\.0\\.0:\\d+\n^https?://.+\\.github\\.io","useEditor":0,"whitelist":""},"devicePixelRatio":1,"document":{"__reactContainer$3o1hjfbzvi6":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":1,"actualStartTime":1349,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":5.099999999627471,"actualStartTime":1399.300000000745,"alternate":"[Circular]","child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":"[Object]","actualDuration":5.099999999627471,"actualStartTime":1399.300000000745,"alternate":"[Object]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":215747095,"tag":8,"treeBaseDuration":9.800000002607703,"updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":"[Array]","errorRecoveryDisabledLanes":0,"expirationTimes":"[Array]","expiredLanes":0,"formState":null,"hiddenUpdates":"[Array]","identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":"[Array]","pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":215747095,"tag":3,"treeBaseDuration":9.800000002607703,"type":null,"updateQueue":{"baseState":"[Object]","callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":"[Object]"}},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":{},"actualDuration":1,"actualStartTime":1349,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":"[Object]","actualDuration":5.099999999627471,"actualStartTime":1399.300000000745,"alternate":"[Circular]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Object]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":215747095,"tag":8,"treeBaseDuration":9.800000002607703,"updateQueue":null},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":"[Object]","actualDuration":1,"actualStartTime":1349,"alternate":"[Object]","child":"[Object]","childLanes":2,"deletions":null,"dependencies":null,"elementType":"[Object]","flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":81006596,"tag":10,"treeBaseDuration":11.100000003352761,"type":"[Object]","updateQueue":null},"childLanes":2,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":{"children":"[Object]"},"memoizedState":null,"mode":27,"pendingProps":{"children":"[Object]"},"ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":81006596,"tag":8,"treeBaseDuration":11.100000003352761,"updateQueue":null},"childLanes":2,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":{"controller":{},"data":{},"refCount":1},"element":{"_owner":null,"_store":{},"key":null,"props":"[Object]"},"isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":5.099999999627471,"actualStartTime":1399.300000000745,"alternate":"[Circular]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":"[Object]","mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":"[Circular]","subtreeFlags":215747095,"tag":3,"treeBaseDuration":9.800000002607703,"type":null,"updateQueue":"[Object]"},"effectDuration":0,"entangledLanes":0,"entanglements":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"errorRecoveryDisabledLanes":0,"expirationTimes":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],"expiredLanes":0,"formState":null,"hiddenUpdates":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":81006596,"tag":3,"treeBaseDuration":11.100000003352761,"type":null,"updateQueue":{"baseState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":{"hiddenCallbacks":null,"lanes":0,"pending":null}}},"__reactResources$3o1hjfbzvi6":{"hoistableScripts":{},"hoistableStyles":{}},"_reactListeningdcmkjjjsp8v":true,"_reactListeningq7nvtz12pqc":true,"location":{"ancestorOrigins":{},"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/","origin":"http://localhost:3000","pathname":"/","port":"3000","protocol":"http:","search":""}},"documentPictureInPicture":{},"event":{"isTrusted":true},"external":{},"fence":null,"frameElement":null,"frames":"[Circular]","history":{},"indexedDB":{},"innerHeight":944,"innerWidth":958,"isSecureContext":true,"launchQueue":{},"length":0,"localStorage":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA","user":"{\"_id\":\"693a374d88246bf67e718f6c\",\"name\":\"Eslam\",\"email\":\"eslam.hassanin24@gmail.com\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzYTM3NGQ4ODI0NmJmNjdlNzE4ZjZjIn0sImlhdCI6MTc2NTYzNDE3OCwiZXhwIjoxNzY1NjM3Nzc4fQ.j16Oa8hVBaRPRPIeZsb94PNj7tcG5f2JKc8HqF26bwA\"}"},"location":{"ancestorOrigins":{},"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/","origin":"http://localhost:3000","pathname":"/","port":"3000","protocol":"http:","search":""},"locationbar":{},"menubar":{},"name":"","navigation":{},"navigator":{},"nd":{"cache":{"head":null,"lazyData":null,"loading":null,"navigatedAt":1765636759152,"parallelRoutes":{},"prefetchHead":null,"prefetchRsc":null,"rsc":{"_owner":null,"_store":{},"key":"layout","props":{"children":"[Object]","pagePath":"/client/app/layout.tsx","type":"layout"},"type":{"_debugInfo":"[Array]","_payload":"[Object]","_store":"[Object]"}}},"router":{},"tree":["",{"children":["__PAGE__",{},"/","refresh"]},null,null,true]},"next":{"appDir":true,"router":{},"turbopack":true,"version":"16.0.7"},"onabort":null,"onafterprint":null,"onanimationend":null,"onanimationiteration":null,"onanimationstart":null,"onappinstalled":null,"onauxclick":null,"onbeforeinput":null,"onbeforeinstallprompt":null,"onbeforematch":null,"onbeforeprint":null,"onbeforetoggle":null,"onbeforeunload":null,"onbeforexrselect":null,"onblur":null,"oncancel":null,"oncanplay":null,"oncanplaythrough":null,"onchange":null,"onclick":null,"onclose":null,"oncommand":null,"oncontentvisibilityautostatechange":null,"oncontextlost":null,"oncontextmenu":null,"oncontextrestored":null,"...":"157 items not stringified"}
-[00:04:02.374] Browser LOG     After logout - localStorage cleared
-[00:04:16.060] Browser LOG     {"meta":{"arg":{"email":"ahmed@gmail.com","password":"123456789"},"requestId":"mPJFAD1uJjo63vFiEYZCv","requestStatus":"fulfilled"},"payload":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjkzZDAzZjY0NjJmYTcwYWM2YzEyNzBjIn0sImlhdCI6MTc2NTYzNjc4MCwiZXhwIjoxNzY1NjQwMzgwfQ.NeWwneOo1xTbWX2TBc1N4T3n2tnavbr16fvySmBGNBU","user":{"email":"ahmed@gmail.com","id":"693d03f6462fa70ac6c1270c","name":"ahmed"}},"type":"login/loginUser/fulfilled"}
-[00:04:39.412] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:36.805] Browser LOG     {"meta":{"arg":{"email":"johndoe@gmail.com","password":"123456"},"requestId":"wZA3LjolNeKyOQO4g1vcV","requestStatus":"fulfilled"},"payload":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjU4ODA3YjYzOTNhZjJmODBlMzU1In0sImlhdCI6MTc2ODMxNTc2NiwiZXhwIjoxNzY4MzE5MzY2fQ.UN3Aoj2s7vvG9lU7PewpteK95866MYQCYKcC4n4BiXk","user":{"email":"johndoe@gmail.com","id":"696658807b6393af2f80e355","name":"john doe"}},"type":"login/loginUser/fulfilled"}
+[00:00:36.929] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:39.140] Browser ERROR   In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <h3> tr  
+
+  ...
+    <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:true, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="dashboard/" loading={Promise}>
+          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/dashboard" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                  <SegmentViewNode type="page" pagePath="/client/ap...">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Dashboard} serverProvidedParams={{...}}>
+                      <Dashboard params={Promise} searchParams={Promise}>
+                        <section className="container-...">
+                          <h1>
+                          <p>
+                          <div>
+                          <h2>
+                          <table className="table w-full">
+                            <thead>
+                            <tbody>
+>                             <tr>
+>                               <h3>
+                          ...
+                  ...
+                ...
+      ...
+
+[00:00:39.380] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:39.380] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.376] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:46.377] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.276] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:50.277] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.463] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:53.464] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser LOG     {"company":"dfs","current":true,"description":"dsfdf","from":"2026-01-07","location":"dfs","title":"fdsf","to":""}
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser LOG     Profile not found
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.712] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.713] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.713] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.713] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.713] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.713] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.934] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.934] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:55.934] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:58.883] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:59.037] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:59.037] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:00:59.037] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.185] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.186] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:00.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.051] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.261] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.261] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.928] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:05.972] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:06.093] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:09.057] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.394] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser LOG     {"current":false,"degree":"dfsdsf","description":"dfdsfds","fieldofstudy":"dfsdsf","from":"2026-01-13","school":"sfdsf","to":""}
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser LOG     Profile not found
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:01:11.395] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:02:07.683] Server  LOG      ✓ Compiled in 81ms
+[00:02:08.726] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[00:02:29.673] Server  ERROR   D:\WORK\Projects\Done\DevConnector\client\.next\dev\server\chunks\ssr\[root-of-the-server]__66e39008._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:02:29.678] Server  ERROR    ⨯ ReferenceError: useState is not defined
+[00:02:30.722] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[00:02:43.138] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:02:43.161] Server  LOG      ✓ Compiled in 68ms
+[00:02:45.844] Browser ERROR   In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <h3> tr  
+
+  ...
+    <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="dashboard/" loading={null}>
+          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/dashboard" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                  <SegmentViewNode type="page" pagePath="/client/ap...">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Dashboard} serverProvidedParams={{...}}>
+                      <Dashboard params={Promise} searchParams={Promise}>
+                        <section className="container-...">
+                          <h1>
+                          <p>
+                          <div>
+                          <h2>
+                          <table className="table w-full">
+                            <thead>
+                            <tbody>
+>                             <tr>
+>                               <h3>
+                          ...
+                  ...
+                ...
+      ...
+
+[00:02:45.844] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <RenderFromTemplateContext>
+      <ScrollAndFocusHandler segmentPath={[...]}>
+        <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+          <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+            <LoadingBoundary name="dashboard/" loading={null}>
+              <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <InnerLayoutRouter url="/dashboard" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                      <SegmentViewNode type="page" pagePath="/client/ap...">
+                        <SegmentTrieNode>
+                        <ClientPageRoot Component={function Dashboard} serverProvidedParams={{...}}>
+                          <Dashboard params={Promise} searchParams={Promise}>
+                            <section className="container-...">
+                              <h1>
+                              <p>
+                              <div>
+                              <h2>
++                             <table className="table w-full">
+-                             <h3>
+                              ...
+                      ...
+                    ...
+          ...
+
+[00:02:45.844] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:02:45.844] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:02:49.358] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:02:49.358] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:03:39.236] Browser LOG     {"$RefreshHelpers$":{},"InstallTrigger":null,"TURBOPACK":{},"TURBOPACK_CHUNK_LISTS":{},"TURBOPACK_CHUNK_UPDATE_LISTENERS":{},"__REACT_DEVTOOLS_BACKEND_MANAGER_INJECTED__":true,"__next_f":[],"__next_r":"HviZ9XIbssu-s1OmZuXEe","__webpack_hash__":"","_nextjsDevtoolsStyleCache":{"cachedShadowRoot":{"_reactListeningrey0287v32o":true},"isObserving":false,"lastInsertedElement":{},"pendingElements":[]},"caches":{},"clientInformation":{},"closed":false,"cookieStore":{},"crossOriginIsolated":false,"crypto":{},"customElements":{},"devToolsOptions":{"allowlist":"","blacklist":"","denylist":"","editor":"","filter":"DO_NOT_FILTER","inject":true,"maxAge":50,"projectPath":"","shouldCatchErrors":false,"showContextMenus":true,"urls":"^https?://localhost|0\\.0\\.0\\.0:\\d+\n^https?://.+\\.github\\.io","useEditor":0,"whitelist":""},"devicePixelRatio":1,"document":{"__reactContainer$4bvip7nzzhu":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":0,"actualStartTime":49645,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":14,"actualStartTime":49587,"alternate":"[Circular]","child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":14,"actualStartTime":49587,"alternate":"[Object]","child":"[Object]","childLanes":262144,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":1021069335,"tag":8,"treeBaseDuration":18,"updateQueue":null},"childLanes":262144,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":"[Array]","errorRecoveryDisabledLanes":0,"expirationTimes":"[Array]","expiredLanes":0,"formState":null,"hiddenUpdates":"[Array]","identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":"[Array]","pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":1021069335,"tag":3,"treeBaseDuration":18,"type":null,"updateQueue":{"baseState":"[Object]","callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":"[Object]"}},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":0,"actualStartTime":49645,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":14,"actualStartTime":49587,"alternate":"[Circular]","child":"[Object]","childLanes":262144,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Object]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":1021069335,"tag":8,"treeBaseDuration":18,"updateQueue":null},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":0,"actualStartTime":49645,"alternate":"[Object]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"elementType":"[Object]","flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80478208,"tag":10,"treeBaseDuration":18,"type":"[Object]","updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":{"children":"[Object]"},"memoizedState":null,"mode":27,"pendingProps":{"children":"[Object]"},"ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80478208,"tag":8,"treeBaseDuration":18,"updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":{"controller":{},"data":{},"refCount":1},"element":{"_owner":null,"_store":{},"key":null,"props":"[Object]"},"isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"errorRecoveryDisabledLanes":0,"expirationTimes":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],"expiredLanes":0,"formState":null,"hiddenUpdates":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":80478208,"tag":3,"treeBaseDuration":18,"type":null,"updateQueue":{"baseState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":{"hiddenCallbacks":null,"lanes":0,"pending":null}}},"__reactResources$4bvip7nzzhu":{"hoistableScripts":{},"hoistableStyles":{}},"_reactListeningd9zw9o7aeel":true,"_reactListeningrey0287v32o":true,"location":{"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/","origin":"http://localhost:3000","pathname":"/","port":"3000","protocol":"http:","search":""}},"event":{"isTrusted":true},"external":{},"frameElement":null,"frames":"[Circular]","fullScreen":false,"history":{},"indexedDB":{},"innerHeight":918,"innerWidth":1920,"isSecureContext":true,"length":0,"localStorage":{"cafe-pos-theme":"dark","hasVisited":"true","i18nextLng":"ar","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjU4ODA3YjYzOTNhZjJmODBlMzU1In0sImlhdCI6MTc2ODMxNTc2NiwiZXhwIjoxNzY4MzE5MzY2fQ.UN3Aoj2s7vvG9lU7PewpteK95866MYQCYKcC4n4BiXk","user":"{\"_id\":\"696658807b6393af2f80e355\",\"name\":\"john doe\",\"email\":\"johndoe@gmail.com\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjU4ODA3YjYzOTNhZjJmODBlMzU1In0sImlhdCI6MTc2ODMxNTc2NiwiZXhwIjoxNzY4MzE5MzY2fQ.UN3Aoj2s7vvG9lU7PewpteK95866MYQCYKcC4n4BiXk\"}"},"location":{"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/","origin":"http://localhost:3000","pathname":"/","port":"3000","protocol":"http:","search":""},"locationbar":{},"menubar":{},"mozInnerScreenX":0,"mozInnerScreenY":114,"name":"","navigator":{},"nd":{"cache":{"head":null,"lazyData":null,"loading":null,"navigatedAt":1768315942393,"parallelRoutes":{},"prefetchHead":null,"prefetchRsc":null,"rsc":{"_owner":null,"_store":{},"key":"layout","props":{"children":"[Object]","pagePath":"/client/app/layout.tsx","type":"layout"},"type":{"_debugInfo":"[Array]","_payload":"[Object]","_store":"[Object]"}}},"router":{},"tree":["",{"children":["__PAGE__",{}]},null,null,true]},"next":{"appDir":true,"router":{},"turbopack":true,"version":"16.0.7"},"onabort":null,"onafterprint":null,"onanimationcancel":null,"onanimationend":null,"onanimationiteration":null,"onanimationstart":null,"onauxclick":null,"onbeforeinput":null,"onbeforematch":null,"onbeforeprint":null,"onbeforetoggle":null,"onbeforeunload":null,"onblur":null,"oncancel":null,"oncanplay":null,"oncanplaythrough":null,"onchange":null,"onclick":null,"onclose":null,"oncommand":null,"oncontentvisibilityautostatechange":null,"oncontextlost":null,"oncontextmenu":null,"oncontextrestored":null,"oncopy":null,"oncuechange":null,"oncut":null,"ondblclick":null,"ondevicemotion":null,"ondeviceorientation":null,"...":"144 items not stringified"}
+[00:03:39.236] Browser LOG     After logout - localStorage cleared
+[00:11:24.986] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -142,7 +1048,7 @@ It can also happen if the client has a browser extension installed which messes 
         <ReplaySsrOnlyErrors>
         <DevRootHTTPAccessFallbackBoundary>
           <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/posts" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
               <RedirectBoundary>
                 <RedirectErrorBoundary router={{...}}>
                   <Head>
@@ -169,6 +1075,168 @@ It can also happen if the client has a browser extension installed which messes 
                         >
                   ...
 
-[00:04:45.976] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
+[00:12:11.481] Browser LOG     {"meta":{"arg":{"email":"johndoe@gmail.com","password":"123456"},"requestId":"b--kOmX2qEr7-nAaS6Nxy","requestStatus":"fulfilled"},"payload":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVlMjJiM2JhY2ZjODA2MTZlODk4In0sImlhdCI6MTc2ODMxNjQ2MSwiZXhwIjoxNzY4MzIwMDYxfQ.qKmf-Mq40FUjWiHUdHL9EUb5vlyKqg1w_EoXsNODJU0","user":{"email":"johndoe@gmail.com","id":"69665e22b3bacfc80616e898","name":"john doe"}},"type":"login/loginUser/fulfilled"}
+[00:12:11.698] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:12:21.522] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
 
 Check the render method of `div`.  It was passed a child from Posts.
+[00:12:32.339] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/post/693d..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/client/ap...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+-                         suppresshydrationwarning="true"
+-                         data-lt-installed="true"
+                        >
+                          <body
++                           className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+-                           className="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__var..."
+                          >
+                  ...
+
+[00:12:36.221] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
+
+Check the render method of `div`.  It was passed a child from Posts.
+[00:12:43.148] Browser ERROR   In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <h3> tr  
+
+  ...
+    <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:true, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="dashboard/" loading={Promise}>
+          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/dashboard" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                  <SegmentViewNode type="page" pagePath="/client/ap...">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Dashboard} serverProvidedParams={{...}}>
+                      <Dashboard params={Promise} searchParams={Promise}>
+                        <section className="container-...">
+                          <h1>
+                          <p>
+                          <div>
+                          <h2>
+                          <table className="table w-full">
+                            <thead>
+                            <tbody>
+>                             <tr>
+>                               <h3>
+                          ...
+                  ...
+                ...
+      ...
+
+[00:12:43.558] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:12:43.558] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:13:38.532] Browser LOG     {"bio":"iam a developer","company":"Freelance","date":"2026-01-13T15:01:33.913Z","facebook":"","githubusername":"John_doe","instagram":"","linkedin":"","location":"Egypt","skills":"HMTL,CSS,JS","status":"Junior Developer","twitter":"","website":"www.johndoe.com","youtube":"youtube.com/user/johndoe"}
+[00:14:13.034] Browser LOG     {"company":"Freelance","current":true,"description":"i love developing and money","from":"2024-01-07","location":"Egypt","title":"Web developer","to":""}
+[00:15:13.413] Browser LOG     {"current":false,"degree":"CS","description":"I am done studying","fieldofstudy":"Web development","from":"2021-01-01","school":"hollow","to":"2023-10-31"}
+[00:15:13.600] Browser LOG     {"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","data":"{\"school\":\"hollow\",\"degree\":\"CS\",\"fieldofstudy\":\"Web development\",\"from\":\"2021-01-01\",\"to\":\"2023-10-31\",\"current\":false,\"description\":\"I am done studying\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVlMjJiM2JhY2ZjODA2MTZlODk4In0sImlhdCI6MTc2ODMxNjQ2MSwiZXhwIjoxNzY4MzIwMDYxfQ.qKmf-Mq40FUjWiHUdHL9EUb5vlyKqg1w_EoXsNODJU0","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVlMjJiM2JhY2ZjODA2MTZlODk4In0sImlhdCI6MTc2ODMxNjQ2MSwiZXhwIjoxNzY4MzIwMDYxfQ.qKmf-Mq40FUjWiHUdHL9EUb5vlyKqg1w_EoXsNODJU0"},"maxBodyLength":-1,"maxContentLength":-1,"method":"put","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/education","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":{"__v":2,"_id":"69665e84b3bacfc80616e8bf","bio":"iam a developer","company":"Freelance","date":"2026-01-13T15:02:28.277Z","education":[{"_id":"69665ee3b3bacfc80616e8c6","current":false,"degree":"CS","description":"I am done studying","fieldofstudy":"Web development","from":"2021-01-01T00:00:00.000Z","school":"hollow","to":"2023-10-31T00:00:00.000Z"}],"experience":[{"_id":"69665ea6b3bacfc80616e8c2","company":"Freelance","current":true,"description":"i love developing and money","from":"2024-01-07T00:00:00.000Z","location":"Egypt","title":"Web developer","to":null}],"githubusername":"John_doe","location":"Egypt","skills":["HMTL","CSS","JS"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/johndoe"},"status":"Junior Developer","user":"69665e22b3bacfc80616e898","website":"www.johndoe.com"},"headers":{"content-length":"841","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"}
+[00:17:46.350] Browser LOG     {"$RefreshHelpers$":{},"InstallTrigger":null,"TURBOPACK":{},"TURBOPACK_CHUNK_LISTS":{},"TURBOPACK_CHUNK_UPDATE_LISTENERS":{},"__REACT_DEVTOOLS_BACKEND_MANAGER_INJECTED__":true,"__next_f":[],"__next_r":"x3EPibCzU6NYnK0ZaWHHu","__webpack_hash__":"","_nextjsDevtoolsStyleCache":{"cachedShadowRoot":{"_reactListeningo98xgti5hki":true},"isObserving":false,"lastInsertedElement":{},"pendingElements":[]},"caches":{},"clientInformation":{},"closed":false,"cookieStore":{},"crossOriginIsolated":false,"crypto":{},"customElements":{},"devToolsOptions":{"allowlist":"","blacklist":"","denylist":"","editor":"","filter":"DO_NOT_FILTER","inject":true,"maxAge":50,"projectPath":"","shouldCatchErrors":false,"showContextMenus":true,"urls":"^https?://localhost|0\\.0\\.0\\.0:\\d+\n^https?://.+\\.github\\.io","useEditor":0,"whitelist":""},"devicePixelRatio":1,"document":{"__reactContainer$gx2f0fvg5yh":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":0,"actualStartTime":187475,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":null,"_debugTask":null,"actualDuration":5,"actualStartTime":187445,"alternate":"[Circular]","child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":5,"actualStartTime":187445,"alternate":"[Object]","child":"[Object]","childLanes":262144,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":1021069335,"tag":8,"treeBaseDuration":9,"updateQueue":null},"childLanes":262144,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":"[Array]","errorRecoveryDisabledLanes":0,"expirationTimes":"[Array]","expiredLanes":0,"formState":null,"hiddenUpdates":"[Array]","identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":"[Array]","pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":1021069335,"tag":3,"treeBaseDuration":9,"type":null,"updateQueue":{"baseState":"[Object]","callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":"[Object]"}},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":0,"actualStartTime":187475,"alternate":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":5,"actualStartTime":187445,"alternate":"[Circular]","child":"[Object]","childLanes":262144,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Object]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":1021069335,"tag":8,"treeBaseDuration":9,"updateQueue":null},"child":{"_debugHookTypes":null,"_debugInfo":null,"_debugNeedsRemount":false,"_debugOwner":null,"_debugStack":{},"_debugTask":null,"actualDuration":0,"actualStartTime":187475,"alternate":"[Object]","child":"[Object]","childLanes":0,"deletions":null,"dependencies":null,"elementType":"[Object]","flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":"[Object]","memoizedState":null,"mode":27,"pendingProps":"[Object]","ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80478208,"tag":10,"treeBaseDuration":9,"type":"[Object]","updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":{"children":"[Object]"},"memoizedState":null,"mode":27,"pendingProps":{"children":"[Object]"},"ref":null,"refCleanup":null,"return":"[Circular]","selfBaseDuration":0,"sibling":null,"stateNode":null,"subtreeFlags":80478208,"tag":8,"treeBaseDuration":9,"updateQueue":null},"childLanes":0,"deletions":null,"dependencies":null,"elementType":null,"flags":0,"index":0,"key":null,"lanes":0,"memoizedProps":null,"memoizedState":{"cache":{"controller":{},"data":{},"refCount":1},"element":{"_owner":null,"_store":{},"key":null,"props":"[Object]"},"isDehydrated":false},"mode":3,"pendingProps":null,"ref":null,"refCleanup":null,"return":null,"selfBaseDuration":0,"sibling":null,"stateNode":{"_debugRootType":"hydrateRoot()","callbackNode":null,"callbackPriority":0,"cancelPendingCommit":null,"containerInfo":"[Circular]","context":{},"current":"[Circular]","effectDuration":0,"entangledLanes":0,"entanglements":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"errorRecoveryDisabledLanes":0,"expirationTimes":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],"expiredLanes":0,"formState":null,"hiddenUpdates":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],"identifierPrefix":"","incompleteTransitions":{},"memoizedUpdaters":{},"next":null,"passiveEffectDuration":0,"pendingChildren":null,"pendingContext":null,"pendingLanes":0,"pendingUpdatersLaneMap":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"pingCache":{},"pingedLanes":0,"pooledCache":null,"pooledCacheLanes":0,"shellSuspendCounter":0,"suspendedLanes":0,"tag":1,"timeoutHandle":-1,"transitionTypes":null,"warmLanes":0},"subtreeFlags":80478208,"tag":3,"treeBaseDuration":9,"type":null,"updateQueue":{"baseState":{"cache":"[Object]","element":"[Object]","isDehydrated":false},"callbacks":null,"firstBaseUpdate":null,"lastBaseUpdate":null,"shared":{"hiddenCallbacks":null,"lanes":0,"pending":null}}},"__reactResources$gx2f0fvg5yh":{"hoistableScripts":{},"hoistableStyles":{}},"_reactListeningo98xgti5hki":true,"_reactListeningt7jmniv30z":true,"location":{"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/","origin":"http://localhost:3000","pathname":"/","port":"3000","protocol":"http:","search":""}},"event":{"isTrusted":true},"external":{},"frameElement":null,"frames":"[Circular]","fullScreen":false,"history":{},"indexedDB":{},"innerHeight":918,"innerWidth":1920,"isSecureContext":true,"length":0,"localStorage":{"cafe-pos-theme":"dark","hasVisited":"true","i18nextLng":"ar","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVlMjJiM2JhY2ZjODA2MTZlODk4In0sImlhdCI6MTc2ODMxNjQ2MSwiZXhwIjoxNzY4MzIwMDYxfQ.qKmf-Mq40FUjWiHUdHL9EUb5vlyKqg1w_EoXsNODJU0","user":"{\"_id\":\"69665e22b3bacfc80616e898\",\"name\":\"john doe\",\"email\":\"johndoe@gmail.com\",\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVlMjJiM2JhY2ZjODA2MTZlODk4In0sImlhdCI6MTc2ODMxNjQ2MSwiZXhwIjoxNzY4MzIwMDYxfQ.qKmf-Mq40FUjWiHUdHL9EUb5vlyKqg1w_EoXsNODJU0\"}"},"location":{"hash":"","host":"localhost:3000","hostname":"localhost","href":"http://localhost:3000/","origin":"http://localhost:3000","pathname":"/","port":"3000","protocol":"http:","search":""},"locationbar":{},"menubar":{},"mozInnerScreenX":0,"mozInnerScreenY":114,"name":"","navigator":{},"nd":{"cache":{"head":null,"lazyData":null,"loading":null,"navigatedAt":1768316671419,"parallelRoutes":{},"prefetchHead":null,"prefetchRsc":null,"rsc":{"_owner":null,"_store":{},"key":"layout","props":{"children":"[Object]","pagePath":"/client/app/layout.tsx","type":"layout"},"type":{"_debugInfo":"[Array]","_payload":"[Object]","_store":"[Object]"}}},"router":{},"tree":["",{"children":["__PAGE__",{}]},null,null,true]},"next":{"appDir":true,"router":{},"turbopack":true,"version":"16.0.7"},"onabort":null,"onafterprint":null,"onanimationcancel":null,"onanimationend":null,"onanimationiteration":null,"onanimationstart":null,"onauxclick":null,"onbeforeinput":null,"onbeforematch":null,"onbeforeprint":null,"onbeforetoggle":null,"onbeforeunload":null,"onblur":null,"oncancel":null,"oncanplay":null,"oncanplaythrough":null,"onchange":null,"onclick":null,"onclose":null,"oncommand":null,"oncontentvisibilityautostatechange":null,"oncontextlost":null,"oncontextmenu":null,"oncontextrestored":null,"oncopy":null,"oncuechange":null,"oncut":null,"ondblclick":null,"ondevicemotion":null,"ondeviceorientation":null,"...":"144 items not stringified"}
+[00:17:46.350] Browser LOG     After logout - localStorage cleared
+[00:19:49.391] Browser LOG     {"meta":{"arg":{"email":"johndoe@gmail.com","password":"123456"},"requestId":"giPrNVcPiWyaJiMvDLwFX","requestStatus":"fulfilled"},"payload":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","user":{"email":"johndoe@gmail.com","id":"69665fecb3bacfc80616e8d6","name":"john doe"}},"type":"login/loginUser/fulfilled"}
+[00:19:49.605] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:20:02.105] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
+Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"Qu9PibCZeZNR7aLRwavTU","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T14:45:17Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
+(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
+(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
+[00:20:02.105] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
+Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"Xry4DgpZqRwzhOEfsmEyk","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T14:45:17Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
+(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
+(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
+[00:20:10.466] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
+
+Check the render method of `div`.  It was passed a child from Posts.
+[00:20:52.174] Browser ERROR   unhandledRejection: "Profile not found"
+[00:20:52.174] Browser ERROR   unhandledRejection: "Profile not found"
+[00:20:52.691] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
+Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"4XlZ09nMZilgGDNZ6mQU8","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T14:45:17Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
+(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
+(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
+[00:20:52.691] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
+Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"tsJDHcH5eyRuQFNc_bXrn","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T14:45:17Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
+(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
+(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
+[00:20:55.855] Browser ERROR   In HTML, %s cannot be a child of <%s>.%s
+This will cause a hydration error.%s <h3> tr  
+
+  ...
+    <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:true, ...}}>
+      <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+        <LoadingBoundary name="dashboard/" loading={Promise}>
+          <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+            <RedirectBoundary>
+              <RedirectErrorBoundary router={{...}}>
+                <InnerLayoutRouter url="/dashboard" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                  <SegmentViewNode type="page" pagePath="/client/ap...">
+                    <SegmentTrieNode>
+                    <ClientPageRoot Component={function Dashboard} serverProvidedParams={{...}}>
+                      <Dashboard params={Promise} searchParams={Promise}>
+                        <section className="container-...">
+                          <h1>
+                          <p>
+                          <div>
+                          <h2>
+                          <table className="table w-full">
+                            <thead>
+                            <tbody>
+>                             <tr>
+>                               <h3>
+                          ...
+                  ...
+                ...
+      ...
+
+[00:20:56.237] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:20:56.237] Browser ERROR   unhandledRejection: "there is no profile for this user"
+[00:21:36.534] Browser LOG     {"bio":"I'm a developer","company":"Freelance","date":"2026-01-13T15:09:46.663Z","facebook":"","githubusername":"John_doe","instagram":"","linkedin":"","location":"Egypt","skills":"HTML,CSS,JS","status":"Junior Developer","twitter":"","website":"www.johndoe.com","youtube":"youtube.com/user/johndoe"}
+[00:22:04.260] Browser LOG     {"company":"Freelance","current":true,"description":"I love developing ","from":"2025-01-01","location":"Egypt","title":"Web developer","to":""}
+[00:22:49.900] Browser LOG     {"current":false,"degree":"CS","description":"I'm done studying","fieldofstudy":"Web development","from":"2021-01-01","school":"hollow","to":"2025-01-31"}
+[00:22:50.089] Browser LOG     {"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","data":"{\"school\":\"hollow\",\"degree\":\"CS\",\"fieldofstudy\":\"Web development\",\"from\":\"2021-01-01\",\"to\":\"2025-01-31\",\"current\":false,\"description\":\"I'm done studying\"}","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw"},"maxBodyLength":-1,"maxContentLength":-1,"method":"put","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/education","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":{"__v":2,"_id":"69666062b3bacfc80616e908","bio":"I'm a developer","company":"Freelance","date":"2026-01-13T15:10:26.319Z","education":[{"_id":"696660abb3bacfc80616e90f","current":false,"degree":"CS","description":"I'm done studying","fieldofstudy":"Web development","from":"2021-01-01T00:00:00.000Z","school":"hollow","to":"2025-01-31T00:00:00.000Z"}],"experience":[{"_id":"6966607db3bacfc80616e90b","company":"Freelance","current":true,"description":"I love developing ","from":"2025-01-01T00:00:00.000Z","location":"Egypt","title":"Web developer","to":null}],"githubusername":"John_doe","location":"Egypt","skills":["HTML","CSS","JS"],"social":{"facebook":"","instagram":"","linkedin":"","twitter":"","youtube":"youtube.com/user/johndoe"},"status":"Junior Developer","user":"69665fecb3bacfc80616e8d6","website":"www.johndoe.com"},"headers":{"content-length":"831","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"}
+[00:22:59.725] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
+Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"TWK9vjaP9MYepYQrsWkCN","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T14:45:17Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
+(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
+(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
+[00:23:00.053] Browser ERROR   unhandledRejection: "No GitHub profile found"
+[00:23:00.053] Browser ERROR   A non-serializable value was detected in an action, in the path: `payload.headers`. Value: {"content-length":"1944","content-type":"application/json; charset=utf-8"} 
+Take a look at the logic that dispatched this action:  {"meta":{"arg":"MalseBot","requestId":"Avkn1onYy91npOBN-Br-r","requestStatus":"fulfilled"},"payload":{"config":{"adapter":["xhr","http","fetch"],"allowAbsoluteUrls":true,"baseURL":"http://localhost:5000/api","env":{},"headers":{"Accept":"application/json, text/plain, */*","Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw","Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjk2NjVmZWNiM2JhY2ZjODA2MTZlOGQ2In0sImlhdCI6MTc2ODMxNjkxOCwiZXhwIjoxNzY4MzIwNTE4fQ.pHwdfm7XeZ_w1hZGB7Bit7MSN0ZM2CJmiEjpYMzTkaw"},"maxBodyLength":-1,"maxContentLength":-1,"method":"get","timeout":0,"transformRequest":[null],"transformResponse":[null],"transitional":{"clarifyTimeoutError":false,"forcedJSONParsing":true,"silentJSONParsing":true},"url":"/profiles/github/MalseBot","xsrfCookieName":"XSRF-TOKEN","xsrfHeaderName":"X-XSRF-TOKEN"},"data":[{"created_at":"2025-10-19T23:35:56Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/DevConnector","homepage":null,"id":1079502829,"issues":0,"language":"JavaScript","license":null,"name":"DevConnector","private":false,"stars":0,"topics":[],"updated_at":"2025-12-13T14:45:17Z","url":"https://github.com/MalseBot/DevConnector"},{"created_at":"2025-06-16T12:45:43Z","description":"No description","fork":false,"forks":0,"full_name":"MalseBot/WTeeth","homepage":"https://wteeth.netlify.app/","id":1002980355,"issues":0,"language":"TypeScript","license":null,"name":"WTeeth","private":false,"stars":0,"topics":["dental-clinic","dentalcare","healthcare"],"updated_at":"2025-10-14T01:59:16Z","url":"https://github.com/MalseBot/WTeeth"},{"created_at":"2025-05-27T18:36:57Z","description":"a military system that contains all the information needed","fork":false,"forks":0,"full_name":"MalseBot/qwat","homepage":null,"id":991515292,"issues":0,"language":"TypeScript","license":null,"name":"qwat","private":false,"stars":0,"topics":[],"updated_at":"2025-07-07T13:06:01Z","url":"https://github.com/MalseBot/qwat"},{"created_at":"2025-05-10T22:23:34Z","description":"⚡ Build your timeless portfolio with Once UI's Magic Portfolio","fork":true,"forks":0,"full_name":"MalseBot/magic-portfolio","homepage":"https://magic-portfolio.com","id":981344596,"issues":0,"language":"TypeScript","license":"Other","name":"magic-portfolio","private":false,"stars":0,"topics":[],"updated_at":"2025-10-21T08:33:17Z","url":"https://github.com/MalseBot/magic-portfolio"},{"created_at":"2025-02-06T02:02:15Z","description":"a website to show your startups","fork":false,"forks":0,"full_name":"MalseBot/yc_directory","homepage":null,"id":928063868,"issues":0,"language":"TypeScript","license":null,"name":"yc_directory","private":false,"stars":0,"topics":[],"updated_at":"2025-05-28T07:20:30Z","url":"https://github.com/MalseBot/yc_directory"}],"headers":{"content-length":"1944","content-type":"application/json; charset=utf-8"},"request":{},"status":200,"statusText":"OK"},"type":"prrofile/github/:username/fulfilled"} 
+(See https://redux.js.org/faq/actions#why-should-type-be-a-string-or-at-least-serializable-why-should-my-action-types-be-constants) 
+(To allow non-serializable values see: https://redux-toolkit.js.org/usage/usage-guide#working-with-non-serializable-data)
+[00:23:00.053] Browser ERROR   unhandledRejection: "No GitHub profile found"

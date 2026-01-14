@@ -2,7 +2,6 @@
 
 'use client';
 
-import axios from 'axios';
 import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { addAlert } from '../store/slices/alertSlice';
@@ -35,14 +34,8 @@ export const useProfile = () => {
 			const response = await dispatch(getCurrentProfile()).unwrap();
 			return response;
 		} catch (error: unknown) {
-			dispatch(
-				addAlert({
-					id: `${Date.now()}`,
-					type: 'error',
-					message: getErrorMessage(error) || 'Profile Error',
-					duration: 5000,
-				})
-			);
+			const errorMsg = getErrorMessage(error);
+			throw errorMsg;
 		}
 	}, [dispatch]);
 
@@ -117,7 +110,7 @@ export const useProfile = () => {
 	);
 
 	const addExperienceToProfile = useCallback(
-		async (experienceData: Experience) => {
+		async (experienceData: Partial<Experience>) => {
 			try {
 				const response = await dispatch(addExperience(experienceData)).unwrap();
 				dispatch(

@@ -172,15 +172,15 @@ router.put(
 	[
 		auth,
 		[
-			check('title', 'Title is required'),
-			check('Comapny', 'Company is required'),
-			check('from', 'The starting date is required'),
+			check('title', 'Title is required').notEmpty(),
+			check('company', 'Company is required').notEmpty(),
+			check('from', 'The starting date is required').notEmpty(),
 		],
 	],
 	async (req, res) => {
 		const error = validationResult(req);
 		if (!error.isEmpty()) {
-			res.status(400).json({ error: error.array() });
+			return res.status(400).json({ error: error.array() });
 		}
 
 		const { title, company, description, from, to, current, location } =
@@ -188,6 +188,9 @@ router.put(
 		const newExp = { title, company, description, from, to, current, location };
 		try {
 			const profile = await Profile.findOne({ user: req.user.id });
+			if (!profile) {
+				return res.status(400).json({ msg: 'Profile not found' });
+			}
 
 			profile.experience.unshift(newExp);
 
@@ -226,16 +229,16 @@ router.put(
 	[
 		auth,
 		[
-			check('school', 'School name is required'),
-			check('degree', 'The degree is required'),
-			check('fieldofstudy', 'Field of study is Required'),
-			check('from', 'The starting date is required'),
+			check('school', 'School name is required').notEmpty(),
+			check('degree', 'The degree is required').notEmpty(),
+			check('fieldofstudy', 'Field of study is Required').notEmpty(),
+			check('from', 'The starting date is required').notEmpty(),
 		],
 	],
 	async (req, res) => {
 		const error = validationResult(req);
 		if (!error.isEmpty()) {
-			res.status(400).json({ error: error.array() });
+			return res.status(400).json({ error: error.array() });
 		}
 
 		const {
@@ -260,6 +263,9 @@ router.put(
 		};
 		try {
 			const profile = await Profile.findOne({ user: req.user.id });
+			if (!profile) {
+				return res.status(400).json({ msg: 'Profile not found' });
+			}
 
 			profile.education.unshift(newEdu);
 

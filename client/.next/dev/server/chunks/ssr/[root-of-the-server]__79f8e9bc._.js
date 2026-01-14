@@ -134,7 +134,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$ax
 ;
 const getErrorMessage = (error)=>{
     if (__TURBOPACK__imported__module__$5b$project$5d2f$client$2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].isAxiosError(error)) {
-        return error.response?.data?.errors?.[0]?.msg || error.response?.data?.message || error.message || 'Unknown server error';
+        return error.response?.data?.errors?.[0]?.msg || error.response?.data?.error?.[0]?.msg || error.response?.data?.msg || error.response?.data?.message || error.message || 'Unknown server error';
     }
     if (error instanceof Error) return error.message;
     if (typeof error === 'string') return error;
@@ -689,12 +689,8 @@ const useProfile = ()=>{
             const response = await dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$profileSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getCurrentProfile"])()).unwrap();
             return response;
         } catch (error) {
-            dispatch((0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$app$2f$store$2f$slices$2f$alertSlice$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["addAlert"])({
-                id: `${Date.now()}`,
-                type: 'error',
-                message: (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$errorHandler$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getErrorMessage"])(error) || 'Profile Error',
-                duration: 5000
-            }));
+            const errorMsg = (0, __TURBOPACK__imported__module__$5b$project$5d2f$client$2f$errorHandler$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getErrorMessage"])(error);
+            throw errorMsg;
         }
     }, [
         dispatch
@@ -1514,6 +1510,7 @@ function AuthInitializer() {
         //TURBOPACK unreachable
         ;
         const token = undefined;
+        const storedUser = undefined;
     }, [
         dispatch
     ]);

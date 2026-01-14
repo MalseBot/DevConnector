@@ -1,10 +1,12 @@
 "use client";
 import { useProfile } from '@/app/hooks/useProfile';
-import React, { useState } from 'react'
+import { useAuth } from '@/app/hooks/useAuth';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const AddExperience = () => {
-	const [checked, setChecked] = useState(false);
+	const router = useRouter();
 	const [formData, setFormData] = useState({
 		title: '',
 		company: '',
@@ -14,7 +16,37 @@ const AddExperience = () => {
 		current: false,
 		description: '',
 		});
-		const { addExperience } = useProfile();
+		const { addExperience, getCurrentProfile, profile, profileLoading } = useProfile();
+		const { isAuthenticated, loginLoading } = useAuth();
+		const [checkedProfile, setCheckedProfile] = useState(false);
+
+		useEffect(() => {
+			if (!isAuthenticated || loginLoading || profileLoading) return;
+			if (profile) {
+				if (!checkedProfile) setCheckedProfile(true);
+				return;
+			}
+			if (checkedProfile) return;
+
+			(async () => {
+				await getCurrentProfile();
+				setCheckedProfile(true);
+			})();
+		}, [
+			isAuthenticated,
+			loginLoading,
+			profileLoading,
+			profile,
+			checkedProfile,
+			getCurrentProfile,
+		]);
+
+		useEffect(() => {
+			if (!checkedProfile || profileLoading) return;
+			if (!profile) {
+				router.push('/profile-form');
+			}
+		}, [checkedProfile, profileLoading, profile, router]);
 		const changeHandler = (
 			e: React.ChangeEvent<
 				HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -81,8 +113,14 @@ const AddExperience = () => {
 						<input
 							type='checkbox'
 							name='current'
-							checked={checked}
-							onChange={() => setChecked(!checked)}
+							checked={formData.current}
+							onChange={(e) =>
+								setFormData({
+									...formData,
+									current: e.target.checked,
+									to: e.target.checked ? '' : formData.to,
+								})
+							}
 							value=''
 						/>
 						Current Job
@@ -94,6 +132,7 @@ const AddExperience = () => {
 						type='date'
 						onChange={changeHandler}
 						name='to'
+						disabled={formData.current}
 					/>
 				</div>
 				<div className='form-group'>

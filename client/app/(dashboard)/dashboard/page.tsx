@@ -2,7 +2,7 @@
 'use client';
 import { useProfile } from '@/app/hooks/useProfile';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '@/app/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
@@ -19,20 +19,49 @@ const Dashboard = () => {
 		getCurrentProfile,
 		deleteExperience,
 		deleteEducation,
+		profileError,
 	} = useProfile();
-	const { isAuthenticated, user, deleteUser } = useAuth();
+	const { isAuthenticated, user, deleteUser, loginLoading } = useAuth();
+	const [checkedProfile, setCheckedProfile] = useState(false);
 
 	// Fetch profile when authentication state becomes true (or on mount if already authenticated)
 	useEffect(() => {
+		if (loginLoading) return;
+
+		const token =
+			typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+
 		if (!isAuthenticated) {
-			
+			if (token) return;
 			router.push('/login');
-		}else if(!profile){
-			getCurrentProfile()
-		}else if(!profile){
+			return;
+		}
+
+		if (!profile && !checkedProfile) {
+			getCurrentProfile().finally(() => setCheckedProfile(true));
+		}
+	}, [
+		isAuthenticated,
+		loginLoading,
+		profile,
+		checkedProfile,
+		router,
+		getCurrentProfile,
+	]);
+
+	useEffect(() => {
+		if (loginLoading || profileLoading || !checkedProfile) return;
+		if (!profile && profileError) {
 			router.push('/profile-form');
 		}
-	}, [isAuthenticated, profile, router, getCurrentProfile]);
+	}, [
+		loginLoading,
+		profileLoading,
+		checkedProfile,
+		profile,
+		profileError,
+		router,
+	]);
 
 	return (
 		<>
@@ -78,8 +107,8 @@ const Dashboard = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{profile?.experience[0] !== undefined ? (
-								profile.experience.map((exp) => (
+					{profile?.experience?.length ? (
+						profile.experience.map((exp) => (
 									<tr key={exp._id}>
 										<td>{exp.company}</td>
 										<td className='hide-sm'>{exp.title}</td>
@@ -121,8 +150,8 @@ const Dashboard = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{profile?.education[0] !== undefined ? (
-								profile?.education.map((edu) => (
+					{profile?.education?.length ? (
+						profile.education.map((edu) => (
 									<tr key={edu._id}>
 										<td>{edu.school}</td>
 										<td className='hide-sm'>{edu.degree}</td>

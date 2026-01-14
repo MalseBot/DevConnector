@@ -2,5 +2,5 @@
   "version": 3,
   "sources": [],
   "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/WORK/Projects/DevConnector/client/app/%28auth%29/layout.tsx"],"sourcesContent":["/** @format */\r\n\r\nexport default function RootLayout({\r\n\tchildren,\r\n}: Readonly<{\r\n\tchildren: React.ReactNode;\r\n}>) {\r\n\treturn <section className='container-custom'>{children}</section>;\r\n}"],"names":[],"mappings":"AAAA,YAAY;;;;;;AAEG,SAAS,WAAW,EAClC,QAAQ,EAGP;IACD,qBAAO,wPAAC;QAAQ,WAAU;kBAAoB;;;;;;AAC/C"}}]
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/WORK/Projects/Done/DevConnector/client/app/%28auth%29/layout.tsx"],"sourcesContent":["/** @format */\r\n\r\nexport default function RootLayout({\r\n\tchildren,\r\n}: Readonly<{\r\n\tchildren: React.ReactNode;\r\n}>) {\r\n\treturn <section className='container-custom'>{children}</section>;\r\n}"],"names":[],"mappings":"AAAA,YAAY;;;;;;AAEG,SAAS,WAAW,EAClC,QAAQ,EAGP;IACD,qBAAO,wPAAC;QAAQ,WAAU;kBAAoB;;;;;;AAC/C"}}]
 }

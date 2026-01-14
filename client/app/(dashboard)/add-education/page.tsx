@@ -1,10 +1,13 @@
 /** @format */
 "use client";
 import { useProfile } from '@/app/hooks/useProfile';
+import { useAuth } from '@/app/hooks/useAuth';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const AddEducation = () => {
+	const router = useRouter();
 	const [Checked, setChecked] = useState(false);
 	const [formData, setFormData] = useState({
 		school: '',
@@ -15,7 +18,37 @@ const AddEducation = () => {
 		current: Checked,
 		description: '',
 	});
-	const { addEducation } = useProfile();
+	const { addEducation, getCurrentProfile, profile, profileLoading } = useProfile();
+	const { isAuthenticated, loginLoading } = useAuth();
+	const [checkedProfile, setCheckedProfile] = useState(false);
+
+	useEffect(() => {
+		if (!isAuthenticated || loginLoading || profileLoading) return;
+		if (profile) {
+			if (!checkedProfile) setCheckedProfile(true);
+			return;
+		}
+		if (checkedProfile) return;
+
+		(async () => {
+			await getCurrentProfile();
+			setCheckedProfile(true);
+		})();
+	}, [
+		isAuthenticated,
+		loginLoading,
+		profileLoading,
+		profile,
+		checkedProfile,
+		getCurrentProfile,
+	]);
+
+	useEffect(() => {
+		if (!checkedProfile || profileLoading) return;
+		if (!profile) {
+			router.push('/profile-form');
+		}
+	}, [checkedProfile, profileLoading, profile, router]);
 	const changeHandler = (
 		e: React.ChangeEvent<
 			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement

@@ -23,13 +23,13 @@ const {isAuthenticated} = useAuth();
 							</p>
 							<div className='buttons'>
 								<a
-									href='register.html'
+									href='register'
 									className='btn btn-primary'>
 									Sign Up
 								</a>
 
 								<a
-									href='login.html'
+									href='login'
 									className='btn btn-light'>
 									Login
 								</a>

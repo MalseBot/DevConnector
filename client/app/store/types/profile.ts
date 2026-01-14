@@ -5,8 +5,8 @@ export interface Experience {
 	title: string;
 	company: string;
 	location: string;
-	from: Date;
-	to: Date;
+	from: Date | string;
+	to: Date | string;
 	current: boolean;
 	description: string;
 }
@@ -16,8 +16,8 @@ export interface Education {
 	school: string;
 	degree: string;
 	fieldofstudy: string;
-	from: Date;
-	to: Date;
+	from: Date | string;
+	to: Date | string;
 	current: boolean;
 	description: string;
 }

@@ -4,6 +4,8 @@ export const getErrorMessage = (error: unknown): string => {
     if (axios.isAxiosError(error)) {
         return (
             error.response?.data?.errors?.[0]?.msg ||
+            error.response?.data?.error?.[0]?.msg ||
+            error.response?.data?.msg ||
             error.response?.data?.message ||
             error.message ||
             'Unknown server error'
